@@ -40,7 +40,7 @@
                                                     {{ $player->position }}
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                    <a class="text-green-600 hover:text-green-900">Show</a>
+                                                    <a href="{{ route('player.show', ['player' => $player]) }}" class="text-green-600 hover:text-green-900">Show</a>
                                                 </td>
                                             </tr>
                                         @endforeach

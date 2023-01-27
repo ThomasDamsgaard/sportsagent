@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PlayersController;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -33,13 +34,11 @@ Route::middleware([
         return view('teams', ['teams' => $teams]);
     })->name('teams');
 
-    Route::get('/players', function () {
-        $players = User::where('type', 'player')->get();
-        return view('players.index', ['players' => $players]);
-    })->name('players');
+    Route::get('/players', [PlayersController::class, 'index'])->name('players.index');
+    Route::get('/players/show/{player}', [PlayersController::class, 'show'])->name('player.show');
 
-    Route::get('/players/*', function () {
-        $players = User::where('type', 'player')->get();
-        return view('players.index', ['players' => $players]);
-    })->name('players');
+    // Route::get('/players/*', function () {
+    //     $players = User::where('type', 'player')->get();
+    //     return view('players.index', ['players' => $players]);
+    // })->name('players');
 });
