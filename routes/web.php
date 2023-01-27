@@ -36,6 +36,7 @@ Route::middleware([
 
     Route::get('/players', [PlayersController::class, 'index'])->name('players.index');
     Route::get('/players/show/{player}', [PlayersController::class, 'show'])->name('player.show');
+    Route::get('/players/create', [PlayersController::class, 'create'])->name('player.create');
 
     // Route::get('/players/*', function () {
     //     $players = User::where('type', 'player')->get();
