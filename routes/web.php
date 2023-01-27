@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Team;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +27,19 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/teams', function () {
+        $teams = Team::all();
+        return view('teams', ['teams' => $teams]);
+    })->name('teams');
+
+    Route::get('/players', function () {
+        $players = User::where('type', 'player')->get();
+        return view('players.index', ['players' => $players]);
+    })->name('players');
+
+    Route::get('/players/*', function () {
+        $players = User::where('type', 'player')->get();
+        return view('players.index', ['players' => $players]);
+    })->name('players');
 });
