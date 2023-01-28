@@ -18,18 +18,18 @@ class DatabaseSeeder extends Seeder
             'type' => 'owner',
             'current_team_id' => 1,
         ]);
-        \App\Models\User::factory(10)->create([
+        $users = \App\Models\User::factory(10)->create([
             'type' => 'player',
             'current_team_id' => 1,
         ]);
-        \App\Models\User::factory(3)->create([
+        $coaches = \App\Models\User::factory(3)->create([
             'type' => 'coach',
             'current_team_id' => 1,
         ]);
 
-        \App\Models\Team::factory()->create([
-            'name' => 'GOG',
-            'user_id' => 1,
+        $team = \App\Models\Team::factory()->create([
+            'name' => 'Odense Håndbold',
+            'user_id' => 15,
             'personal_team' => false,
         ]);
 
@@ -37,7 +37,13 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'user@example.com',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'type' => 'admin'
+            'type' => 'admin',
+            'current_team_id' => 1,
         ]);
+
+        // Now you need to populate `team_users` table.
+        $users->each(function ($user) use ($team) {
+            $user->teams()->attach($team->pluck('id'), ['role' => 'editor']);
+        });
     }
 }

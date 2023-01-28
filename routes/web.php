@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\PlayersController;
-use App\Models\Team;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TeamsController;
+use App\Http\Controllers\PlayersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,14 +28,18 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/teams', function () {
-        $teams = Team::all();
-        return view('teams', ['teams' => $teams]);
-    })->name('teams');
+    // Route::get('/teams', function () {
+    //     $teams = Team::all();
+    //     return view('teams', ['teams' => $teams]);
+    // })->name('teams');
 
     Route::get('/players', [PlayersController::class, 'index'])->name('players.index');
     Route::get('/players/show/{player}', [PlayersController::class, 'show'])->name('player.show');
     Route::get('/players/create', [PlayersController::class, 'create'])->name('player.create');
+
+    Route::get('/teams', [TeamsController::class, 'index'])->name('teams.index');
+    Route::get('/teams/show/{team}', [TeamsController::class, 'show'])->name('team.show');
+    // Route::get('/teams/create', [TeamsController::class, 'create'])->name('team.create');
 
     // Route::get('/players/*', function () {
     //     $players = User::where('type', 'player')->get();

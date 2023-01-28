@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
-class PlayersController extends Controller
+class SquadController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class PlayersController extends Controller
      */
     public function index()
     {
-        $players = User::where('type', 'player')->get();
-        return view('players.index', ['players' => $players]);
+        $teams = Team::where('type', 'player')->get();
+        return view('teams.index', ['teams' => $teams]);
     }
 
     /**
@@ -25,7 +25,7 @@ class PlayersController extends Controller
      */
     public function create()
     {
-        return view('player.create');
+        //
     }
 
     /**
@@ -42,21 +42,21 @@ class PlayersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $player
+     * @param  \App\Models\Team  $team
      * @return \Illuminate\Http\Response
      */
-    public function show(User $player)
+    public function show(Team $team)
     {
-        return view('players.show', ['player' => $player]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Team  $team
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(Team $team)
     {
         //
     }
@@ -65,10 +65,10 @@ class PlayersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Team  $team
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Team $team)
     {
         //
     }
@@ -76,10 +76,10 @@ class PlayersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Team  $team
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Team $team)
     {
         //
     }
