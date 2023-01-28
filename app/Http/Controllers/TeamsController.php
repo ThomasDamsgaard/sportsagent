@@ -47,8 +47,6 @@ class TeamsController extends Controller
      */
     public function show(Team $team)
     {
-        dd($team->users);
-
         return view('squads.show', ['team' => $team]);
     }
 

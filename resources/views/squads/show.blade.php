@@ -21,8 +21,8 @@
                                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Test Coach</dd>
                                 </div>
                                 <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                    <dt class="text-sm font-medium text-gray-500">Email address</dt>
-                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">testcoach@example.com</dd>
+                                    <dt class="text-sm font-medium text-gray-500">League</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">1. Division</dd>
                                 </div>
                                 <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                     <dt class="text-sm font-medium text-gray-500">Squad</dt>
@@ -38,19 +38,28 @@
                                                                         <th scope="col" class="w-1/2 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                                             Name
                                                                         </th>
-                                                                        <th scope="col" class="w-1/2 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                        <th scope="col" class="w-1/3 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                                             Position
+                                                                        </th>
+                                                                        <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+
                                                                         </th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody class="bg-white divide-y divide-gray-200">
                                                                     @foreach ($team->users as $player)
                                                                         <tr>
-                                                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                                                {{ $player->name }}
+                                                                            <td class="flex px-6 py-4 whitespace-nowrap">
+                                                                                <img class="h-6 w-6 rounded-full object-cover ring-2 ring-gray-200" src="{{ $player->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                                                                                <div class="flex items-center ml-4">
+                                                                                    {{ $player->name }}
+                                                                                </div>
                                                                             </td>
                                                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                                                                 {{ $player->position }}
+                                                                            </td>
+                                                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                                                <a href="{{ route('player.show', ['player' => $player]) }}" class="text-green-600 hover:text-green-900">Show</a>
                                                                             </td>
                                                                         </tr>
                                                                     @endforeach

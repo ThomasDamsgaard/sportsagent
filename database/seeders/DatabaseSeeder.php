@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
             'current_team_id' => 1,
         ]);
 
-        // Now you need to populate `team_users` table.
+        // Populate `team_users` table.
         $users->each(function ($user) use ($team) {
             $user->teams()->attach($team->pluck('id'), ['role' => 'editor']);
         });
