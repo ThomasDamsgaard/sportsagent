@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\BelongsToSport;
 use Laravel\Jetstream\HasTeams;
 use App\Traits\HasNoPersonalTeam;
 use Laravel\Sanctum\HasApiTokens;
@@ -23,6 +24,7 @@ class User extends Authenticatable
     }
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use BelongsToSport;
 
     /**
      * The attributes that are mass assignable.

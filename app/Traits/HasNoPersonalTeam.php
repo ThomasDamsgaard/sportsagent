@@ -4,7 +4,6 @@ namespace App\Traits;
 
 trait HasNoPersonalTeam
 {
-
     /**
      * Determine if the user owns the given team.
      *

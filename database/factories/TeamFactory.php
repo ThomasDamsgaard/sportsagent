@@ -24,6 +24,7 @@ class TeamFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->company(),
+            'sport_id' => 1,
             'user_id' => User::factory(),
             'personal_team' => false,
         ];
