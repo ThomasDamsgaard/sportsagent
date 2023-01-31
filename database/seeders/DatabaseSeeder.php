@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\UserSeeder;
+use Database\Seeders\SportSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,38 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory()->create([
-            'type' => 'player',
-            'current_team_id' => 1,
+        $this->call([
+            UserSeeder::class,
+            SportSeeder::class,
         ]);
-        $users = \App\Models\User::factory(10)->create([
-            'type' => 'player',
-            'current_team_id' => 2,
-        ]);
-        $coaches = \App\Models\User::factory(3)->create([
-            'type' => 'coach',
-            'current_team_id' => 2,
-        ]);
-
-        // Create badminton team
-
-        $team = \App\Models\Team::factory()->create([
-            'name' => 'Odense Håndbold',
-            'user_id' => 15,
-            'personal_team' => false,
-        ]);
-
-        \App\Models\User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'user@example.com',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'type' => 'admin',
-            'current_team_id' => 1,
-        ]);
-
-        // Populate `team_users` table.
-        $users->each(function ($user) use ($team) {
-            $user->teams()->attach($team->pluck('id'), ['role' => 'editor']);
-        });
     }
 }
