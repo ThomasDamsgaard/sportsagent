@@ -15,17 +15,19 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\User::factory()->create([
-            'type' => 'owner',
+            'type' => 'player',
             'current_team_id' => 1,
         ]);
         $users = \App\Models\User::factory(10)->create([
             'type' => 'player',
-            'current_team_id' => 1,
+            'current_team_id' => 2,
         ]);
         $coaches = \App\Models\User::factory(3)->create([
             'type' => 'coach',
-            'current_team_id' => 1,
+            'current_team_id' => 2,
         ]);
+
+        // Create badminton team
 
         $team = \App\Models\Team::factory()->create([
             'name' => 'Odense Håndbold',

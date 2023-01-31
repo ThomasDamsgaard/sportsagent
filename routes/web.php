@@ -15,9 +15,16 @@ use App\Http\Controllers\PlayersController;
 |
 */
 
+Route::domain('{subdomain}.sportsagent.test')->group(function () {
+    Route::get('/', function ($subdomain) {
+        return $subdomain;
+    });
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
+
 
 Route::middleware([
     'auth:sanctum',
@@ -28,11 +35,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    // Route::get('/teams', function () {
-    //     $teams = Team::all();
-    //     return view('teams', ['teams' => $teams]);
-    // })->name('teams');
-
     Route::get('/players', [PlayersController::class, 'index'])->name('players.index');
     Route::get('/players/show/{player}', [PlayersController::class, 'show'])->name('player.show');
     Route::get('/players/create', [PlayersController::class, 'create'])->name('player.create');
@@ -40,9 +42,4 @@ Route::middleware([
     Route::get('/teams', [TeamsController::class, 'index'])->name('teams.index');
     Route::get('/teams/show/{team}', [TeamsController::class, 'show'])->name('team.show');
     // Route::get('/teams/create', [TeamsController::class, 'create'])->name('team.create');
-
-    // Route::get('/players/*', function () {
-    //     $players = User::where('type', 'player')->get();
-    //     return view('players.index', ['players' => $players]);
-    // })->name('players');
 });

@@ -32,6 +32,9 @@
                                                 Name
                                             </th>
                                             <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Country
+                                            </th>
+                                            <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 League
                                             </th>
                                             <th scope="col" class="relative w-1/6 px-6 py-3">
@@ -50,6 +53,11 @@
                                                         <div class="ml-6">
                                                             {{ $team->name }}
                                                         </div>
+                                                    </div>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                    <div class="flex items-center">
+                                                        {{ $team->country }}
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">

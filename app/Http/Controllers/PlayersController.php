@@ -25,7 +25,7 @@ class PlayersController extends Controller
      */
     public function create()
     {
-        return view('player.create');
+        return view('players.create');
     }
 
     /**
