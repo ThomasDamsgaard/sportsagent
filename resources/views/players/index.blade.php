@@ -48,6 +48,9 @@
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                                     <div class="flex items-center">
                                                         {{ $player->name }}
+                                                        @if (auth()->user()->type == 'admin')
+                                                            <a class="text-xs text-indigo-600 ml-1" href="{{ route('impersonation.create', ['userId' => $player->id]) }}">Impersonate</a>
+                                                        @endif
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">

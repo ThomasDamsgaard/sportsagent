@@ -18,8 +18,9 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::factory()->create([
+            'sport_id' => NULL,
             'name' => 'Admin User',
-            'email' => 'user@example.com',
+            'email' => 'admin@example.com',
             'type' => 'admin',
         ]);
 
