@@ -24,12 +24,26 @@ class UserSeeder extends Seeder
             'type' => 'admin',
         ]);
 
+        User::factory()
+            ->hasAttached(
+                Team::factory(['name' => 'Odense Håndbold'])
+                    ->state(function (array $attributes, User $user) {
+                        return ['user_id' => $user->id];
+                    })
+            )
+            ->create([
+                'sport_id' => 1,
+                'name' => 'Test User',
+                'email' => 'user@example.com',
+                'type' => 'owner',
+                'current_team_id' => 1,
+            ]);
+
         $owner = User::factory()
-            ->count(3)
+            ->count(2)
             ->hasAttached(
                 Team::factory()
                     ->state(new Sequence(
-                        ['name' => 'Odense Håndbold'],
                         ['name' => 'Aalborg Håndbold'],
                         ['name' => 'København Håndbold'],
                     ))
