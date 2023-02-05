@@ -14,7 +14,9 @@ class PlayersController extends Controller
      */
     public function index()
     {
-        $players = User::where('type', 'player')
+        $players = User::query()
+            ->where('type', 'player')
+            ->where('id', '!=', auth()->user()->id)
             ->simplePaginate(15);
         return view('players.index', ['players' => $players]);
     }
