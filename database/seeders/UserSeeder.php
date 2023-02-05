@@ -46,7 +46,7 @@ class UserSeeder extends Seeder
             ->create([
                 'sport_id' => 1,
                 'name' => 'Test User',
-                'email' => 'user@example.com',
+                'email' => 'handball@example.com',
                 'type' => 'owner',
                 'current_team_id' => 1,
             ]);
