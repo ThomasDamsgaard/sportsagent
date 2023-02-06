@@ -66,13 +66,20 @@ class UserSeeder extends Seeder
                 ['role' => 'admin']
             )
             ->state(new Sequence(
-                // ['current_team_id' => 1],
                 ['current_team_id' => 2],
                 ['current_team_id' => 3],
             ))
             ->create([
                 'type' => 'owner',
             ]);
+
+        $user = User::factory()->create([
+            'sport_id' => 1,
+            'name' => 'Handball User',
+            'email' => 'handballuser@example.com',
+            'type' => 'player',
+            'current_team_id' => 1,
+        ]);
 
         $players = User::factory()
             ->count(30)
@@ -84,6 +91,8 @@ class UserSeeder extends Seeder
             ->create();
 
         $teams = Team::where('sport_id', 1)->get();
+
+        $user->teams()->attach(1, ['role' => 'player']);
 
         $players->each(function ($user) use ($teams) {
             $user->teams()->attach($teams->random()->id, ['role' => 'player']);
@@ -131,6 +140,14 @@ class UserSeeder extends Seeder
                 'type' => 'owner',
             ]);
 
+        $user = User::factory()->create([
+            'sport_id' => 2,
+            'name' => 'Badminton User',
+            'email' => 'badmintonuser@example.com',
+            'type' => 'player',
+            'current_team_id' => 4,
+        ]);
+
         $players = User::factory()
             ->count(30)
             ->state(new Sequence(
@@ -141,6 +158,8 @@ class UserSeeder extends Seeder
             ->create(['sport_id' => 2]);
 
         $teams = Team::where('sport_id', 2)->get();
+
+        $user->teams()->attach(4, ['role' => 'player']);
 
         $players->each(function ($user) use ($teams) {
             $user->teams()->attach($teams->random()->id, ['role' => 'player']);
