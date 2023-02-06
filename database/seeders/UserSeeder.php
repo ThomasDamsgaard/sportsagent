@@ -41,7 +41,8 @@ class UserSeeder extends Seeder
                 Team::factory(['name' => 'Odense Håndbold'])
                     ->state(function (array $attributes, User $user) {
                         return ['user_id' => $user->id];
-                    })
+                    }),
+                ['role' => 'admin']
             )
             ->create([
                 'sport_id' => 1,
@@ -61,10 +62,11 @@ class UserSeeder extends Seeder
                     ))
                     ->state(function (array $attributes, User $owner) {
                         return ['user_id' => $owner->id];
-                    })
+                    }),
+                ['role' => 'admin']
             )
             ->state(new Sequence(
-                ['current_team_id' => 1],
+                // ['current_team_id' => 1],
                 ['current_team_id' => 2],
                 ['current_team_id' => 3],
             ))
@@ -80,6 +82,12 @@ class UserSeeder extends Seeder
                 ['current_team_id' => 3],
             ))
             ->create();
+
+        $teams = Team::where('sport_id', 1)->get();
+
+        $players->each(function ($user) use ($teams) {
+            $user->teams()->attach($teams->random()->id, ['role' => 'player']);
+        });
     }
 
     private function generateBadmintonUsers()
@@ -89,7 +97,8 @@ class UserSeeder extends Seeder
                 Team::factory(['name' => 'Odense Badminton'])
                     ->state(function (array $attributes, User $user) {
                         return ['sport_id' => 2, 'user_id' => $user->id];
-                    })
+                    }),
+                ['role' => 'admin']
             )
             ->create([
                 'sport_id' => 2,
@@ -109,10 +118,11 @@ class UserSeeder extends Seeder
                     ))
                     ->state(function (array $attributes, User $owner) {
                         return ['sport_id' => 2, 'user_id' => $owner->id];
-                    })
+                    }),
+                ['role' => 'admin']
             )
             ->state(new Sequence(
-                ['current_team_id' => 4],
+                // ['current_team_id' => 4],
                 ['current_team_id' => 5],
                 ['current_team_id' => 6],
             ))
@@ -129,5 +139,11 @@ class UserSeeder extends Seeder
                 ['current_team_id' => 6],
             ))
             ->create(['sport_id' => 2]);
+
+        $teams = Team::where('sport_id', 2)->get();
+
+        $players->each(function ($user) use ($teams) {
+            $user->teams()->attach($teams->random()->id, ['role' => 'player']);
+        });
     }
 }
