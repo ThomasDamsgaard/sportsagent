@@ -24,26 +24,26 @@
                         <dl>
                             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="flex items-center text-sm font-medium text-gray-500">Full name</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                    <input type="text" name="first-name" id="first-name" class="bg-gray-50 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0">
+                                    <input type="text" name="name" id="name" class="bg-gray-50 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                                 </dd>
                             </div>
                             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="flex items-center text-sm font-medium text-gray-500">Prefered position</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                    <input type="text" name="first-name" id="first-name" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0">
+                                    <input type="text" name="position" id="position" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                                 </dd>
                             </div>
                             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="flex items-center text-sm font-medium text-gray-500">Email address</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                    <input type="text" name="first-name" id="first-name" class="bg-gray-50 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0">
+                                    <input type="text" name="email" id="email" class="bg-gray-50 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                                 </dd>
                             </div>
                             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="flex items-center text-sm font-medium text-gray-500">Salary expectation</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                    <input type="text" name="first-name" id="first-name" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0">
+                                    <input type="text" name="salary" id="salary" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                                 </dd>
                             </div>
                             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
