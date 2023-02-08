@@ -11,7 +11,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
 
-
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
@@ -31,7 +30,7 @@
         @livewire('navigation-menu')
 
         @if (session()->has('impersonation'))
-            @include('layouts.impersonation')
+            @include('layouts.components.impersonation')
         @endif
 
         <!-- Page Heading -->
