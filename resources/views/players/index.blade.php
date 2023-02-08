@@ -71,6 +71,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="mx-2 sm:mx-0">
+                        {{ $players->links() }}
+                    </div>
                 </div>
             </div>
         </div>
