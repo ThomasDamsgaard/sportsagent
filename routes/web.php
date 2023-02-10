@@ -16,15 +16,13 @@ use App\Http\Controllers\ImpersonationController;
 |
 */
 
-Route::domain('{subdomain}.sportsagent.test')->group(function () {
-    Route::get('/', function ($subdomain) {
-        return $subdomain;
-    });
-});
-
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/pricing', function () {
+    return view('pricing');
+})->name('pricing');
 
 
 Route::middleware([

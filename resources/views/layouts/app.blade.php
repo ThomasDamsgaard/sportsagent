@@ -30,7 +30,7 @@
         @livewire('navigation-menu')
 
         @if (session()->has('impersonation'))
-            @include('layouts.components.impersonation')
+            @include('components.guarded.impersonation')
         @endif
 
         <!-- Page Heading -->
