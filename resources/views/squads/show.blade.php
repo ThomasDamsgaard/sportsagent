@@ -30,42 +30,18 @@
                                         <div>
                                             <div id="table" class="flex flex-col">
                                                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                                                    <div class="py-6 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                                                        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                                                            <table class="table-fixed min-w-full divide-y divide-gray-200">
-                                                                <thead class="bg-gray-50">
-                                                                    <tr>
-                                                                        <th scope="col" class="w-1/2 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                                            Name
-                                                                        </th>
-                                                                        <th scope="col" class="w-1/3 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                                            Position
-                                                                        </th>
-                                                                        <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-
-                                                                        </th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody class="bg-white divide-y divide-gray-200">
-                                                                    @foreach ($team->users as $player)
-                                                                        <tr>
-                                                                            <td class="flex px-6 py-4 whitespace-nowrap">
-                                                                                <img class="h-6 w-6 rounded-full object-cover ring-2 ring-gray-200" src="{{ $player->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
-                                                                                <div class="flex items-center ml-4">
-                                                                                    {{ $player->name }}
-                                                                                </div>
-                                                                            </td>
-                                                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                                                {{ $player->position }}
-                                                                            </td>
-                                                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                                                <a href="{{ route('player.show', ['player' => $player]) }}" class="text-green-600 hover:text-green-900">Show</a>
-                                                                            </td>
-                                                                        </tr>
-                                                                    @endforeach
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
+                                                    <div class="align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                                        @foreach ($team->users as $player)
+                                                            <div class="flex items-center justify-between border-b border-gray-100 @if ($loop->last) border-b-0 @endif">
+                                                                <div class="flex py-6">
+                                                                    <img class="h-6 w-6 rounded-full object-cover ring-2 ring-gray-200" src="{{ $player->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                                                                    <div class="flex items-center ml-4">
+                                                                        {{ $player->name }}
+                                                                    </div>
+                                                                </div>
+                                                                <a href="{{ route('player.show', ['player' => $player]) }}" class="text-green-600 hover:text-green-900">View</a>
+                                                            </div>
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                             </div>
