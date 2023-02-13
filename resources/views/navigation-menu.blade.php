@@ -11,12 +11,6 @@
                 </div>
 
                 <!-- Navigation Links -->
-                {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-jet-nav-link>
-                </div> --}}
-
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('teams.index') }}" :active="request()->routeIs('teams')">
                         {{ __('Teams') }}
@@ -108,8 +102,12 @@
                                 {{ __('Manage Account') }}
                             </div>
 
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                            <x-jet-dropdown-link href="{{ route('player.profile.show', ['player' => Auth::user()]) }}">
                                 {{ __('Profile') }}
+                            </x-jet-dropdown-link>
+
+                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                                {{ __('Account') }}
                             </x-jet-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())

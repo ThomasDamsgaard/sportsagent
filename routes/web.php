@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\PlayersController;
 use App\Http\Controllers\ImpersonationController;
+use App\Http\Controllers\PlayerProfilesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,9 @@ Route::middleware([
     Route::get('/players', [PlayersController::class, 'index'])->name('players.index');
     Route::get('/players/show/{player}', [PlayersController::class, 'show'])->name('player.show');
     Route::get('/players/create', [PlayersController::class, 'create'])->name('player.create');
+
+    Route::get('/player/profile/{player}', [PlayerProfilesController::class, 'show'])->name('player.profile.show');
+    // Route::get('/player/profile/{player}', [PlayerProfilesController::class, 'show'])->name('player.profile.show');
 
     Route::get('/teams', [TeamsController::class, 'index'])->name('teams.index');
     Route::get('/teams/show/{team}', [TeamsController::class, 'show'])->name('team.show');
