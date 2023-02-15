@@ -43,7 +43,7 @@ Route::middleware([
     Route::get('/players/create', [PlayersController::class, 'create'])->name('player.create');
 
     Route::get('/player/profile/{player}', [PlayerProfilesController::class, 'show'])->name('player.profile.show');
-    // Route::get('/player/profile/{player}', [PlayerProfilesController::class, 'show'])->name('player.profile.show');
+    Route::post('/player/profile', [PlayerProfilesController::class, 'store'])->name('player.profile.store');
 
     Route::get('/teams', [TeamsController::class, 'index'])->name('teams.index');
     Route::get('/teams/show/{team}', [TeamsController::class, 'show'])->name('team.show');

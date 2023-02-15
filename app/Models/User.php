@@ -5,6 +5,8 @@ namespace App\Models;
 use App\Traits\BelongsToSport;
 use Laravel\Jetstream\HasTeams;
 use App\Traits\HasNoPersonalTeam;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Notifications\Notifiable;
@@ -13,7 +15,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
     use HasApiTokens;
     use HasFactory;
@@ -25,6 +27,7 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use BelongsToSport;
+    use InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.

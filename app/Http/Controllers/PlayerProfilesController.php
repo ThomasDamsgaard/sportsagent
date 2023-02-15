@@ -13,9 +13,15 @@ class PlayerProfilesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, User $player)
     {
-        //
+        // dd($player->id);
+        // dd($request->file('file-upload'));
+        foreach ($request->input('file-upload', []) as $file) {
+            dd($file);
+
+            $player->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('document');
+        }
     }
 
     /**
