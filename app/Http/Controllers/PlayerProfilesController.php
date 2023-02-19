@@ -16,9 +16,9 @@ class PlayerProfilesController extends Controller
     public function store(Request $request, User $player)
     {
         // dd($player->id);
-        // dd($request->file('file-upload'));
-        foreach ($request->input('file-upload', []) as $file) {
-            dd($file);
+        // dd($request->file('file-pond'));
+        foreach ($request->input('file-pond', []) as $file) {
+            dump($file);
 
             $player->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('document');
         }
