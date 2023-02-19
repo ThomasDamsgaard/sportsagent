@@ -53,11 +53,11 @@
                                         {{ __('Team Settings') }}
                                     </x-jet-dropdown-link>
 
-                                    @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
+                                    {{-- @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                                         <x-jet-dropdown-link href="{{ route('teams.create') }}">
                                             {{ __('Create New Team') }}
                                         </x-jet-dropdown-link>
-                                    @endcan
+                                    @endcan --}}
 
                                     <div class="border-t border-gray-100"></div>
 
