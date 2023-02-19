@@ -23,7 +23,9 @@
             <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+            @if (!Route::is('login'))
+                <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+            @endif
         </div>
     </nav>
 
