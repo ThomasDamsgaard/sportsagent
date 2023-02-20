@@ -14,12 +14,15 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('sport_id')->index()->nullable();
-            $table->string('name');
-            $table->index('name');
+            $table->string('name')->index();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('type');
+            $table->integer('age')->nullable();
+            $table->string('position')->nullable();
+            $table->string('salary')->nullable();
+            $table->string('biography')->nullable();
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
