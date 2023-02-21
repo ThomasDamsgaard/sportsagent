@@ -15,13 +15,20 @@ class PlayerProfilesController extends Controller
      */
     public function store(Request $request, User $player)
     {
-        // dd($player->id);
-        // dd($request->file('file-pond'));
-        foreach ($request->input('file-pond', []) as $file) {
-            dump($file);
+        $path = $request->file('file-upload')->store('tmp', 'public');
 
-            $player->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('document');
-        }
+        $player->addMediaFromRequest('file-upload')->toMediaCollection();
+
+        // return $path;
+        // dd($request->file('file-upload'));
+        // dd($request->files->get('file-upload')->getErrorMessage());
+        // // $player->addMedia(storage_path('demo/screely.png'))->toMediaCollection();
+        // $player->addMediaFromRequest('file-upload')->toMediaCollection();
+
+        //     if ($request->file('file-pond')) {
+        //         # code...
+        //     }
+        return $path;
     }
 
     /**
