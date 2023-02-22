@@ -8,8 +8,9 @@
                             <h3 class="text-lg font-medium leading-6 text-gray-900">Talent Information</h3>
                             <p class="mt-1 max-w-2xl text-sm text-gray-500">Personal details and attachments.</p>
                         </div>
-                        <div>
+                        <div class="flex items-center">
                             <img class="h-12 w-12 rounded-full ring-2 ring-gray-200" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt="">
+                            <x-dynamic-component component="flag-language-{{ $player->nationality }}" class="h-12 w-12 ml-2" />
                         </div>
                     </div>
                     <div class="border-t border-gray-200">
@@ -20,7 +21,9 @@
                             </div>
                             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Nationality</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $player->nationality }}</dd>
+                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                                    <x-dynamic-component component="flag-language-{{ $player->nationality }}" class="h-6 w-6" />
+                                </dd>
                             </div>
                             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Age</dt>
