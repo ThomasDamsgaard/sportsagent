@@ -15,6 +15,8 @@ class TeamsController extends Controller
     public function index()
     {
         $teams = Team::all();
+        // ->search(request('search'));
+
         return view('squads.index', ['teams' => $teams]);
     }
 

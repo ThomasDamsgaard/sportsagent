@@ -35,7 +35,7 @@ class User extends Authenticatable implements HasMedia
      * @var string<int, string>
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'nationality', 'age', 'height', 'weight', 'position', 'salary', 'biography'
     ];
 
     /**
@@ -67,4 +67,13 @@ class User extends Authenticatable implements HasMedia
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function scopeSearch($query, string $terms = null)
+    {
+        // str_getcsv - ability to do quote searches
+        collect(str_getcsv($terms, ' ', '"'))->filter()->each(function ($term) use ($query) {
+            $term = $term . '%';
+            $query->where('name', 'like', $term);
+        });
+    }
 }

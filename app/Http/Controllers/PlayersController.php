@@ -17,6 +17,7 @@ class PlayersController extends Controller
         $players = User::query()
             ->where('type', 'player')
             ->where('id', '!=', auth()->user()->id)
+            ->search(request('search'))
             ->simplePaginate(15);
         return view('players.index', ['players' => $players]);
     }

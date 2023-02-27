@@ -42,4 +42,13 @@ class Team extends JetstreamTeam
         'updated' => TeamUpdated::class,
         'deleted' => TeamDeleted::class,
     ];
+
+    public function scopeSearch($query, string $terms = null)
+    {
+        // str_getcsv - ability to do quote searches like "Odense Handball"
+        collect(str_getcsv($terms, ' ', '"'))->filter()->each(function ($term) use ($query) {
+            $term = $term . '%';
+            $query->where('name', 'like', $term);
+        });
+    }
 }
