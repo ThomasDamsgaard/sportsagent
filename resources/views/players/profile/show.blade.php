@@ -131,8 +131,32 @@
                                         <textarea id="about" name="about" rows="3" class="bg-gray-50 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">{{ $player->biography }}</textarea>
                                     </dd>
                                 </div>
+
+                                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Motivation</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                                        <fieldset>
+                                            <div class="mt-4 space-y-4">
+                                                @for ($i = 0; $i < 3; $i++)
+                                                    <div class="flex items-start">
+                                                        <div class="flex h-5 items-center">
+                                                            <input id="option{{ $i }}" name="option{{ $i }}" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                        </div>
+                                                        <div class="ml-3 text-sm">
+                                                            <label for="option{{ $i }}" class="font-medium text-gray-700">Option {{ $i }}</label>
+                                                            <p class="text-gray-500">Option text {{ $i }}</p>
+                                                        </div>
+                                                    </div>
+                                                @endfor
+
+                                            </div>
+                                        </fieldset>
+                                    </dd>
+                                </div>
                             </dl>
-                            <x-jet-button type="submit">Edit</x-jet-button>
+                            <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6 shadow sm:rounded-bl-md sm:rounded-br-md">
+                                <x-jet-button type="submit">Edit</x-jet-button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -198,7 +222,9 @@
                                     </dd>
                                 </div>
                             </dl>
-                            <x-jet-button type="submit">submit</x-jet-button>
+                            <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6 shadow sm:rounded-bl-md sm:rounded-br-md">
+                                <x-jet-button type="submit">Submit</x-jet-button>
+                            </div>
                         </form>
                     </div>
                 </div>

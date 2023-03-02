@@ -16,6 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('sport_id')->index()->nullable();
             $table->foreignId('user_id')->index();
             $table->string('name')->index();
+            $table->string('country')->nullable();
+            $table->string('league')->nullable();
             $table->boolean('personal_team');
             $table->timestamps();
         });

@@ -59,7 +59,9 @@
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                                     <div class="flex items-center">
-                                                        {{ $team->country }}
+                                                        @if ($team->country)
+                                                            <x-dynamic-component component="flag-country-{{ $team->country }}" class="h-6 w-6" />
+                                                        @endif
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">

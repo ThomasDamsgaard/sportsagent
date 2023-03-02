@@ -39,6 +39,6 @@ class PlayerProfilesController extends Controller
      */
     public function show(User $player)
     {
-        return view('players.profile', ['player' => $player]);
+        return view('players.profile.show', ['player' => $player]);
     }
 }

@@ -38,7 +38,7 @@ class UserSeeder extends Seeder
     {
         User::factory()
             ->hasAttached(
-                Team::factory(['name' => 'Odense Håndbold'])
+                Team::factory(['name' => 'Odense Håndbold', 'country' => 'dk', 'league' => '1. Divison'])
                     ->state(function (array $attributes, User $user) {
                         return ['user_id' => $user->id];
                     }),
@@ -57,8 +57,8 @@ class UserSeeder extends Seeder
             ->hasAttached(
                 Team::factory()
                     ->state(new Sequence(
-                        ['name' => 'Aalborg Håndbold'],
-                        ['name' => 'København Håndbold'],
+                        ['name' => 'Aalborg Håndbold', 'country' => 'dk', 'league' => '1. Divison'],
+                        ['name' => 'København Håndbold', 'country' => 'dk', 'league' => '1. Divison'],
                     ))
                     ->state(function (array $attributes, User $owner) {
                         return ['user_id' => $owner->id];
@@ -103,7 +103,7 @@ class UserSeeder extends Seeder
     {
         User::factory()
             ->hasAttached(
-                Team::factory(['name' => 'Odense Badminton'])
+                Team::factory(['name' => 'Odense Badminton', 'country' => 'dk', 'league' => '1. Divison'])
                     ->state(function (array $attributes, User $user) {
                         return ['sport_id' => 2, 'user_id' => $user->id];
                     }),
@@ -122,8 +122,8 @@ class UserSeeder extends Seeder
             ->hasAttached(
                 Team::factory()
                     ->state(new Sequence(
-                        ['name' => 'Aalborg Badminton'],
-                        ['name' => 'København Badminton'],
+                        ['name' => 'Aalborg Badminton', 'country' => 'dk', 'league' => '1. Divison'],
+                        ['name' => 'København Badminton', 'country' => 'dk', 'league' => '1. Divison'],
                     ))
                     ->state(function (array $attributes, User $owner) {
                         return ['sport_id' => 2, 'user_id' => $owner->id];
