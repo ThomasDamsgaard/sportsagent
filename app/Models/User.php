@@ -2,16 +2,19 @@
 
 namespace App\Models;
 
+use App\Models\Testimonial;
 use App\Traits\BelongsToSport;
 use Laravel\Jetstream\HasTeams;
 use App\Traits\HasNoPersonalTeam;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\MediaLibrary\HasMedia;
 use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Notifications\Notifiable;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -67,6 +70,14 @@ class User extends Authenticatable implements HasMedia
     protected $appends = [
         'profile_photo_url',
     ];
+
+    /**
+     * Get the testimonials for the user.
+     */
+    public function testimonials(): HasMany
+    {
+        return $this->hasMany(Testimonial::class);
+    }
 
     public function scopeSearch($query, string $terms = null)
     {
