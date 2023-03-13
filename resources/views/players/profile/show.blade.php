@@ -172,8 +172,7 @@
                         </div>
                     </div>
                     <div class="border-t border-gray-200">
-                        <form action="{{ route('player.profile.update', ['player' => $player]) }}" method="POST" enctype="multipart/form-data">
-                            @method('PATCH')
+                        <form action="{{ route('player.attachments.store', ['player' => $player]) }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <dl>
@@ -201,20 +200,20 @@
                                                         <span class="ml-2 w-0 flex-1 truncate">{{ $item->file_name }}</span>
                                                     </div>
                                                     <div class="ml-4 flex-shrink-0">
-                                                        <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Download</a>
+                                                        <a href="{{ route('player.attachments.show', ['item' => $item]) }}" class="font-medium text-indigo-600 hover:text-indigo-500">Download</a>
                                                     </div>
                                                     <div class="ml-4 flex-shrink-0">
-                                                        <a href="#" class="font-medium text-red-600 hover:text-red-500">Delete</a>
+                                                        <a href="{{ route('player.attachments.destroy', ['item' => $item]) }}" class="font-medium text-red-600 hover:text-red-500">Delete</a>
                                                     </div>
                                                 </li>
                                                 @empty
                                                     <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
                                                         <div class="flex w-0 flex-1 items-center">
-                                                            <!-- Heroicon name: mini/paper-clip -->
-                                                            <svg class="h-5 w-5 flex-shrink-0 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                                <path fill-rule="evenodd" d="M15.621 4.379a3 3 0 00-4.242 0l-7 7a3 3 0 004.241 4.243h.001l.497-.5a.75.75 0 011.064 1.057l-.498.501-.002.002a4.5 4.5 0 01-6.364-6.364l7-7a4.5 4.5 0 016.368 6.36l-3.455 3.553A2.625 2.625 0 119.52 9.52l3.45-3.451a.75.75 0 111.061 1.06l-3.45 3.451a1.125 1.125 0 001.587 1.595l3.454-3.553a3 3 0 000-4.242z" clip-rule="evenodd" />
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-400">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
                                                             </svg>
-                                                            <span class="ml-2 w-0 flex-1 truncate"></span>
+
+                                                            <span class="ml-2 w-0 flex-1 truncate">No attachments uploaded yet.</span>
                                                         </div>
                                                     </li>
                                                 @endforelse

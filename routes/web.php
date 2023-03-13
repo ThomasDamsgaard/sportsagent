@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\PlayersController;
+use App\Http\Controllers\AttachmentsController;
 use App\Http\Controllers\ImpersonationController;
 use App\Http\Controllers\PlayerProfilesController;
 
@@ -45,6 +46,11 @@ Route::middleware([
 
     Route::get('/player/profile/{player}', [PlayerProfilesController::class, 'show'])->name('player.profile.show');
     Route::patch('/player/profile/{player}', [PlayerProfilesController::class, 'update'])->name('player.profile.update');
+
+    Route::post('/player/attachments/{player}', [AttachmentsController::class, 'store'])->name('player.attachments.store');
+    Route::get('/player/attachments/{item}', [AttachmentsController::class, 'show'])->name('player.attachments.show');
+    Route::get('/player/attachments/delete/{item}', [AttachmentsController::class, 'destroy'])->name('player.attachments.destroy');
+
     Route::post('/upload', function (Request $request) {
         $path = $request->file('fileupload')->store('tmp', 'public');
 
