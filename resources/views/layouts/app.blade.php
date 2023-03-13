@@ -34,6 +34,8 @@
             @include('components.guarded.impersonation')
         @endif
 
+        <x-jet-validation-errors></x-jet-validation-errors>
+
         <!-- Page Heading -->
         @if (isset($header))
             <header class="bg-white shadow">
