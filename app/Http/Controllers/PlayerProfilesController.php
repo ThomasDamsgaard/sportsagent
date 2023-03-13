@@ -7,37 +7,26 @@ use Illuminate\Http\Request;
 
 class PlayerProfilesController extends Controller
 {
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function update(Request $request, User $player)
     {
 
-        auth()->user()->addMedia('storage/' . $request->fileupload)->toMediaCollection('attachments');
+        if ($request->fileupload && $request->fileupload_name) {
+            $player
+                ->addMedia('storage/' . $request->fileupload)
+                ->sanitizingFileName(function () use ($request) {
+                    return strtolower(str_replace(['#', '/', '\\', ' '], '-', $request->fileupload_name));
+                })
+                ->toMediaCollection('attachments');
 
-        // return $path;
-        // dd($request->fileupload);
-        // dd($request->files->get('file-upload')->getErrorMessage());
-        // // $player->addMedia(storage_path('demo/screely.png'))->toMediaCollection();
-        // $player->addMediaFromRequest('file-upload')->toMediaCollection();
+            $request->session()->flash('flash.banner', 'Attachment Added!');
+            $request->session()->flash('flash.bannerStyle', 'success');
 
-        //     if ($request->file('file-pond')) {
-        //         # code...
-        //     }
-        // return $path;
+            return redirect()->back();
+        }
+        // dd($request->all());
 
-        return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
     public function show(User $player)
     {
         return view('players.profile.show', ['player' => $player]);
