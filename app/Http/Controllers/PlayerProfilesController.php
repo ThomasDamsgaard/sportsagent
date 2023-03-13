@@ -13,14 +13,13 @@ class PlayerProfilesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, User $player)
+    public function store(Request $request)
     {
-        $path = $request->file('file-upload')->store('tmp', 'public');
 
-        $player->addMediaFromRequest('file-upload')->toMediaCollection();
+        auth()->user()->addMedia('storage/' . $request->fileupload)->toMediaCollection('attachments');
 
         // return $path;
-        // dd($request->file('file-upload'));
+        // dd($request->fileupload);
         // dd($request->files->get('file-upload')->getErrorMessage());
         // // $player->addMedia(storage_path('demo/screely.png'))->toMediaCollection();
         // $player->addMediaFromRequest('file-upload')->toMediaCollection();
@@ -28,7 +27,9 @@ class PlayerProfilesController extends Controller
         //     if ($request->file('file-pond')) {
         //         # code...
         //     }
-        return $path;
+        // return $path;
+
+        return redirect()->back();
     }
 
     /**

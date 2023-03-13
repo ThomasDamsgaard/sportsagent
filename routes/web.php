@@ -46,7 +46,7 @@ Route::middleware([
     Route::get('/player/profile/{player}', [PlayerProfilesController::class, 'show'])->name('player.profile.show');
     Route::post('/player/profile/upload', [PlayerProfilesController::class, 'store'])->name('player.profile.store');
     Route::post('/upload', function (Request $request) {
-        $path = $request->file('file-upload')->store('tmp', 'public');
+        $path = $request->file('fileupload')->store('tmp', 'public');
 
         return $path;
     });
