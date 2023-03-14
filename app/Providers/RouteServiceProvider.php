@@ -27,6 +27,7 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->configureRateLimiting();
+        $this->uploadRateLimiting();
 
         $this->routes(function () {
             Route::middleware('api')
@@ -47,6 +48,13 @@ class RouteServiceProvider extends ServiceProvider
     {
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
+        });
+    }
+
+    protected function uploadRateLimiting()
+    {
+        RateLimiter::for('uploads', function (Request $request) {
+            return Limit::perMinute(10)->by($request->ip());
         });
     }
 }
