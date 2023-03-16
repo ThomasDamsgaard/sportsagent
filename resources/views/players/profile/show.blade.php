@@ -203,7 +203,7 @@
                                                         <a href="{{ route('player.attachments.show', ['item' => $item]) }}" class="font-medium text-indigo-600 hover:text-indigo-500">Download</a>
                                                     </div>
                                                     <div class="ml-4 flex-shrink-0">
-                                                        <a href="{{ route('player.attachments.destroy', ['item' => $item]) }}" class="font-medium text-red-600 hover:text-red-500">Delete</a>
+                                                        @livewire('delete-attachment', ['item' => $item], key($item->id))
                                                     </div>
                                                 </li>
                                                 @empty
