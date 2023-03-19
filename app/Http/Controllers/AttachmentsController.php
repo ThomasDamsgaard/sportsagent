@@ -32,7 +32,6 @@ class AttachmentsController extends Controller
     {
         if ($request->fileupload && $request->fileupload_name) {
             $validated = $request->validate([
-                'fileupload' => 'required|mimetypes:application/pdf,image/png,image/jpeg,video/mpeg,video/quicktime',
                 'fileupload_name' => 'required|max:100',
             ]);
 

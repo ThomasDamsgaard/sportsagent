@@ -1,5 +1,5 @@
 <div>
-    <a wire:click="$set('confirmingAttachmentDeletion', 'true')" class="font-medium text-red-600 hover:text-red-500">Delete</a>
+    <a wire:click="$set('confirmingAttachmentDeletion', 'true')" class="font-medium text-red-600 cursor-pointer hover:text-red-500">Delete</a>
 
     <x-jet-confirmation-modal wire:model="confirmingAttachmentDeletion">
         <x-slot name="title">

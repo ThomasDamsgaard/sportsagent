@@ -245,13 +245,13 @@
 
 
         <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
-        {{-- <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script> --}}
+        <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
         <script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
         {{-- <script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script> --}}
         <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
         <script>
             FilePond.registerPlugin(FilePondPluginImagePreview);
-            // FilePond.registerPlugin(FilePondPluginFileValidateType);
+            FilePond.registerPlugin(FilePondPluginFileValidateType);
             FilePond.registerPlugin(FilePondPluginImageTransform);
             // FilePond.registerPlugin(FilePondPluginImageResize);
             // Init FilePond
@@ -263,6 +263,9 @@
                 imageResizeTargetWidth: 800,
                 imageResizeMode: 'contain',
                 imageResizeUpscale: false,
+                acceptedFileTypes: [
+                    'application/pdf', 'image/png', 'image/jpeg', 'video/mpeg', 'video/quicktime'
+                ],
                 server: {
                     url: '/upload',
                     headers: {
