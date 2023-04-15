@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Testimonial;
+use Laravel\Cashier\Billable;
 use App\Traits\BelongsToSport;
 use Laravel\Jetstream\HasTeams;
 use App\Traits\HasNoPersonalTeam;
@@ -30,6 +31,7 @@ class User extends Authenticatable implements HasMedia
     use TwoFactorAuthenticatable;
     use BelongsToSport;
     use InteractsWithMedia;
+    use Billable;
 
     /**
      * The attributes that are mass assignable.
@@ -37,7 +39,7 @@ class User extends Authenticatable implements HasMedia
      * @var string<int, string>
      */
     protected $fillable = [
-        'name', 'email', 'password', 'nationality', 'age', 'height', 'weight', 'position', 'salary', 'biography'
+        'name', 'email', 'password', 'nationality', 'age', 'height', 'weight', 'position', 'salary', 'biography', 'stripe_id'
     ];
 
     /**

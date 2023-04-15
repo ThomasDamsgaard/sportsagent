@@ -27,18 +27,17 @@ Route::get('/pricing', function () {
     return view('pricing');
 })->name('pricing');
 
+require __DIR__ . '/subscription.php';
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified'
+    'verified',
+    'subscribed',
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-
-    Route::get('/impersonation/{userId}', [ImpersonationController::class, 'create'])->name('impersonation.create');
-    Route::get('/impersonation', [ImpersonationController::class, 'destroy'])->name('impersonation.destroy');
 
     Route::get('/players', [PlayersController::class, 'index'])->name('players.index');
     Route::get('/players/show/{player}', [PlayersController::class, 'show'])->name('player.show');
@@ -61,3 +60,6 @@ Route::middleware([
     Route::get('/teams/show/{team}', [TeamsController::class, 'show'])->name('team.show');
     // Route::get('/teams/create', [TeamsController::class, 'create'])->name('team.create');
 });
+
+Route::get('/impersonation/{userId}', [ImpersonationController::class, 'create'])->name('impersonation.create');
+Route::get('/impersonation', [ImpersonationController::class, 'destroy'])->name('impersonation.destroy');
