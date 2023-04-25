@@ -60,6 +60,9 @@
         ],
         "analyse": [
             "vendor/bin/phpstan analyse -c phpstan.neon"
+        ],
+        "pint": [
+            "vendor/bin/pint"
         ]
     },
     "extra": {
