@@ -22,7 +22,7 @@
                                 </div>
                             </div>
                             <div class="px-8 py-6 flex justify-center items-center">
-                                <x-jet-button href="{{ route('dashboard') }}">Go to dashboard</x-jet-button>
+                                <a type="button" href="{{ route('dashboard') }}" class="px-4 py-2 rounded-md border border-gray-100 hover:border-gray-200 text-sm font-semibold leading-7 text-gray-800 hover:text-gray-900">Go to dashboard</a>
                             </div>
                         </div>
                     </div>

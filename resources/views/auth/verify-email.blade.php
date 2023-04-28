@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
@@ -26,10 +26,7 @@
             </form>
 
             <div>
-                <a
-                    href="{{ route('profile.show') }}"
-                    class="underline text-sm text-gray-600 hover:text-gray-900"
-                >
+                <a href="{{ route('profile.show') }}" class="underline text-sm text-gray-600 hover:text-gray-900">
                     {{ __('Edit Profile') }}</a>
 
                 <form method="POST" action="{{ route('logout') }}" class="inline">
@@ -42,4 +39,4 @@
             </div>
         </div>
     </x-jet-authentication-card>
-</x-guest-layout>
+</x-app-layout>

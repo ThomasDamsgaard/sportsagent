@@ -16,7 +16,7 @@ class IsSubscribed
     public function handle(Request $request, Closure $next): Response
     {
         if ($request->user() && !$request->user()->subscribed('default')) {
-            return redirect(route('subscription.index'));
+            return redirect(route('checkout'));
         }
 
         return $next($request);

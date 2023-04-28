@@ -55,14 +55,21 @@
                 </div>
             @endif
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex flex-col items-center justify-end mt-8 space-y-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-jet-button class="ml-4">
-                    {{ __('Register') }}
+                <x-jet-button class="bg-gray-600">
+                    {{ __('Create Account and Proceed To Payment') }}
                 </x-jet-button>
+
+                <div class="mb-4 text-sm text-gray-600">
+                    {{ __('Online Sport Talents partners with Stripe, the worlds largests online transaction company, to make sure your data is safe.') }}
+                </div>
+                <div class="mb-4 text-sm text-gray-600">
+                    {{ __('We don\'t store any credit card information.') }}
+                </div>
             </div>
         </form>
     </x-jet-authentication-card>

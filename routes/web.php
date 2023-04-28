@@ -34,8 +34,8 @@ require __DIR__ . '/email.php';
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
+    'subscribed',
     'verified',
-    // 'subscribed',
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
