@@ -29,11 +29,13 @@ Route::get('/pricing', function () {
 
 require __DIR__ . '/subscription.php';
 
+require __DIR__ . '/email.php';
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
-    'subscribed',
+    // 'subscribed',
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
