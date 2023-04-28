@@ -1,10 +1,10 @@
 <x-guest-layout>
+    <x-jet-validation-errors class="my-4" />
+
     <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
         </x-slot>
-
-        <x-jet-validation-errors class="mb-4" />
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
@@ -21,11 +21,6 @@
 
             <div class="mt-4">
                 <x-jet-label for="sport" value="{{ __('Sport') }}" />
-                <select id="sport" name="sport" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" required>
-                    <option disabled selected>Select your sport</option>
-                    <option value="1">Handball</option>
-                    <option value="2">Badminton</option>
-                </select>
                 <x-jet-select id="sport" class="block mt-1 w-full" type="text" name="sport" required>
                     <option disabled selected>Select your sport</option>
                     <option value="1">Handball</option>
