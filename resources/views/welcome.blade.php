@@ -11,7 +11,7 @@
                     <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Empower Your Dreams</h1>
                     <p class="mt-6 text-lg leading-8 text-gray-600">Get attention from teams, players and coaches from all over the world with our <span class="font-semibold italic">Virtual Sports Agent.</span></p>
                     <div class="mt-10 flex items-center justify-center gap-x-6">
-                        <x-jet-button type="button" class="rounded-md bg-gray-600 text-base normal-case font-semibold leading-7 text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600">Get started</x-jet-button>
+                        <a href="{{ route('register') }}" type="button" class="inline-flex items-center px-4 py-2 border border-transparent tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition rounded-md bg-gray-600 text-base normal-case font-semibold leading-7 text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 ">Get started</a>
                         <a href="#" class="px-4 py-2 rounded-md border border-gray-100 hover:border-gray-200 text-sm font-semibold leading-7 text-gray-800 hover:text-gray-900">Learn more <span aria-hidden="true">→</span></a>
                     </div>
                 </div>
@@ -30,19 +30,19 @@
         </div>
     </main>
 
-    <div class="py-24 sm:py-32">
+    <div class="">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 class="text-center text-lg font-semibold leading-8 text-gray-900">Trusted by the world’s most innovative teams</h2>
+            <h2 class="text-center text-lg font-semibold leading-8 text-gray-900">Trusted by teams all over the world</h2>
             <div class="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-                <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg" alt="Transistor" width="158" height="48">
-                <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg" alt="Reform" width="158" height="48">
-                <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg" alt="Tuple" width="158" height="48">
-                <img class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1" src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg" alt="SavvyCal" width="158" height="48">
-                <img class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1" src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg" alt="Statamic" width="158" height="48">
+                <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://app.fchelsingor.dk/images/fchelsingor-logo.png" alt="Transistor" width="158" height="48">
+                <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://cdn.sportmonks.com/images/soccer/teams/17/8657.png" alt="Transistor" width="158" height="48">
+                <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://cdn.sportmonks.com/images/soccer/teams/10/7466.png" alt="Reform" width="158" height="48">
+                <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://cdn.sportmonks.com/images/soccer/teams/6/390.png" alt="Tuple" width="158" height="48">
+                <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://app.fchelsingor.dk/images/naestved.png" alt="Tuple" width="158" height="48">
             </div>
         </div>
     </div>
-
+    {{-- 
     <div class="py-24 sm:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <dl class="grid grid-cols-1 gap-y-16 gap-x-8 text-center lg:grid-cols-3">
@@ -62,9 +62,9 @@
                 </div>
             </dl>
         </div>
-    </div>
+    </div> --}}
 
-    <div class="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
+    {{-- <div class="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto grid max-w-2xl grid-cols-1 gap-y-16 gap-x-8 lg:max-w-none lg:grid-cols-2">
                 <div class="max-w-xl lg:max-w-lg">
@@ -107,5 +107,5 @@
                 </linearGradient>
             </defs>
         </svg>
-    </div>
+    </div> --}}
 </x-guest-layout>

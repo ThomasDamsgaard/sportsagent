@@ -20,6 +20,20 @@
             </div>
 
             <div class="mt-4">
+                <x-jet-label for="sport" value="{{ __('Sport') }}" />
+                <select id="sport" name="sport" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" required>
+                    <option disabled selected>Select your sport</option>
+                    <option value="1">Handball</option>
+                    <option value="2">Badminton</option>
+                </select>
+                <x-jet-select id="sport" class="block mt-1 w-full" type="text" name="sport" required>
+                    <option disabled selected>Select your sport</option>
+                    <option value="1">Handball</option>
+                    <option value="2">Badminton</option>
+                </x-jet-select>
+            </div>
+
+            <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
@@ -37,8 +51,8 @@
 
                             <div class="ml-2">
                                 {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
+                                    'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Terms of Service') . '</a>',
+                                    'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Privacy Policy') . '</a>',
                                 ]) !!}
                             </div>
                         </div>
