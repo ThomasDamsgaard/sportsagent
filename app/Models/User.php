@@ -39,7 +39,7 @@ class User extends Authenticatable implements HasMedia
      * @var string<int, string>
      */
     protected $fillable = [
-        'name', 'email', 'password', 'type', 'nationality', 'age', 'height', 'weight', 'position', 'salary', 'biography', 'stripe_id'
+        'sport_id', 'name', 'email', 'password', 'type', 'nationality', 'age', 'height', 'weight', 'position', 'salary', 'biography', 'stripe_id'
     ];
 
     /**
