@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('type');
+            $table->string('type')->default('player');
             $table->string('nationality')->nullable();
             $table->integer('age')->nullable();
             $table->integer('height')->nullable();
