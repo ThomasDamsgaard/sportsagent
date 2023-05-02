@@ -31,6 +31,7 @@ class UserSeeder extends Seeder
             'name' => 'Admin User',
             'email' => 'admin@example.com',
             'type' => 'admin',
+            'verified' => true,
         ]);
     }
 
@@ -71,6 +72,7 @@ class UserSeeder extends Seeder
             ))
             ->create([
                 'type' => 'owner',
+                'verified' => true,
             ]);
 
         $user = User::factory()->create([
@@ -79,6 +81,7 @@ class UserSeeder extends Seeder
             'email' => 'handballuser@example.com',
             'type' => 'player',
             'current_team_id' => 1,
+            'verified' => true,
         ]);
 
         $players = User::factory()
@@ -138,6 +141,7 @@ class UserSeeder extends Seeder
             ->create([
                 'sport_id' => 2,
                 'type' => 'owner',
+                'verified' => true,
             ]);
 
         $user = User::factory()->create([
@@ -146,6 +150,7 @@ class UserSeeder extends Seeder
             'email' => 'badmintonuser@example.com',
             'type' => 'player',
             'current_team_id' => 4,
+            'verified' => true,
         ]);
 
         $players = User::factory()
