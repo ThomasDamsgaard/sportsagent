@@ -51,7 +51,8 @@ class PlayersController extends Controller
      */
     public function show(User $player)
     {
-        $player->load('testimonials');
+        $player = $player->load('testimonials.testimonialWriter');
+
         return view('players.show', ['player' => $player]);
     }
 

@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\LazyLoadingViolationException;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +26,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Model::handleLazyLoadingViolationUsing(function (Model $model, string $relation): void {
+            if ($model instanceof User) {
+                if ($relation === 'currentTeam') {
+                    return;
+                }
+            }
+            throw new LazyLoadingViolationException($model, $relation);
+        });
+
         Model::shouldBeStrict(!$this->app->isProduction());
     }
 }
