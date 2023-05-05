@@ -32,7 +32,7 @@ class UserFactory extends Factory
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'type' => 'player',
             'nationality' => $this->faker->languageCode(),
-            'age' => $this->faker->numberBetween(18, 35),
+            'age' => $this->faker->date(),
             'height' => $this->faker->numberBetween(160, 210),
             'weight' => $this->faker->numberBetween(70, 115),
             'position' => $this->faker->word(),

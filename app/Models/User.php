@@ -61,6 +61,7 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'age' => 'datetime',
     ];
 
     /**
@@ -87,5 +88,10 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
             $term = $term . '%';
             $query->where('name', 'like', $term);
         });
+    }
+
+    public function calculateAge(): int|string
+    {
+        return $this->age ? \Carbon\Carbon::parse($this->age)->age : 'Not registered';
     }
 }

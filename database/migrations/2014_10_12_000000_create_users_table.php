@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('type')->default('player');
             $table->string('nationality')->nullable();
-            $table->integer('age')->nullable();
+            $table->timestamp('age')->nullable();
             $table->integer('height')->nullable();
             $table->integer('weight')->nullable();
             $table->string('position')->nullable();
