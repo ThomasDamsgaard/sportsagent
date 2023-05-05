@@ -12,12 +12,16 @@ class PlayerProfilesController extends Controller
     {
 
 
-        // dd($request->all());
+        dd($request->all());
 
+        $request->session()->flash('flash.banner', 'Profile Edited!');
+        $request->session()->flash('flash.bannerStyle', 'success');
+
+        return redirect()->back();
     }
 
-    public function show(User $player)
+    public function edit(User $player)
     {
-        return view('players.profile.show', ['player' => $player]);
+        return view('players.profile.edit', ['player' => $player]);
     }
 }

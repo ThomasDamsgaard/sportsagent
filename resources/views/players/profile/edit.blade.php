@@ -109,7 +109,7 @@
 
                             <dl>
                                 <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                    <dt class="flex items-center text-sm font-medium text-gray-500">Age</dt>
+                                    <dt class="flex items-center text-sm font-medium text-gray-500">Birthday</dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0">
                                         <input datepicker datepicker-format="yyyy/mm/dd" type="text" name="age" id="age" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="{{ $player->age }}">
                                     </dd>

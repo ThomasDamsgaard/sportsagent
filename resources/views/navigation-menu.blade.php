@@ -107,7 +107,7 @@
                                 {{ __('Manage Account') }}
                             </div>
 
-                            <x-jet-dropdown-link href="{{ route('player.profile.show', ['player' => Auth::user()]) }}">
+                            <x-jet-dropdown-link href="{{ route('player.profile.edit', ['player' => Auth::user()]) }}">
                                 {{ __('Profile') }}
                             </x-jet-dropdown-link>
 
@@ -180,8 +180,12 @@
 
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
-                <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                <x-jet-responsive-nav-link href="{{ route('player.profile.edit', ['player' => Auth::user()]) }}" :active="request()->routeIs('player.profile.edit')">
                     {{ __('Profile') }}
+                </x-jet-responsive-nav-link>
+
+                <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                    {{ __('Account') }}
                 </x-jet-responsive-nav-link>
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
