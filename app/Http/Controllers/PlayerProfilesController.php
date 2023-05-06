@@ -10,9 +10,12 @@ class PlayerProfilesController extends Controller
 {
     public function update(Request $request, User $player): RedirectResponse
     {
-
-
-        dd($request->all());
+        $player->update([
+            'age' => $request->age,
+            'position' => $request->position,
+            'salary' => $request->salary,
+            'biography' => $request->biography,
+        ]);
 
         $request->session()->flash('flash.banner', 'Profile Edited!');
         $request->session()->flash('flash.bannerStyle', 'success');

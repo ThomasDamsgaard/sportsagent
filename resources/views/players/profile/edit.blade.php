@@ -129,7 +129,7 @@
                                 <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                     <dt class="text-sm font-medium text-gray-500">Biography</dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                        <textarea id="about" name="about" rows="3" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">{{ $player->biography }}</textarea>
+                                        <textarea id="biography" name="biography" rows="3" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">{{ $player->biography }}</textarea>
                                     </dd>
                                 </div>
 
@@ -149,7 +149,6 @@
                                                         </div>
                                                     </div>
                                                 @endfor
-
                                             </div>
                                         </fieldset>
                                     </dd>
