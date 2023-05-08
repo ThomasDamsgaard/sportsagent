@@ -15,9 +15,12 @@ class IsSubscribed
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->user() && !$request->user()->subscribed('default')) {
-            return redirect(route('checkout'));
+        if (!$request->user()->onGenericTrial()) {
+            if ($request->user() && !$request->user()->subscribed('default')) {
+                return redirect(route('checkout'));
+            }
         }
+
 
         return $next($request);
     }

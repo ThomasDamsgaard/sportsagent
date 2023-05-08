@@ -8,10 +8,12 @@ Route::get('/subscription', function (Request $request) {
 })->name('subscription.index');
 
 Route::get('checkout', function (Request $request) {
-    return auth()->user()->newSubscription('default', config('services.stripe.price_id'))->checkout([
-        'success_url' => route('checkout-success') . '?session_id={CHECKOUT_SESSION_ID}',
-        'cancel_url' => route('subscription.index'),
-    ]);
+    return auth()->user()
+        ->newSubscription('default', config('services.stripe.price_id'))
+        ->checkout([
+            'success_url' => route('checkout-success') . '?session_id={CHECKOUT_SESSION_ID}',
+            'cancel_url' => route('subscription.index'),
+        ]);
 })->name('checkout');
 
 Route::get('/checkout-success', function (Request $request) {

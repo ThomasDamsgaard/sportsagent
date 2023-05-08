@@ -39,7 +39,7 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
      * @var string<int, string>
      */
     protected $fillable = [
-        'sport_id', 'name', 'email', 'password', 'type', 'nationality', 'age', 'height', 'weight', 'position', 'salary', 'biography', 'stripe_id', 'verified'
+        'sport_id', 'name', 'email', 'password', 'type', 'nationality', 'age', 'height', 'weight', 'position', 'salary', 'biography', 'stripe_id', 'verified', 'trial_ends_at'
     ];
 
     /**
@@ -62,6 +62,7 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
         'age' => 'datetime',
+        'trial_ends_at' => 'datetime',
     ];
 
     /**

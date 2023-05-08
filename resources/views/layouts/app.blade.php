@@ -35,6 +35,11 @@
             @include('components.guarded.impersonation')
         @endif
 
+        @if (auth()->user()->onGenericTrial())
+            {{ session()->flash('flash.banner', 'Your free trial expires in ' . now()->diffInDays(auth()->user()->trial_ends_at) . ' day(s)') }}
+            {{ session()->flash('flash.bannerStyle', 'trial') }}
+        @endif
+
         <x-jet-validation-errors></x-jet-validation-errors>
 
         <!-- Page Heading -->
