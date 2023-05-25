@@ -18,7 +18,9 @@ class PlayersController extends Controller
             ->where('type', 'player')
             ->where('id', '!=', auth()->user()->id)
             ->search(request('search'))
+            ->with('achievement')
             ->simplePaginate(15);
+
         return view('players.index', ['players' => $players]);
     }
 
@@ -51,7 +53,7 @@ class PlayersController extends Controller
      */
     public function show(User $player)
     {
-        $player = $player->load('testimonials.testimonialWriter');
+        $player = $player->load(['testimonials.testimonialWriter', 'achievement']);
 
         return view('players.show', ['player' => $player]);
     }

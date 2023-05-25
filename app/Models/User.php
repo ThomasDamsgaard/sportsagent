@@ -16,6 +16,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements HasMedia, MustVerifyEmail
@@ -80,6 +81,14 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
     public function testimonials(): HasMany
     {
         return $this->hasMany(Testimonial::class);
+    }
+
+    /**
+     * Get the achievement for the user.
+     */
+    public function achievement(): HasOne
+    {
+        return $this->hasOne(Achievement::class);
     }
 
     public function scopeSearch($query, string $terms = null)

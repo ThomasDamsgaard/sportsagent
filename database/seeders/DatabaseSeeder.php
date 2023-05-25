@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Database\Seeders\UserSeeder;
+use Database\Seeders\LevelSeeder;
 use Database\Seeders\SportSeeder;
 use Database\Seeders\TestimonialSeeder;
 
@@ -21,6 +22,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             SportSeeder::class,
             TestimonialSeeder::class,
+            LevelSeeder::class,
+            AchievementSeeder::class,
         ]);
     }
 }
