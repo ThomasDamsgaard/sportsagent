@@ -3,13 +3,23 @@
         <p class="my-6 text-gray-600 text-sm leading-6">Open-source library of over 400+ web components and interactive elements built for better web.</p>
         <ul class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
             <li>
-                <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
+                <a href="#" class="mr-2 hover:underline md:mr-2">About</a>
             </li>
+            <li class="mr-2">|</li>
             <li>
-                <a href="{{ route('faq') }}" class="mr-4 hover:underline md:mr-6">FAQs</a>
+                <a href="{{ route('faq') }}" class="mr-2 hover:underline md:mr-2">FAQs</a>
             </li>
+            <li class="mr-2">|</li>
             <li>
-                <a href="#" class="mr-4 hover:underline md:mr-6">Contact</a>
+                <a href="#" class="mr-2 hover:underline md:mr-2">Contact</a>
+            </li>
+            <li class="mr-2">|</li>
+            <li>
+                <a href="{{ route('policy.show') }}" class="mr-2 hover:underline md:mr-2">Privacy</a>
+            </li>
+            <li class="mr-2">|</li>
+            <li>
+                <a href="{{ route('terms.show') }}" class="mr-2 hover:underline md:mr-2">Terms of Service</a>
             </li>
         </ul>
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
