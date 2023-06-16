@@ -36,6 +36,7 @@
             </div>
             <x-navigation />
             {{ $slot }}
+            <x-footer />
         </div>
     </div>
 

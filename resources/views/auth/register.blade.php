@@ -23,8 +23,8 @@
                 <x-jet-label for="sport_id" value="{{ __('Sport') }}" />
                 <x-jet-select id="sport_id" class="block mt-1 w-full" type="text" name="sport_id" required>
                     <option disabled selected></option>
-                    <option value="1">Handball</option>
-                    <option value="2">Badminton</option>
+                    <option value="1">Soccer</option>
+                    <option value="2">Basketball</option>
                 </x-jet-select>
             </div>
 
