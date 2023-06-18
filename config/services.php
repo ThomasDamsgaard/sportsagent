@@ -38,4 +38,10 @@ return [
         'price_id' => env('STRIPE_PRICE_ID'),
     ],
 
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => '/auth/callback',
+    ]
+
 ];

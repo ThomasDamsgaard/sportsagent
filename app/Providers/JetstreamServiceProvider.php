@@ -20,6 +20,7 @@ class JetstreamServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->registerComponent('select');
+        $this->registerComponent('social-button');
     }
 
     /**
