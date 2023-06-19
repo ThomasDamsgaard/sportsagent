@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\PlayersController;
 use App\Http\Controllers\AttachmentsController;
@@ -19,7 +18,7 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     // 'subscribed',
-    'verified',
+    // 'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -50,13 +49,4 @@ Route::middleware([
 Route::get('/impersonation/{userId}', [ImpersonationController::class, 'create'])->name('impersonation.create');
 Route::get('/impersonation', [ImpersonationController::class, 'destroy'])->name('impersonation.destroy');
 
-Route::get('/auth/redirect', function () {
-    return Socialite::driver('google')->redirect();
-})->name('google.index');
-
-Route::get('/auth/callback', function () {
-    $user = Socialite::driver('google')->user();
-
-    dd($user);
-    // $user->token
-})->name('google.show');
+require __DIR__ . '/social.php';
