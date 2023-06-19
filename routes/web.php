@@ -7,6 +7,7 @@ use App\Http\Controllers\PlayersController;
 use App\Http\Controllers\AttachmentsController;
 use App\Http\Controllers\ImpersonationController;
 use App\Http\Controllers\PlayerProfilesController;
+use App\Http\Middleware\EnsureHasSport;
 
 require __DIR__ . '/public.php';
 
@@ -17,8 +18,9 @@ require __DIR__ . '/email.php';
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    // 'subscribed',
     // 'verified',
+    // 'subscribed',
+    'sport',
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -28,8 +30,10 @@ Route::middleware([
     Route::get('/players/show/{player}', [PlayersController::class, 'show'])->name('player.show');
     Route::get('/players/create', [PlayersController::class, 'create'])->name('player.create');
 
-    Route::get('/player/profile/{player}', [PlayerProfilesController::class, 'edit'])->name('player.profile.edit');
-    Route::patch('/player/profile/{player}', [PlayerProfilesController::class, 'update'])->name('player.profile.update');
+    Route::get('/player/profile/{player}', [PlayerProfilesController::class, 'edit'])
+        ->withoutMiddleware([EnsureHasSport::class])->name('player.profile.edit');
+    Route::patch('/player/profile/{player}', [PlayerProfilesController::class, 'update'])
+        ->withoutMiddleware([EnsureHasSport::class])->name('player.profile.update');
 
     Route::post('/player/attachments/{player}', [AttachmentsController::class, 'store'])->name('player.attachments.store');
     Route::get('/player/attachments/{item}', [AttachmentsController::class, 'show'])->name('player.attachments.show');

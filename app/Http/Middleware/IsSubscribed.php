@@ -21,7 +21,6 @@ class IsSubscribed
             }
         }
 
-
         return $next($request);
     }
 }

@@ -21,7 +21,8 @@ Route::get('/auth/callback', function () {
         'email' => $googleUser->email,
         'profile_photo_path' => $googleUser->avatar,
         'google_token' => $googleUser->token,
-        'google_refresh_token' => $googleUser->refreshToken
+        'google_refresh_token' => $googleUser->refreshToken,
+        'trial_ends_at' => now()->addMonths(3),
     ]);
 
     Auth::login($user);

@@ -11,6 +11,7 @@ class PlayerProfilesController extends Controller
     public function update(Request $request, User $player): RedirectResponse
     {
         $player->update([
+            'sport_id' => $request->sport_id ? $request->sport_id : $player->sport_id,
             'age' => $request->age,
             'position' => $request->position,
             'salary' => $request->salary,

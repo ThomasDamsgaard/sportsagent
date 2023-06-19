@@ -108,6 +108,20 @@
                             @csrf
 
                             <dl>
+                                @if (!auth()->user()->sport_id)
+                                    <div class="bg-red-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                        <dt class="flex items-center text-sm font-medium text-white">Sport - must be filled.</dt>
+                                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0">
+                                            <x-jet-select id="sport_id" class="block w-full" type="text" name="sport_id" required>
+                                                <option disabled selected></option>
+                                                <option value="1">Soccer</option>
+                                                <option value="2">Basketball</option>
+                                            </x-jet-select>
+                                            {{-- <input id="sport_id" type="text" name="sport_id" id="sport_id" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"> --}}
+                                        </dd>
+                                    </div>
+                                @endif
+
                                 <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                     <dt class="flex items-center text-sm font-medium text-gray-500">Birthday</dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0">
