@@ -1,6 +1,6 @@
 <footer class="mt-32 mb-8">
     <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center">
-        <p class="my-6 text-gray-600 text-sm leading-6">Open-source library of over 400+ web components and interactive elements built for better web.</p>
+        <p class="my-6 text-gray-600 text-sm leading-6">Online Sports Talents is a startup that aims to offer a platform connecting sports talents, clubs, and organizations, providing career opportunities for talented individuals in the sports industry.</p>
         <ul class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
             <li>
                 <a href="#" class="mr-2 hover:underline md:mr-2">About</a>
