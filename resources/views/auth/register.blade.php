@@ -15,6 +15,15 @@
             </div>
 
             <div class="mt-4">
+                <x-jet-label for="gender" value="{{ __('Gender') }}" />
+                <x-jet-select id="gender" class="block mt-1 w-full" type="text" name="gender" required>
+                    <option disabled selected></option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </x-jet-select>
+            </div>
+
+            <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>

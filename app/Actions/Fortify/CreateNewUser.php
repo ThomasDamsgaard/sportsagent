@@ -2,11 +2,13 @@
 
 namespace App\Actions\Fortify;
 
+use App\Enums\User\Gender;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\Enum;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
 
@@ -23,6 +25,7 @@ class CreateNewUser implements CreatesNewUsers
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
+            'gender' => ['required',  new Enum(Gender::class)],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'sport_id' => ['required'],
             'password' => $this->passwordRules(),
@@ -32,6 +35,7 @@ class CreateNewUser implements CreatesNewUsers
         return DB::transaction(function () use ($input) {
             return tap(User::create([
                 'name' => $input['name'],
+                'gender' => $input['gender'],
                 'email' => $input['email'],
                 'sport_id' => $input['sport_id'],
                 'password' => Hash::make($input['password']),
