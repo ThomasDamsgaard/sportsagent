@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Testimonial;
+use App\Scopes\GenderScope;
 use Laravel\Cashier\Billable;
 use App\Traits\BelongsToSport;
 use Laravel\Jetstream\HasTeams;
@@ -76,6 +77,14 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
     protected $appends = [
         'profile_photo_url',
     ];
+
+    /**
+     * The "booted" method of the model.
+     */
+    protected static function booted(): void
+    {
+        static::addGlobalScope(new GenderScope);
+    }
 
     /**
      * Get the testimonials for the user.
