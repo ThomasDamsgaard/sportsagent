@@ -18,6 +18,14 @@
                 <x-jet-section-border />
             @endif
 
+            @if (Auth::user()->subscribed('default'))
+                <div class="mt-10 sm:mt-0">
+                    <x-customer-portal />
+                </div>
+
+                <x-jet-section-border />
+            @endif
+
             @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
                 <div class="mt-10 sm:mt-0">
                     @livewire('profile.two-factor-authentication-form')
