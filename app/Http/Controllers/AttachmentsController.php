@@ -42,6 +42,10 @@ class AttachmentsController extends Controller
                 })
                 ->toMediaCollection('attachments');
 
+            if (url()->previous() == route('stepper.second')) {
+                return redirect()->route('dashboard');
+            }
+
             $request->session()->flash('flash.banner', 'Attachment Added!');
             $request->session()->flash('flash.bannerStyle', 'success');
 

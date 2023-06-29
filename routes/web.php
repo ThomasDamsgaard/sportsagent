@@ -2,12 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\EnsureHasSport;
 use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\PlayersController;
 use App\Http\Controllers\AttachmentsController;
 use App\Http\Controllers\ImpersonationController;
 use App\Http\Controllers\PlayerProfilesController;
-use App\Http\Middleware\EnsureHasSport;
 
 require __DIR__ . '/public.php';
 
@@ -30,10 +30,13 @@ Route::middleware([
     Route::get('/players/show/{player}', [PlayersController::class, 'show'])->name('player.show');
     Route::get('/players/create', [PlayersController::class, 'create'])->name('player.create');
 
+    require __DIR__ . '/stepper.php';
+
     Route::get('/player/profile/{player}', [PlayerProfilesController::class, 'edit'])
         ->withoutMiddleware([EnsureHasSport::class])->name('player.profile.edit');
     Route::patch('/player/profile/{player}', [PlayerProfilesController::class, 'update'])
         ->withoutMiddleware([EnsureHasSport::class])->name('player.profile.update');
+
 
     Route::post('/player/attachments/{player}', [AttachmentsController::class, 'store'])->name('player.attachments.store');
     Route::get('/player/attachments/{item}', [AttachmentsController::class, 'show'])->name('player.attachments.show');
