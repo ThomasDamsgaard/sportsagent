@@ -5,9 +5,9 @@ namespace App\Providers;
 use Livewire\Livewire;
 use Illuminate\Support\ServiceProvider;
 use App\Http\Livewire\Stepper\OrderWizardComponent;
-use App\Http\Livewire\Stepper\Steps\CartStepComponent;
+use App\Http\Livewire\Stepper\Steps\PersonalStepComponent;
 use App\Http\Livewire\Stepper\Steps\ConfirmStepComponent;
-use App\Http\Livewire\Stepper\Steps\DeliveryAddressStepComponent;
+use App\Http\Livewire\Stepper\Steps\AttachmentsStepComponent;
 
 class LivewireServiceProvider extends ServiceProvider
 {
@@ -25,8 +25,8 @@ class LivewireServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Livewire::component('order-wizard', OrderWizardComponent::class);
-        Livewire::component('cart', CartStepComponent::class);
-        Livewire::component('delivery-address', DeliveryAddressStepComponent::class);
+        Livewire::component('personal', PersonalStepComponent::class);
+        Livewire::component('attachments', AttachmentsStepComponent::class);
         Livewire::component('confirm', ConfirmStepComponent::class);
     }
 }
