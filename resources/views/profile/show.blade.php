@@ -47,4 +47,8 @@
             @endif
         </div>
     </div>
+
+    @push('scripts')
+        <script src="https://js.stripe.com/v3/" defer></script>
+    @endpush
 </x-app-layout>

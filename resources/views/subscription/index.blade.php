@@ -29,4 +29,8 @@
             </div>
         </div>
     </x-jet-authentication-card>
+
+    @push('scripts')
+        <script src="https://js.stripe.com/v3/" defer></script>
+    @endpush
 </x-app-layout>
