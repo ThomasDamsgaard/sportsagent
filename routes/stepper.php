@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\EnsureHasSport;
 use App\Http\Controllers\StepperController;
 
 Route::get('/player/stepper/first', [StepperController::class, 'first'])

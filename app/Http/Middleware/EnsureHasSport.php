@@ -9,8 +9,8 @@ class EnsureHasSport
 {
     public function handle(Request $request, Closure $next)
     {
-        if (!auth()->user()->sport_id) {
-            return redirect()->route('player.profile.edit', ['player' => auth()->user()]);
+        if (!auth()->user()->sport_id || !auth()->user()->age) {
+            return redirect()->route('stepper.first');
         }
         return $next($request);
     }
