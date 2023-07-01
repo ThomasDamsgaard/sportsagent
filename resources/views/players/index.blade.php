@@ -57,7 +57,7 @@
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                                     <div class="flex items-center">
-                                                        {{ $player->currentTeam->name }}
+                                                        {{ $player->currentTeam?->name }}
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">

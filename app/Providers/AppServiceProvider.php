@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Model::handleLazyLoadingViolationUsing(function (Model $model, string $relation): void {
             if ($model instanceof User) {
-                if ($relation === 'currentTeam') {
+                if ($relation === 'currentTeam' || $relation === 'ownedTeams') {
                     return;
                 }
             }
