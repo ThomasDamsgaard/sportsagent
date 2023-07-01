@@ -3,7 +3,7 @@
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
 
             <form action="{{ route('players.search.index') }}">
-                <div class="flex items-center mb-8">
+                <div class="flex items-center">
                     <label for="search" class="sr-only">Search Players</label>
                     <div class="relative w-full">
                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -19,6 +19,41 @@
                         </svg>
                         <span class="sr-only">Search Players</span>
                     </button>
+                </div>
+
+                <div class="bg-white shadow sm:rounded-lg p-4 mt-4 space-y-8">
+                    <fieldset>
+                      <legend class="text-sm font-semibold leading-6 text-gray-900">Filters</legend>
+                      <div class="mt-6 space-y-6">
+                        <div class="relative flex gap-x-3">
+                          <div class="flex h-6 items-center">
+                            <input id="comments" name="comments" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                          </div>
+                          <div class="text-sm leading-6">
+                            <label for="comments" class="font-medium text-gray-900">Comments</label>
+                            <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p>
+                          </div>
+                        </div>
+                        <div class="relative flex gap-x-3">
+                          <div class="flex h-6 items-center">
+                            <input id="candidates" name="candidates" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                          </div>
+                          <div class="text-sm leading-6">
+                            <label for="candidates" class="font-medium text-gray-900">Candidates</label>
+                            <p class="text-gray-500">Get notified when a candidate applies for a job.</p>
+                          </div>
+                        </div>
+                        <div class="relative flex gap-x-3">
+                          <div class="flex h-6 items-center">
+                            <input id="offers" name="offers" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                          </div>
+                          <div class="text-sm leading-6">
+                            <label for="offers" class="font-medium text-gray-900">Offers</label>
+                            <p class="text-gray-500">Get notified when a candidate accepts or rejects an offer.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
                 </div>
             </form>
 
