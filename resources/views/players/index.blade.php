@@ -2,7 +2,7 @@
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
 
-            <form action="{{ route('players.index') }}">
+            <form action="{{ route('players.search.index') }}">
                 <div class="flex items-center mb-8">
                     <label for="search" class="sr-only">Search Players</label>
                     <div class="relative w-full">
