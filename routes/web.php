@@ -7,6 +7,7 @@ use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\PlayersController;
 use App\Http\Controllers\AttachmentsController;
 use App\Http\Controllers\ImpersonationController;
+use App\Http\Controllers\PlayersSearchController;
 use App\Http\Controllers\PlayerProfilesController;
 
 require __DIR__ . '/public.php';
@@ -29,6 +30,8 @@ Route::middleware([
     Route::get('/players', [PlayersController::class, 'index'])->name('players.index');
     Route::get('/players/show/{player}', [PlayersController::class, 'show'])->name('player.show');
     Route::get('/players/create', [PlayersController::class, 'create'])->name('player.create');
+
+    Route::get('/players/search', PlayersSearchController::class)->name('players.search.index');
 
     require __DIR__ . '/stepper.php';
 

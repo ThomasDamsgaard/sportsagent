@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Testimonial;
 use App\Scopes\GenderScope;
 use Laravel\Cashier\Billable;
+use Laravel\Scout\Searchable;
 use App\Traits\BelongsToSport;
 use Laravel\Jetstream\HasTeams;
 use App\Traits\HasNoPersonalTeam;
@@ -15,9 +16,9 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements HasMedia, MustVerifyEmail
@@ -34,15 +35,13 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
     use BelongsToSport;
     use InteractsWithMedia;
     use Billable;
+    use Searchable;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var string<int, string>
      */
-    // protected $fillable = [
-    //     'sport_id', 'name', 'email', 'password', 'type', 'nationality', 'age', 'height', 'weight', 'position', 'salary', 'biography', 'stripe_id', 'verified', 'trial_ends_at', 'provider',
-    // ];
 
     protected $guarded = [];
 
@@ -67,6 +66,7 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
         'email_verified_at' => 'datetime',
         'age' => 'datetime',
         'trial_ends_at' => 'datetime',
+        'verified' => 'boolean',
     ];
 
     /**
@@ -87,6 +87,25 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
     }
 
     /**
+     * Get the indexable data array for the model.
+     *
+     * @return array<string, mixed>
+     */
+    public function toSearchableArray(): array
+    {
+        // $array = $this->toArray();
+
+        // Customize the data array...
+
+        // return $array;
+
+        return [
+            'name' => $this->name,
+            'verified' => '',
+        ];
+    }
+
+    /**
      * Get the testimonials for the user.
      */
     public function testimonials(): HasMany
@@ -102,14 +121,19 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
         return $this->hasOne(Achievement::class);
     }
 
-    public function scopeSearch($query, string $terms = null)
+    public function scopeExcludeCurrentUser($query)
     {
-        // str_getcsv - ability to do quote searches
-        collect(str_getcsv($terms, ' ', '"'))->filter()->each(function ($term) use ($query) {
-            $term = $term . '%';
-            $query->where('name', 'like', $term);
-        });
+        $query->where('id', '!=', auth()->user()->id);
     }
+
+    // public function scopeSearch($query, string $terms = null)
+    // {
+    //     // str_getcsv - ability to do quote searches
+    //     collect(str_getcsv($terms, ' ', '"'))->filter()->each(function ($term) use ($query) {
+    //         $term = $term . '%';
+    //         $query->where('name', 'like', $term);
+    //     });
+    // }
 
     public function calculateAge(): int|string
     {
