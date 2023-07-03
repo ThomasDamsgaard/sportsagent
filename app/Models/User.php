@@ -66,6 +66,7 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
         'email_verified_at' => 'datetime',
         'age' => 'datetime',
         'trial_ends_at' => 'datetime',
+        'verified' => 'boolean',
     ];
 
     /**
@@ -100,7 +101,7 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
 
         return [
             'name' => $this->name,
-            // 'team.name' => '',
+            'verified' => '',
         ];
     }
 
@@ -118,6 +119,11 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
     public function achievement(): HasOne
     {
         return $this->hasOne(Achievement::class);
+    }
+
+    public function scopeExcludeCurrentUser($query)
+    {
+        $query->where('id', '!=', auth()->user()->id);
     }
 
     // public function scopeSearch($query, string $terms = null)
