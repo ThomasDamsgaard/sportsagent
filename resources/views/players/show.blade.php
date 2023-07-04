@@ -40,7 +40,7 @@
                                 <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                     <dt class="text-sm font-medium text-gray-500">Nationality</dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                        <x-dynamic-component component="flag-language-{{ $player->nationality }}" class="h-6 w-6" />
+                                        <x-dynamic-component component="flag-country-{{ $player->nationality }}" class="h-6 w-6" />
                                     </dd>
                                 </div>
                             @endif
@@ -234,7 +234,7 @@
                                     <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium text-gray-500">Nationality</dt>
                                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                            <x-dynamic-component component="flag-language-{{ $player->nationality }}" class="h-6 w-6" />
+                                            <x-dynamic-component component="flag-country-{{ $player->nationality }}" class="h-6 w-6" />
                                         </dd>
                                     </div>
                                 @endif
@@ -256,7 +256,7 @@
                                 </div>
                                 <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                     <dt class="text-sm font-medium text-gray-500">Salary expectation</dt>
-                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">€ {{ $player->salary }}</dd>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $player->salary }}</dd>
                                 </div>
                                 <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                     <dt class="text-sm font-medium text-gray-500">Biography</dt>

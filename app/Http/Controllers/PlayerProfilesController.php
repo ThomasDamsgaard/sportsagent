@@ -10,17 +10,20 @@ class PlayerProfilesController extends Controller
 {
     public function update(Request $request, User $player): RedirectResponse
     {
+        // dd($request);
         $player->update([
             'sport_id' => $request->sport_id ? $request->sport_id : $player->sport_id,
             'age' => $request->age,
+            'height' => $request->height,
+            'weight' => $request->weight,
             'position' => $request->position,
-            'salary' => $request->salary,
+            'salary' => $request->currency . $request->salary,
             'biography' => $request->biography,
         ]);
 
-        if (url()->previous() == route('stepper.first')) {
-            return redirect()->route('stepper.second');
-        }
+        // if (url()->previous() == route('stepper.first')) {
+        //     return redirect()->route('stepper.second');
+        // }
 
         $request->session()->flash('flash.banner', 'Profile Edited!');
         $request->session()->flash('flash.bannerStyle', 'success');

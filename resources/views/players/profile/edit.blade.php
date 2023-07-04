@@ -129,6 +129,18 @@
                                     </dd>
                                 </div>
                                 <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                    <dt class="flex items-center text-sm font-medium text-gray-500">Height</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0">
+                                        <input type="text" name="height" id="height" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="{{ $player->height }}">
+                                    </dd>
+                                </div>
+                                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                    <dt class="flex items-center text-sm font-medium text-gray-500">Weight</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0">
+                                        <input type="text" name="weight" id="weight" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="{{ $player->weight }}">
+                                    </dd>
+                                </div>
+                                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                     <dt class="flex items-center text-sm font-medium text-gray-500">Prefered position</dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0">
                                         <input type="text" name="position" id="position" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="{{ $player->position }}">
@@ -137,7 +149,18 @@
                                 <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                     <dt class="flex items-center text-sm font-medium text-gray-500">Salary expectation</dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0">
-                                        <input type="text" name="salary" id="salary" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="{{ $player->salary }}">
+                                        <div>
+                                            <div class="relative rounded-md shadow-sm">
+                                                <input type="text" name="salary" id="salary" class="block w-full rounded-md border-0 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" value="{{ \Illuminate\Support\Str::substr($player->salary, 1) }}">
+                                                <div class="absolute inset-y-0 right-0 flex items-center">
+                                                    <label for="currency" class="sr-only">Currency</label>
+                                                    <select id="currency" name="currency" class="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm">
+                                                        <option value="$">USD</option>
+                                                        <option value="€">EUR</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </dd>
                                 </div>
                                 <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -147,7 +170,7 @@
                                     </dd>
                                 </div>
 
-                                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                {{-- <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                     <dt class="text-sm font-medium text-gray-500">Motivation</dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                                         <fieldset>
@@ -166,7 +189,7 @@
                                             </div>
                                         </fieldset>
                                     </dd>
-                                </div>
+                                </div> --}}
                             </dl>
                             <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6 shadow sm:rounded-bl-md sm:rounded-br-md">
                                 <x-jet-button type="submit">Edit</x-jet-button>
