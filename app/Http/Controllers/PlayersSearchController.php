@@ -14,7 +14,7 @@ class PlayersSearchController extends Controller
     public function __invoke(Request $request)
     {
         if (request('search')) {
-            $players = User::search(trim(request('search')))
+            $players = User::search(trim(request('search')) ?? '')
                 ->query(fn (Builder $query) => $query->with('achievement'))
                 ->query(fn (Builder $query) => $query->excludeCurrentUser())
                 ->simplePaginate(15);
