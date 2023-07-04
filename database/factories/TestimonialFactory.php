@@ -17,7 +17,7 @@ class TestimonialFactory extends Factory
     public function definition()
     {
         return [
-            'testimonial_writer_id' => $this->faker->numberBetween(2, 35),
+            'writer_id' => $this->faker->numberBetween(2, 35),
             'user_id' => $this->faker->numberBetween(1, 35),
             'body' => $this->faker->text()
         ];

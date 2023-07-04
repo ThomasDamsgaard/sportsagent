@@ -13,8 +13,8 @@ class Testimonial extends Model
     /**
      * Get the user that has contributed the testimonial.
      */
-    public function testimonialWriter(): BelongsTo
+    public function writer(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'testimonial_writer_id');
+        return $this->belongsTo(User::class, 'writer_id');
     }
 }

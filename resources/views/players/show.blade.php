@@ -109,14 +109,14 @@
                                             @forelse ($player->testimonials as $testimonial)
                                                 <li>
                                                     <div class="flex items-center gap-x-6">
-                                                        <img class="h-10 w-10 rounded-full" src="{{ $testimonial->testimonialWriter->profile_photo_url }}" alt="">
+                                                        <img class="h-10 w-10 rounded-full" src="{{ $testimonial->writer->profile_photo_url }}" alt="">
                                                         <div>
-                                                            <h3 class="text-base font-semibold leading-7 tracking-tight"><a href="{{ route('player.show', ['player' => $testimonial->testimonialWriter]) }}">{{ $testimonial->testimonialWriter->name }}</a></h3>
+                                                            <h3 class="text-base font-semibold leading-7 tracking-tight"><a href="{{ route('player.show', ['player' => $testimonial->writer]) }}">{{ $testimonial->writer->name }}</a></h3>
                                                             <p class="text-sm font-semibold leading-6 text-indigo-600">
-                                                                {{ Str::ucfirst($testimonial->testimonialWriter->type) }}
+                                                                {{ Str::ucfirst($testimonial->writer->type) }}
                                                                 -
-                                                                <a href="{{ route('team.show', ['team' => $testimonial->testimonialWriter->currentTeam]) }}" class="underline">
-                                                                    {{ Str::ucfirst($testimonial->testimonialWriter->currentTeam->name) }}
+                                                                <a href="{{ route('team.show', ['team' => $testimonial->writer->currentTeam]) }}" class="underline">
+                                                                    {{ Str::ucfirst($testimonial->writer->currentTeam->name) }}
                                                                 </a>
                                                             </p>
                                                         </div>
@@ -311,11 +311,11 @@
                                                 @forelse ($player->testimonials as $testimonial)
                                                     <li>
                                                         <div class="flex items-center gap-x-6">
-                                                            <img class="h-10 w-10 rounded-full" src="{{ $testimonial->testimonialWriter->profile_photo_url }}" alt="">
+                                                            <img class="h-10 w-10 rounded-full" src="{{ $testimonial->writer->profile_photo_url }}" alt="">
                                                             <div>
-                                                                <h3 class="text-base font-semibold leading-7 tracking-tight"><a href="{{ route('player.show', ['player' => $testimonial->testimonialWriter]) }}">{{ $testimonial->testimonialWriter->name }}</a></h3>
+                                                                <h3 class="text-base font-semibold leading-7 tracking-tight"><a href="{{ route('player.show', ['player' => $testimonial->writer]) }}">{{ $testimonial->writer->name }}</a></h3>
                                                                 <p class="text-sm font-semibold leading-6 text-indigo-600">
-                                                                    {{ Str::ucfirst($testimonial->testimonialWriter->type) }} - {{ Str::ucfirst($testimonial->testimonialWriter->currentTeam->name) }}
+                                                                    {{ Str::ucfirst($testimonial->writer->type) }} - {{ Str::ucfirst($testimonial->writer->currentTeam->name) }}
                                                                 </p>
                                                             </div>
                                                         </div>
