@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="py-12">
+    {{-- <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="sm:grid sm:grid-cols-3 sm:gap-4">
                 <div class="sm:col-span-1">
@@ -32,7 +32,7 @@
                     </div>
                     <div class="border-t border-gray-200">
                         <dl>
-                            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Biography</dt>
                                 <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $player->biography }}</dd>
                             </div>
@@ -208,13 +208,13 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="sm:grid sm:grid-cols-3 sm:gap-4">
-                    <div class="sm:col-span-1">hej</div>
-                    <div class="overflow-hidden bg-white shadow sm:rounded-lg sm:col-span-2">
+                    {{-- <div class="sm:col-span-1">hej</div> --}}
+                    <div class="overflow-hidden bg-white shadow sm:rounded-lg sm:col-span-full">
                         <div class="flex justify-between items-center px-4 py-5 sm:px-6">
                             <div>
                                 <h3 class="text-lg font-medium leading-6 text-gray-900">Talent Information</h3>

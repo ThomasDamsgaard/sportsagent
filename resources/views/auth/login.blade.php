@@ -64,7 +64,7 @@
         </form>
     </x-jet-authentication-card>
 
-    <div class="mt-2 text-center">
+    {{-- <div class="mt-2 text-center">
         <p class="text-sm text-gray-600">Or</p>
         <x-jet-social-button class="inline-flex items-center mt-2 bg-gray-600" href="{{ route('google.index') }}" type="button">
             <svg class="w-4 h-4 mr-2 -ml-1" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
@@ -72,5 +72,5 @@
             </svg>
             {{ __('Login With Google') }}
         </x-jet-social-button>
-    </div>
+    </div> --}}
 </x-guest-layout>

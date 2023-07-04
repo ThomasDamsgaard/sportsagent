@@ -23,9 +23,13 @@
 
                 <div class="bg-white shadow sm:rounded-lg p-4 mt-4 space-y-8">
                     <fieldset>
-                        <div class="flex items-center flex-row">
-                            <legend class="text-sm font-semibold leading-6 text-gray-900">Advanced Filters</legend>
-                            @svg('heroicon-o-chevron-down', 'h-4 w-4 ml-1')
+                        <div class="flex justify-between flex-row">
+                            <div class="flex items-center">
+                                <legend class="text-sm font-semibold leading-6 text-gray-900">Advanced Filters</legend>
+                                @svg('heroicon-o-chevron-down', 'h-4 w-4 ml-1')
+                            </div>
+                        <a class="text-sm font-semibold leading-6 text-indigo-600" href="{{ route('players.index') }}">Reset Filters</a>
+                            
                         </div>
                       <div class="sm:grid sm:grid-cols-2 mt-4">
                         <div class="space-y-4 col-span-1">
