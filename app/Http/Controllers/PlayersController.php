@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Scopes\GenderScope;
 use Illuminate\Http\Request;
 
 class PlayersController extends Controller
@@ -53,7 +54,10 @@ class PlayersController extends Controller
      */
     public function show(User $player)
     {
-        $player = $player->load(['testimonials.testimonialWriter', 'achievement']);
+        $player = $player->load(['achievement', 'testimonials.writer' => function ($query) {
+            $query->withoutGlobalScope(GenderScope::class);
+        }]);
+        // dd($player);
 
         return view('players.show', ['player' => $player]);
     }
