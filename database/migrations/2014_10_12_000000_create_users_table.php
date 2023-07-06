@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('type')->default('player');
             $table->string('nationality')->nullable();
             $table->enum('gender', ['male', 'female'])->nullable();
-            $table->timestamp('age')->nullable();
+            $table->dateTime('age')->nullable();
             $table->integer('height')->nullable();
             $table->integer('weight')->nullable();
             $table->string('position')->nullable();
