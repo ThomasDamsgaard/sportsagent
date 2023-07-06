@@ -117,37 +117,36 @@
                                                 <option value="1">Soccer</option>
                                                 <option value="2">Basketball</option>
                                             </x-jet-select>
-                                            {{-- <input id="sport_id" type="text" name="sport_id" id="sport_id" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"> --}}
                                         </dd>
                                     </div>
                                 @endif
 
                                 <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                    <dt class="flex items-center text-sm font-medium text-gray-500">Birthday</dt>
+                                    <dt class="flex items-center text-sm font-medium text-gray-500">Birthday (yyyy/mm/dd)</dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0">
                                         <input datepicker datepicker-format="yyyy/mm/dd" type="text" name="age" id="age" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="{{ $player->age }}">
                                     </dd>
                                 </div>
                                 <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                    <dt class="flex items-center text-sm font-medium text-gray-500">Height</dt>
+                                    <dt class="flex items-center text-sm font-medium text-gray-500">Height (cm)</dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0">
                                         <input type="text" name="height" id="height" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="{{ $player->height }}">
                                     </dd>
                                 </div>
                                 <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                    <dt class="flex items-center text-sm font-medium text-gray-500">Weight</dt>
+                                    <dt class="flex items-center text-sm font-medium text-gray-500">Weight (kg)</dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0">
                                         <input type="text" name="weight" id="weight" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="{{ $player->weight }}">
                                     </dd>
                                 </div>
                                 <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                    <dt class="flex items-center text-sm font-medium text-gray-500">Prefered position</dt>
+                                    <dt class="flex items-center text-sm font-medium text-gray-500">Prefered Position(s)</dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0">
                                         <input type="text" name="position" id="position" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="{{ $player->position }}">
                                     </dd>
                                 </div>
                                 <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                    <dt class="flex items-center text-sm font-medium text-gray-500">Salary expectation</dt>
+                                    <dt class="flex items-center text-sm font-medium text-gray-500">Salary Expectation (Year)</dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0">
                                         <div>
                                             <div class="relative rounded-md shadow-sm">
@@ -161,6 +160,18 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </dd>
+                                </div>
+                                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                    <dt class="flex items-center text-sm font-medium text-gray-500">City (Current Resident)</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0">
+                                        <input type="text" name="city" id="city" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="{{ $player->city }}">
+                                    </dd>
+                                </div>
+                                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                    <dt class="flex items-center text-sm font-medium text-gray-500">Country (Current Resident)</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0">
+                                        <input type="text" name="country" id="country" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="{{ $player->country }}">
                                     </dd>
                                 </div>
                                 <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">

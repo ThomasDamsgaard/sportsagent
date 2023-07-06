@@ -26,6 +26,8 @@ return new class extends Migration
             $table->integer('weight')->nullable();
             $table->string('position')->nullable();
             $table->string('salary')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
             $table->string('biography')->nullable();
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();

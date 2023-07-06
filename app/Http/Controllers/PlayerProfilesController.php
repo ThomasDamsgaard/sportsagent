@@ -18,6 +18,8 @@ class PlayerProfilesController extends Controller
             'weight' => $request->weight,
             'position' => $request->position,
             'salary' => $request->currency . $request->salary,
+            'city' => $request->city,
+            'country' => $request->country,
             'biography' => $request->biography,
         ]);
 
