@@ -36,7 +36,7 @@ class UserFactory extends Factory
             'age' => $this->faker->date(),
             'height' => $this->faker->numberBetween(160, 210),
             'weight' => $this->faker->numberBetween(70, 115),
-            'position' => $this->faker->word(),
+            'position' => $this->faker->randomElement(['center', 'shooting-guard', 'point-guard', 'power-forward', 'small-forward']),
             'salary' => '$' . $this->faker->numberBetween(1000, 10000),
             'biography' => $this->faker->text(),
             'two_factor_secret' => null,
