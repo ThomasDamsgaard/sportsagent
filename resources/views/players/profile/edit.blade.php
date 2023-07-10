@@ -1,6 +1,5 @@
 <x-app-layout>
-    <div class="overflow-hidden bg-white py-12 lg:overflow-visible lg:px-0">
-
+    <div class="min-h-screen overflow-hidden bg-white py-12 lg:overflow-visible lg:px-0">
         <div class="mx-auto grid grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
             <div class="px-4 lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8">
                 <div class="lg:pr-4">
@@ -10,16 +9,14 @@
                     </div>
                 </div>
             </div>
-            <div class="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-                <img class="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]" src="https://source.unsplash.com/57rD2oDZquc" alt="">
-            </div>
-            <div class="px-4 lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8">
 
+            <div class="px-4 lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8">
                 <form action="{{ route('player.profile.update', ['player' => $player]) }}" method="POST" enctype="multipart/form-data">
                     @method('PATCH')
                     @csrf
+
                     <div class="space-y-12">
-                        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-3">
+                        <div class="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-3">
                             <div class="sm:col-span-1">
                                 <label for="age" class="block text-sm font-medium leading-6 text-gray-900">Birthday</label>
                                 <div class="mt-2">
@@ -30,14 +27,14 @@
                             <div class="sm:col-span-1">
                                 <label for="height" class="block text-sm font-medium leading-6 text-gray-900">Height (cm)</label>
                                 <div class="mt-2">
-                                    <input type="text" name="height" id="height" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="height" id="height" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="195" value="{{ $player->height }}">
                                 </div>
                             </div>
 
                             <div class="sm:col-span-1">
                                 <label for="weight" class="block text-sm font-medium leading-6 text-gray-900">Weight (kg)</label>
                                 <div class="mt-2">
-                                    <input id="weight" name="weight" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" id="weight" name="weight" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="90" value="{{ $player->weight }}">
                                 </div>
                             </div>
 
@@ -58,46 +55,62 @@
                             </div>
 
                             <div class="sm:col-span-1">
-                                <label for="city" class="block text-sm font-medium leading-6 text-gray-900">City</label>
+                                <label for="city" class="block text-sm font-medium leading-6 text-gray-900">City (Residency)</label>
                                 <div class="mt-2">
-                                    <input type="text" name="city" id="city" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="city" id="city" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Los Angeles" value="{{ $player->city }}">
                                 </div>
                             </div>
 
                             <div class="sm:col-span-1">
-                                <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Country</label>
+                                <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Country (Residency)</label>
                                 <div class="mt-2">
-                                    <input type="text" name="country" id="country" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="country" id="country" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="United States" value="{{ $player->country }}">
                                 </div>
                             </div>
 
-                            <div class="sm:col-span-1">
-                                <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Prefered Position(s)</label>
-                                <div class="mt-2">
+                            <div class="col-span-1">
+                                <label class="mt-2 block text-sm font-medium leading-6 text-gray-900">Prefered Position(s)</label>
+                                <div>
                                     <fieldset>
-                                        <div class="space-y-6">
+                                        <div>
                                             <div class="relative flex gap-x-3">
                                                 <div class="flex h-6 items-center">
-                                                    <input id="comments" name="comments" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                    <input @if (in_array('center', json_decode($player->position))) checked @endif id="center" name="position[]" value="center" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                                                 </div>
                                                 <div class="text-sm leading-6">
-                                                    <label for="comments" class="font-medium text-gray-900">Comments</label>
+                                                    <label for="center" class="font-medium text-gray-900">Center</label>
                                                 </div>
                                             </div>
                                             <div class="relative flex gap-x-3">
                                                 <div class="flex h-6 items-center">
-                                                    <input id="candidates" name="candidates" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                    <input @if (in_array('power-forward', json_decode($player->position))) checked @endif id="power-forward" name="position[]" value="power-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                                                 </div>
                                                 <div class="text-sm leading-6">
-                                                    <label for="candidates" class="font-medium text-gray-900">Candidates</label>
+                                                    <label for="power-forward" class="font-medium text-gray-900">Power Forward</label>
                                                 </div>
                                             </div>
                                             <div class="relative flex gap-x-3">
                                                 <div class="flex h-6 items-center">
-                                                    <input id="offers" name="offers" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                    <input @if (in_array('small-forward', json_decode($player->position))) checked @endif id="small-forward" name="position[]" value="small-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                                                 </div>
                                                 <div class="text-sm leading-6">
-                                                    <label for="offers" class="font-medium text-gray-900">Offers</label>
+                                                    <label for="small-forward" class="font-medium text-gray-900">Small Forward</label>
+                                                </div>
+                                            </div>
+                                            <div class="relative flex gap-x-3">
+                                                <div class="flex h-6 items-center">
+                                                    <input @if (in_array('point-guard', json_decode($player->position))) checked @endif id="point-guard" name="position[]" value="point-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                </div>
+                                                <div class="text-sm leading-6">
+                                                    <label for="point-guard" class="font-medium text-gray-900">Point Guard</label>
+                                                </div>
+                                            </div>
+                                            <div class="relative flex gap-x-3">
+                                                <div class="flex h-6 items-center">
+                                                    <input @if (in_array('shooting-guard', json_decode($player->position))) checked @endif id="shooting-guard" name="position[]" value="shooting-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                </div>
+                                                <div class="text-sm leading-6">
+                                                    <label for="shooting-guard" class="font-medium text-gray-900">Shooting Guard</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -111,18 +124,20 @@
                                 <div class="mt-2">
                                     <textarea id="about" name="about" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
                                 </div>
-                                <p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself.</p>
+                                <p class="mt-3 text-sm leading-6 text-gray-600">Write about yourself.</p>
                             </div>
                         </div>
                     </div>
+                    <div class="flex items-center justify-end gap-x-6">
+                        <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+                    </div>
+                </form>
             </div>
 
-            <div class="mt-6 flex items-center justify-end gap-x-6">
-                <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+            <div class="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+                <img class="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10" src="https://source.unsplash.com/57rD2oDZquc" alt="">
             </div>
-            </form>
         </div>
-    </div>
     </div>
 
     @push('styles')
