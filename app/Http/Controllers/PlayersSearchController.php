@@ -35,14 +35,17 @@ class PlayersSearchController extends Controller
                 $query->where('verified', true);
             })
             ->when(request('position'), function ($query) {
-                $query->whereIn('position', array_values(request('position')))->get();
+                $query->whereIn('position', array_values(request('position')));
+            })
+            ->when(request('salary'), function ($query) {
+                $query->where('salary', '<=', request('salary'));
             })
             ->with('achievement')
             ->excludeCurrentUser()
             ->simplePaginate(15);
         // }
 
-        // dd(request()->query('position'));
+        dd(request('salary'));
 
 
         return view('players.index', ['players' => $players]);

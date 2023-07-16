@@ -25,7 +25,8 @@ return new class extends Migration
             $table->integer('height')->nullable();
             $table->integer('weight')->nullable();
             $table->string('position')->nullable();
-            $table->string('salary')->nullable();
+            $table->integer('salary')->nullable();
+            $table->char('currency')->nullable();
             $table->string('city')->nullable();
             $table->string('country')->nullable();
             $table->string('biography')->nullable();
