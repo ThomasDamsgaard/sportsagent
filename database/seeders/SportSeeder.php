@@ -18,8 +18,9 @@ class SportSeeder extends Seeder
     {
         Sport::factory(2)
             ->state(new Sequence(
-                ['name' => 'handball'],
-                ['name' => 'badminton'],
+
+                ['name' => 'handball', 'positions' => json_encode(['center', 'power-forward', 'small-forward', 'point-guard', 'shooting-guard']),],
+                ['name' => 'badminton', 'positions' => null],
             ))
             ->create();
     }

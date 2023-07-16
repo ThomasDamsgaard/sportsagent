@@ -10,7 +10,7 @@
                         <div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
 
                             <!-- Filters -->
-                            <form action="{{ route('players.search.index') }}">
+                            <form id="filters" action="{{ route('players.search.index') }}">
                                 <h3 class="sr-only">Filters</h3>
                                 <div class="border-b border-gray-200 py-6">
 
@@ -24,7 +24,7 @@
                                         <li>
                                             <div class="relative flex gap-x-3">
                                                 <div class="flex h-6 items-center">
-                                                    <input id="verified" name="verified" value="verified" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" {{ request()->has('verified') ? 'checked' : '' }}>
+                                                    <input id="verified" name="verified" value="verified" type="checkbox" onclick="document.querySelector('#filters').submit();" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" {{ request()->has('verified') ? 'checked' : '' }}>
                                                 </div>
                                                 <div class="text-sm leading-6">
                                                     <label for="verified" class="font-medium text-gray-900">Verified</label>
@@ -36,31 +36,29 @@
                                 </div>
 
                                 <div class="border-b border-gray-200 py-6">
-                                    <h3 class="-my-3 flow-root">
-                                        <button type="button" class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500" aria-controls="filter-section-0" aria-expanded="false">
-                                            <span class="font-medium text-gray-900">Position(s)</span>
-                                        </button>
+                                    <h3>
+                                        <div class="text-sm font-medium text-gray-900">Position(s)</div>
                                     </h3>
-                                    <div class="pt-4" id="filter-section-0">
+                                    <div class="pt-4">
                                         <div class="space-y-4">
                                             <div class="flex items-center">
-                                                <input id="center" name="position[]" value="white" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                <input @if (request('position') && in_array('center', request('position'))) checked @endif id="center" name="position[]" onclick="document.querySelector('#filters').submit();" value="center" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
                                                 <label for="center" class="ml-3 text-sm text-gray-600">Center</label>
                                             </div>
                                             <div class="flex items-center">
-                                                <input id="power-forward" name="position[]" value="beige" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                <input @if (request('position') && in_array('power-forward', request('position'))) checked @endif id="power-forward" name="position[]" onclick="document.querySelector('#filters').submit();" value="power-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
                                                 <label for="power-forward" class="ml-3 text-sm text-gray-600">Power Forward</label>
                                             </div>
                                             <div class="flex items-center">
-                                                <input id="small-forward" name="position[]" value="blue" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                <input @if (request('position') && in_array('small-forward', request('position'))) checked @endif id="small-forward" name="position[]" onclick="document.querySelector('#filters').submit();" value="small-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
                                                 <label for="small-forward" class="ml-3 text-sm text-gray-600">Small Forward</label>
                                             </div>
                                             <div class="flex items-center">
-                                                <input id="point-guard" name="position[]" value="brown" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                <input @if (request('position') && in_array('point-guard', request('position'))) checked @endif id="point-guard" name="position[]" onclick="document.querySelector('#filters').submit();" value="point-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
                                                 <label for="point-guard" class="ml-3 text-sm text-gray-600">Point Guard</label>
                                             </div>
                                             <div class="flex items-center">
-                                                <input id="shooting-guard" name="position[]" value="green" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                <input @if (request('position') && in_array('shooting-guard', request('position'))) checked @endif id="shooting-guard" name="position[]" onclick="document.querySelector('#filters').submit();" value="shooting-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
                                                 <label for="shooting-guard" class="ml-3 text-sm text-gray-600">Shooting Guard</label>
                                             </div>
                                         </div>
@@ -68,10 +66,8 @@
                                 </div>
 
                                 <div class="border-b border-gray-200 py-6">
-                                    <h3 class="-my-3 flow-root">
-                                        <button type="button" class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500" aria-controls="filter-section-0" aria-expanded="false">
-                                            <span class="font-medium text-gray-900">Age</span>
-                                        </button>
+                                    <h3>
+                                        <div class="text-sm font-medium text-gray-900">Age</div>
                                     </h3>
                                     <div class="pt-4">
                                         <div class="space-y-4">
@@ -83,15 +79,20 @@
                                     </div>
                                 </div>
                                 <div class="border-b border-gray-200 py-6">
-                                    <div class="flex items-center">
-                                        <div class="relative w-full">
-                                            <input type="text" name="salary" id="salary" class="block w-full rounded-md border-0 py-1.5 pr-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Max">
-                                            <div class="absolute inset-y-0 right-0 flex items-center">
-                                                <label for="currency" class="sr-only">Currency</label>
-                                                <select id="currency" name="currency" class="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm">
-                                                    <option value="$">USD</option>
-                                                    <option value="€">EUR</option>
-                                                </select>
+                                    <h3>
+                                        <div class="text-sm font-medium text-gray-900">Maximum Salary</div>
+                                    </h3>
+                                    <div class="pt-4">
+                                        <div class="flex items-center">
+                                            <div class="relative w-full">
+                                                <input type="text" name="salary" id="salary" class="block w-full rounded-md border-0 py-1.5 pr-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Max">
+                                                <div class="absolute inset-y-0 right-0 flex items-center">
+                                                    <label for="currency" class="sr-only">Currency</label>
+                                                    <select id="currency" class="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm">
+                                                        <option value="$">USD</option>
+                                                        <option value="€">EUR</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
