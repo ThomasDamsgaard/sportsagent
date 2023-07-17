@@ -35,6 +35,7 @@
                                     </ul>
                                 </div>
 
+                                {{-- Positions --}}
                                 <div class="border-b border-gray-200 py-6">
                                     <h3>
                                         <div class="text-sm font-medium text-gray-900">Position(s)</div>
@@ -67,18 +68,32 @@
 
                                 <div class="border-b border-gray-200 py-6">
                                     <h3>
-                                        <div class="text-sm font-medium text-gray-900">Age</div>
+                                        <div class="text-sm font-medium text-gray-900">Age (From/To)</div>
                                     </h3>
                                     <div class="pt-4">
                                         <div class="space-y-4">
-                                            <div class="flex items-center">
-                                                <input type="number" id="age-from" name="age-from" min="15" max="50" class="block w-full rounded-md border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="From">
-                                                <input type="number" id="age-to" name="age-to" min="15" max="50" class="block w-full rounded-md border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="To">
+                                            <div class="flex items-center space-x-4">
+                                                <select id="age-from" name="age-from" class="block w-full rounded-md border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                                    <option {{ request('age-from') ? '' : 'selected' }} disabled></option>
+                                                    @for ($i = 13; $i < 46; $i++)
+                                                        <option {{ request('age-from') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                                    @endfor
+                                                </select>
+                                                <select id="age-to" name="age-to" onchange="document.querySelector('#filters').submit();" class="block w-full rounded-md border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                                    <option selected disabled></option>
+                                                    @for ($i = 13; $i < 46; $i++)
+                                                        <option {{ request('age-to') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                                    @endfor
+                                                </select>
+                                                {{-- <input type="number" id="age-from" name="age-from" min="15" max="50" class="block w-full rounded-md border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="From"> --}}
+                                                {{-- <input type="number" id="age-to" name="age-to" min="15" max="50" class="block w-full rounded-md border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="To"> --}}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="border-b border-gray-200 py-6">
+
+                                {{-- Salary --}}
+                                {{-- <div class="border-b border-gray-200 py-6">
                                     <h3>
                                         <div class="text-sm font-medium text-gray-900">Maximum Salary</div>
                                     </h3>
@@ -96,9 +111,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="border-b border-gray-200 py-6">
+                                </div> --}}
 
+                                {{-- Name Search --}}
+                                <div class="border-b border-gray-200 py-6">
                                     <div class="flex items-center">
                                         <label for="search" class="sr-only">Search Players By Name</label>
                                         <div class="relative w-full">
@@ -160,7 +176,7 @@
                                                                         </div>
                                                                     </td>
                                                                     <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
-                                                                        {{ $player->position }}
+                                                                        {{ Str::title(Str::replace('-', ' ', $player->position)) }}
                                                                     </td>
                                                                     <td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
                                                                         <a href="{{ route('player.show', ['player' => $player]) }}" class="text-green-600 hover:text-green-900">Show</a>

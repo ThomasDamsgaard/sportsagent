@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Spatie\QueryBuilder\QueryBuilder;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Arr;
 
 class PlayersSearchController extends Controller
 {
@@ -37,12 +38,23 @@ class PlayersSearchController extends Controller
             ->when(request('position'), function ($query) {
                 $query->whereIn('position', array_values(request('position')))->get();
             })
+            ->when(request('age-to'), function ($query) {
+                $query->whereBetween(
+                    'age',
+                    [
+                        Carbon::now()->subYears(request('age-to')),
+                        Carbon::now()->subYears(request('age-from')) ?: 50,
+                    ]
+                );
+            })
             ->with('achievement')
             ->excludeCurrentUser()
             ->simplePaginate(15);
         // }
 
-        // dd(request()->query('position'));
+        // dd(request());
+
+        // dd(Carbon::now()->subYears(request('age-from')));
 
 
         return view('players.index', ['players' => $players]);
