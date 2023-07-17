@@ -1,17 +1,12 @@
 <x-app-layout>
     <div class="">
-
         <div class="bg-white">
             <div>
                 <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <section aria-labelledby="filters-heading" class="pb-24 pt-4">
                         <h2 id="filters-heading" class="sr-only">Filters</h2>
-
                         <div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-
                             <div>
-
-
                                 <!-- Filters -->
                                 <form id="filters" action="{{ route('players.filter.index') }}">
                                     <h3 class="sr-only">Filters</h3>
@@ -69,6 +64,7 @@
                                         </div>
                                     </div>
 
+                                    {{-- Age --}}
                                     <div class="border-b border-gray-200 py-6">
                                         <h3>
                                             <div class="text-sm font-medium text-gray-900">Age (From/To)</div>
@@ -88,8 +84,6 @@
                                                             <option {{ request('age-to') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                                         @endfor
                                                     </select>
-                                                    {{-- <input type="number" id="age-from" name="age-from" min="15" max="50" class="block w-full rounded-md border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="From"> --}}
-                                                    {{-- <input type="number" id="age-to" name="age-to" min="15" max="50" class="block w-full rounded-md border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="To"> --}}
                                                 </div>
                                             </div>
                                         </div>
