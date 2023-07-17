@@ -16,6 +16,7 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -127,6 +128,11 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
         $query->where('id', '!=', auth()->user()->id);
     }
 
+    public function scopeOnlyPlayers(): Builder
+    {
+        return $this->where('type', 'player');
+    }
+
     // public function scopeSearch($query, string $terms = null)
     // {
     //     // str_getcsv - ability to do quote searches
@@ -139,5 +145,24 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
     public function calculateAge(): int|string
     {
         return $this->age ? \Carbon\Carbon::parse($this->age)->age : 'Not registered';
+    }
+
+    public function scopePlayerSearchFilters(): Builder
+    {
+        return $this->when(request('verified'), function ($query) {
+            $query->where('verified', true);
+        })
+            ->when(request('position'), function ($query) {
+                $query->whereIn('position', array_values(request('position')))->get();
+            })
+            ->when(request('age-to'), function ($query) {
+                $query->whereBetween(
+                    'age',
+                    [
+                        Carbon::now()->subYears(request('age-to')),
+                        Carbon::now()->subYears(request('age-from')) ?: 50,
+                    ]
+                );
+            });
     }
 }

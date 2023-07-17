@@ -9,91 +9,94 @@
 
                         <div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
 
-                            <!-- Filters -->
-                            <form id="filters" action="{{ route('players.search.index') }}">
-                                <h3 class="sr-only">Filters</h3>
-                                <div class="border-b border-gray-200 py-6">
+                            <div>
 
-                                    <ul role="list" class="space-y-4 text-sm font-medium text-gray-900">
-                                        <li>
-                                            <div class="flex flex-row items-center">
-                                                <legend class="text-sm font-semibold leading-6 text-gray-900">Advanced Filters</legend>
-                                                @svg('heroicon-o-chevron-down', 'h-4 w-4 ml-1')
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="relative flex gap-x-3">
-                                                <div class="flex h-6 items-center">
-                                                    <input id="verified" name="verified" value="verified" type="checkbox" onclick="document.querySelector('#filters').submit();" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" {{ request()->has('verified') ? 'checked' : '' }}>
-                                                </div>
-                                                <div class="text-sm leading-6">
-                                                    <label for="verified" class="font-medium text-gray-900">Verified</label>
-                                                    <p class="text-gray-500">Get only players with public verified results</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
 
-                                {{-- Positions --}}
-                                <div class="border-b border-gray-200 py-6">
-                                    <h3>
-                                        <div class="text-sm font-medium text-gray-900">Position(s)</div>
-                                    </h3>
-                                    <div class="pt-4">
-                                        <div class="space-y-4">
-                                            <div class="flex items-center">
-                                                <input @if (request('position') && in_array('center', request('position'))) checked @endif id="center" name="position[]" onclick="document.querySelector('#filters').submit();" value="center" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                                <label for="center" class="ml-3 text-sm text-gray-600">Center</label>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <input @if (request('position') && in_array('power-forward', request('position'))) checked @endif id="power-forward" name="position[]" onclick="document.querySelector('#filters').submit();" value="power-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                                <label for="power-forward" class="ml-3 text-sm text-gray-600">Power Forward</label>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <input @if (request('position') && in_array('small-forward', request('position'))) checked @endif id="small-forward" name="position[]" onclick="document.querySelector('#filters').submit();" value="small-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                                <label for="small-forward" class="ml-3 text-sm text-gray-600">Small Forward</label>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <input @if (request('position') && in_array('point-guard', request('position'))) checked @endif id="point-guard" name="position[]" onclick="document.querySelector('#filters').submit();" value="point-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                                <label for="point-guard" class="ml-3 text-sm text-gray-600">Point Guard</label>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <input @if (request('position') && in_array('shooting-guard', request('position'))) checked @endif id="shooting-guard" name="position[]" onclick="document.querySelector('#filters').submit();" value="shooting-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                                <label for="shooting-guard" class="ml-3 text-sm text-gray-600">Shooting Guard</label>
+                                <!-- Filters -->
+                                <form id="filters" action="{{ route('players.filter.index') }}">
+                                    <h3 class="sr-only">Filters</h3>
+                                    <div class="border-b border-gray-200 py-6">
+
+                                        <ul role="list" class="space-y-4 text-sm font-medium text-gray-900">
+                                            <li>
+                                                <div class="flex flex-row items-center">
+                                                    <legend class="text-sm font-semibold leading-6 text-gray-900">Advanced Filters</legend>
+                                                    @svg('heroicon-o-chevron-down', 'h-4 w-4 ml-1')
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="relative flex gap-x-3">
+                                                    <div class="flex h-6 items-center">
+                                                        <input id="verified" name="verified" value="verified" type="checkbox" onclick="document.querySelector('#filters').submit();" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" {{ request()->has('verified') ? 'checked' : '' }}>
+                                                    </div>
+                                                    <div class="text-sm leading-6">
+                                                        <label for="verified" class="font-medium text-gray-900">Verified</label>
+                                                        <p class="text-gray-500">Get only players with public verified results</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    {{-- Positions --}}
+                                    <div class="border-b border-gray-200 py-6">
+                                        <h3>
+                                            <div class="text-sm font-medium text-gray-900">Position(s)</div>
+                                        </h3>
+                                        <div class="pt-4">
+                                            <div class="space-y-4">
+                                                <div class="flex items-center">
+                                                    <input @if (request('position') && in_array('center', request('position'))) checked @endif id="center" name="position[]" onclick="document.querySelector('#filters').submit();" value="center" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                    <label for="center" class="ml-3 text-sm text-gray-600">Center</label>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input @if (request('position') && in_array('power-forward', request('position'))) checked @endif id="power-forward" name="position[]" onclick="document.querySelector('#filters').submit();" value="power-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                    <label for="power-forward" class="ml-3 text-sm text-gray-600">Power Forward</label>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input @if (request('position') && in_array('small-forward', request('position'))) checked @endif id="small-forward" name="position[]" onclick="document.querySelector('#filters').submit();" value="small-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                    <label for="small-forward" class="ml-3 text-sm text-gray-600">Small Forward</label>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input @if (request('position') && in_array('point-guard', request('position'))) checked @endif id="point-guard" name="position[]" onclick="document.querySelector('#filters').submit();" value="point-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                    <label for="point-guard" class="ml-3 text-sm text-gray-600">Point Guard</label>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input @if (request('position') && in_array('shooting-guard', request('position'))) checked @endif id="shooting-guard" name="position[]" onclick="document.querySelector('#filters').submit();" value="shooting-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                    <label for="shooting-guard" class="ml-3 text-sm text-gray-600">Shooting Guard</label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="border-b border-gray-200 py-6">
-                                    <h3>
-                                        <div class="text-sm font-medium text-gray-900">Age (From/To)</div>
-                                    </h3>
-                                    <div class="pt-4">
-                                        <div class="space-y-4">
-                                            <div class="flex items-center space-x-4">
-                                                <select id="age-from" name="age-from" class="block w-full rounded-md border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                                                    <option {{ request('age-from') ? '' : 'selected' }} disabled></option>
-                                                    @for ($i = 13; $i < 46; $i++)
-                                                        <option {{ request('age-from') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
-                                                    @endfor
-                                                </select>
-                                                <select id="age-to" name="age-to" onchange="document.querySelector('#filters').submit();" class="block w-full rounded-md border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                                                    <option selected disabled></option>
-                                                    @for ($i = 13; $i < 46; $i++)
-                                                        <option {{ request('age-to') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
-                                                    @endfor
-                                                </select>
-                                                {{-- <input type="number" id="age-from" name="age-from" min="15" max="50" class="block w-full rounded-md border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="From"> --}}
-                                                {{-- <input type="number" id="age-to" name="age-to" min="15" max="50" class="block w-full rounded-md border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="To"> --}}
+                                    <div class="border-b border-gray-200 py-6">
+                                        <h3>
+                                            <div class="text-sm font-medium text-gray-900">Age (From/To)</div>
+                                        </h3>
+                                        <div class="pt-4">
+                                            <div class="space-y-4">
+                                                <div class="flex items-center space-x-4">
+                                                    <select id="age-from" name="age-from" class="block w-full rounded-md border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                                        <option {{ request('age-from') ? '' : 'selected' }} disabled></option>
+                                                        @for ($i = 13; $i < 46; $i++)
+                                                            <option {{ request('age-from') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                                        @endfor
+                                                    </select>
+                                                    <select id="age-to" name="age-to" onchange="document.querySelector('#filters').submit();" class="block w-full rounded-md border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                                        <option selected disabled></option>
+                                                        @for ($i = 13; $i < 46; $i++)
+                                                            <option {{ request('age-to') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                                        @endfor
+                                                    </select>
+                                                    {{-- <input type="number" id="age-from" name="age-from" min="15" max="50" class="block w-full rounded-md border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="From"> --}}
+                                                    {{-- <input type="number" id="age-to" name="age-to" min="15" max="50" class="block w-full rounded-md border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="To"> --}}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                {{-- Salary --}}
-                                {{-- <div class="border-b border-gray-200 py-6">
+                                    {{-- Salary --}}
+                                    {{-- <div class="border-b border-gray-200 py-6">
                                     <h3>
                                         <div class="text-sm font-medium text-gray-900">Maximum Salary</div>
                                     </h3>
@@ -112,28 +115,31 @@
                                         </div>
                                     </div>
                                 </div> --}}
+                                </form>
 
                                 {{-- Name Search --}}
-                                <div class="border-b border-gray-200 py-6">
-                                    <div class="flex items-center">
-                                        <label for="search" class="sr-only">Search Players By Name</label>
-                                        <div class="relative w-full">
-                                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                                                <svg aria-hidden="true" class="h-5 w-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
-                                                </svg>
+                                <form id="search" action="{{ route('players.search.index') }}">
+                                    <div class="border-b border-gray-200 py-6">
+                                        <div class="flex items-center">
+                                            <label for="search" class="sr-only">Search Players By Name</label>
+                                            <div class="relative w-full">
+                                                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                    <svg aria-hidden="true" class="h-5 w-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </div>
+                                                <input type="text" id="search" name="search" class="block w-full rounded-md border-gray-200 pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Search Players By Name">
                                             </div>
-                                            <input type="text" id="search" name="search" class="block w-full rounded-md border-gray-200 pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Search Players By Name">
+                                            <button type="submit" class="ml-2 rounded-lg border border-blue-700 bg-blue-700 p-2 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                                                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                </svg>
+                                                <span class="sr-only">Search Players By Name</span>
+                                            </button>
                                         </div>
-                                        <button type="submit" class="ml-2 rounded-lg border border-blue-700 bg-blue-700 p-2 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300">
-                                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                            </svg>
-                                            <span class="sr-only">Search Players By Name</span>
-                                        </button>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
 
                             {{-- Table --}}
                             <div class="lg:col-span-3">
