@@ -31,7 +31,7 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'type' => 'player',
-            'nationality' => $this->faker->randomElement(['uk', 'us', 'dk', 'se', 'no']),
+            'nationality' => $this->faker->randomElement(['us', 'dk', 'se', 'no']),
             'gender' => $this->faker->randomElement(['male', 'female']),
             'age' => $this->faker->date(),
             'height' => $this->faker->numberBetween(160, 210),
@@ -39,6 +39,7 @@ class UserFactory extends Factory
             'position' => $this->faker->randomElement(['center', 'shooting-guard', 'point-guard', 'power-forward', 'small-forward']),
             'salary' => '$' . $this->faker->numberBetween(1000, 10000),
             'biography' => $this->faker->text(),
+            'verified' => $this->faker->randomElement([true, false]),
             'two_factor_secret' => null,
             'two_factor_recovery_codes' => null,
             'remember_token' => Str::random(10),
