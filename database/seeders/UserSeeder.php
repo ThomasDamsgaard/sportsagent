@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
     {
         $this->generateAdmin();
 
-        $this->generateHandballUsers();
+        $this->generateBasketballUsers();
 
         $this->generateBadmintonUsers();
     }
@@ -35,11 +35,11 @@ class UserSeeder extends Seeder
         ]);
     }
 
-    private function generateHandballUsers()
+    private function generateBasketballUsers()
     {
         User::factory()
             ->hasAttached(
-                Team::factory(['name' => 'Odense Håndbold', 'country' => 'dk', 'league' => '1. Divison'])
+                Team::factory(['name' => 'Odense Basketball', 'country' => 'dk', 'league' => '1. Divison'])
                     ->state(function (array $attributes, User $user) {
                         return ['user_id' => $user->id];
                     }),
@@ -48,7 +48,7 @@ class UserSeeder extends Seeder
             ->create([
                 'sport_id' => 1,
                 'name' => 'Test User',
-                'email' => 'handball@example.com',
+                'email' => 'basketball@example.com',
                 'type' => 'owner',
                 'current_team_id' => 1,
             ]);
@@ -58,8 +58,8 @@ class UserSeeder extends Seeder
             ->hasAttached(
                 Team::factory()
                     ->state(new Sequence(
-                        ['name' => 'Aalborg Håndbold', 'country' => 'dk', 'league' => '1. Divison'],
-                        ['name' => 'København Håndbold', 'country' => 'dk', 'league' => '1. Divison'],
+                        ['name' => 'Aalborg Basketball', 'country' => 'dk', 'league' => '1. Divison'],
+                        ['name' => 'København Basketball', 'country' => 'dk', 'league' => '1. Divison'],
                     ))
                     ->state(function (array $attributes, User $owner) {
                         return ['user_id' => $owner->id];
@@ -77,8 +77,8 @@ class UserSeeder extends Seeder
 
         $user = User::factory()->create([
             'sport_id' => 1,
-            'name' => 'Handball User',
-            'email' => 'handballuser@example.com',
+            'name' => 'Basketball User',
+            'email' => 'basketballuser@example.com',
             'type' => 'player',
             'current_team_id' => 1,
             'verified' => true,
