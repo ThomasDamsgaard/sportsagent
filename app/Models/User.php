@@ -7,16 +7,17 @@ use App\Scopes\GenderScope;
 use Laravel\Cashier\Billable;
 use Laravel\Scout\Searchable;
 use App\Traits\BelongsToSport;
+use Illuminate\Support\Carbon;
 use Laravel\Jetstream\HasTeams;
 use App\Traits\HasNoPersonalTeam;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia;
 use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -95,12 +96,6 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
      */
     public function toSearchableArray(): array
     {
-        // $array = $this->toArray();
-
-        // Customize the data array...
-
-        // return $array;
-
         return [
             'name' => $this->name,
             'verified' => '',
@@ -144,7 +139,7 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
 
     public function calculateAge(): int|string
     {
-        return $this->age ? \Carbon\Carbon::parse($this->age)->age : 'Not registered';
+        return $this->age ? Carbon::parse($this->age)->age : 'Not registered';
     }
 
     public function scopePlayerSearchFilters(): Builder
