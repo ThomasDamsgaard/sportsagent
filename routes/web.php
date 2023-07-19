@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\EnsureHasSport;
 use App\Http\Controllers\TeamsController;
+use App\Http\Controllers\CoachesController;
 use App\Http\Controllers\PlayersController;
 use App\Http\Controllers\AttachmentsController;
 use App\Http\Controllers\ImpersonationController;
@@ -29,7 +30,9 @@ Route::middleware([
     })->name('dashboard');
 
     Route::get('/players', [PlayersController::class, 'index'])->name('players.index');
+    Route::get('/coaches', [CoachesController::class, 'index'])->name('coaches.index');
     Route::get('/players/show/{player}', [PlayersController::class, 'show'])->name('player.show');
+    Route::get('/coaches/show/{coach}', [CoachesController::class, 'show'])->name('coach.show');
     Route::get('/players/create', [PlayersController::class, 'create'])->name('player.create');
 
     Route::get('/players/search', PlayersSearchController::class)->name('players.search.index');

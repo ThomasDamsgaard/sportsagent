@@ -10,9 +10,9 @@ class PlayersSearchController extends Controller
     public function __invoke()
     {
         $players = User::search(trim(request('search')) ?? '')
+            ->where('type', 'player')
             ->query(fn (Builder $query) => $query->with('achievement'))
             ->query(fn (Builder $query) => $query->excludeCurrentUser())
-            ->query(fn (Builder $query) => $query->onlyPlayers())
             ->simplePaginate(15);
 
         return view('players.index', ['players' => $players]);
