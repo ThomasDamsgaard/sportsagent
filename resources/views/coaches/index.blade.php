@@ -8,7 +8,10 @@
                         <div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                             <div>
                                 <!-- Filters -->
-                                <form id="filters" action="{{ route('players.filter.index') }}">
+                                <form id="filters" action="{{ route('filter.index') }}">
+                                    <input name="_type" type="hidden" value="coach">
+                                    <input name="_model" type="hidden" value="coaches">
+
                                     <h3 class="sr-only">Filters</h3>
                                     <div class="border-b border-gray-200 py-6">
 
