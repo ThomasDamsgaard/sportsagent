@@ -35,10 +35,7 @@ Route::middleware([
     Route::get('/coaches/show/{coach}', [CoachesController::class, 'show'])->name('coach.show');
     Route::get('/players/create', [PlayersController::class, 'create'])->name('player.create');
 
-    Route::get('/search', SearchController::class)->name('search.index');
-    Route::get('/filter', FilterController::class)->name('filter.index');
-
-    require __DIR__ . '/stepper.php';
+    // require __DIR__ . '/stepper.php';
 
     Route::get('/player/profile/{player}', [PlayerProfilesController::class, 'edit'])
         ->withoutMiddleware([EnsureHasSport::class])->name('player.profile.edit');
@@ -49,6 +46,9 @@ Route::middleware([
     Route::post('/player/attachments/{player}', [AttachmentsController::class, 'store'])->name('player.attachments.store');
     Route::get('/player/attachments/{item}', [AttachmentsController::class, 'show'])->name('player.attachments.show');
     Route::get('/player/attachments/delete/{item}', [AttachmentsController::class, 'destroy'])->name('player.attachments.destroy');
+
+    Route::get('/search', SearchController::class)->name('search.index');
+    Route::get('/filter', FilterController::class)->name('filter.index');
 
     Route::post('/upload', function (Request $request) {
         $path = $request->file('fileupload')->store('tmp', 'public');
