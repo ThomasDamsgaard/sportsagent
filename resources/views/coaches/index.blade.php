@@ -112,7 +112,9 @@
                                 </form>
 
                                 {{-- Name Search --}}
-                                <form id="search" action="{{ route('players.search.index') }}">
+                                <form id="search" action="{{ route('search.index') }}">
+                                    <input name="_type" type="hidden" value="coach">
+                                    <input name="_model" type="hidden" value="coaches">
                                     <div class="border-b border-gray-200 py-6">
                                         <div class="flex items-center">
                                             <label for="search" class="sr-only">Search Coaches By Name</label>

@@ -9,7 +9,7 @@ use App\Http\Controllers\PlayersController;
 use App\Http\Controllers\AttachmentsController;
 use App\Http\Controllers\ImpersonationController;
 use App\Http\Controllers\PlayersFilterController;
-use App\Http\Controllers\PlayersSearchController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PlayerProfilesController;
 
 require __DIR__ . '/public.php';
@@ -35,7 +35,7 @@ Route::middleware([
     Route::get('/coaches/show/{coach}', [CoachesController::class, 'show'])->name('coach.show');
     Route::get('/players/create', [PlayersController::class, 'create'])->name('player.create');
 
-    Route::get('/players/search', PlayersSearchController::class)->name('players.search.index');
+    Route::get('/search', SearchController::class)->name('search.index');
     Route::get('/players/filter', PlayersFilterController::class)->name('players.filter.index');
 
     require __DIR__ . '/stepper.php';
