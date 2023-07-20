@@ -4,17 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 
-class PlayersFilterController extends Controller
+class FilterController extends Controller
 {
     public function __invoke()
     {
-        $players = User::query()
-            ->onlyPlayers()
-            ->playerSearchFilters()
+        $users = User::query()
+            ->searchFilters(request('_type'))
             ->with('achievement')
             ->excludeCurrentUser()
             ->simplePaginate(15);
 
-        return view('players.index', ['players' => $players]);
+        return view(request('_model') . '.index', [request('_model') => $users]);
     }
 }

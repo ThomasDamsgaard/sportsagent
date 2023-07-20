@@ -118,14 +118,14 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
         return $this->hasOne(Achievement::class);
     }
 
-    public function scopeExcludeCurrentUser($query)
+    public function scopeExcludeCurrentUser(Builder $query): void
     {
         $query->where('id', '!=', auth()->user()->id);
     }
 
-    public function scopeOnlyPlayers(): Builder
+    public function scopeOnlyPlayers(Builder $query): void
     {
-        return $this->where('type', 'player');
+        $query->where('type', 'player');
     }
 
     // public function scopeSearch($query, string $terms = null)
@@ -142,11 +142,13 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
         return $this->age ? Carbon::parse($this->age)->age : 'Not registered';
     }
 
-    public function scopePlayerSearchFilters(): Builder
+    public function scopeSearchFilters(Builder $query, string $type): void
     {
-        return $this->when(request('verified'), function ($query) {
-            $query->where('verified', true);
-        })
+        $query
+            ->where('type', $type)
+            ->when(request('verified'), function ($query) {
+                $query->where('verified', true);
+            })
             ->when(request('position'), function ($query) {
                 $query->whereIn('position', array_values(request('position')))->get();
             })

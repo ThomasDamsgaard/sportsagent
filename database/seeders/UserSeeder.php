@@ -49,11 +49,11 @@ class UserSeeder extends Seeder
                 'sport_id' => 1,
                 'name' => 'Test User',
                 'email' => 'basketball@example.com',
-                'type' => 'owner',
+                'type' => 'coach',
                 'current_team_id' => 1,
             ]);
 
-        $owner = User::factory()
+        $coach = User::factory()
             ->count(2)
             ->hasAttached(
                 Team::factory()
@@ -61,8 +61,8 @@ class UserSeeder extends Seeder
                         ['name' => 'Aalborg Basketball', 'country' => 'dk', 'league' => '1. Divison'],
                         ['name' => 'København Basketball', 'country' => 'dk', 'league' => '1. Divison'],
                     ))
-                    ->state(function (array $attributes, User $owner) {
-                        return ['user_id' => $owner->id];
+                    ->state(function (array $attributes, User $coach) {
+                        return ['user_id' => $coach->id];
                     }),
                 ['role' => 'admin']
             )
@@ -71,7 +71,7 @@ class UserSeeder extends Seeder
                 ['current_team_id' => 3],
             ))
             ->create([
-                'type' => 'owner',
+                'type' => 'coach',
                 'verified' => true,
             ]);
 
@@ -116,11 +116,11 @@ class UserSeeder extends Seeder
                 'sport_id' => 2,
                 'name' => 'Badminton User',
                 'email' => 'badminton@example.com',
-                'type' => 'owner',
+                'type' => 'coach',
                 'current_team_id' => 4,
             ]);
 
-        $owner = User::factory()
+        $coach = User::factory()
             ->count(2)
             ->hasAttached(
                 Team::factory()
@@ -128,8 +128,8 @@ class UserSeeder extends Seeder
                         ['name' => 'Aalborg Badminton', 'country' => 'dk', 'league' => '1. Divison'],
                         ['name' => 'København Badminton', 'country' => 'dk', 'league' => '1. Divison'],
                     ))
-                    ->state(function (array $attributes, User $owner) {
-                        return ['sport_id' => 2, 'user_id' => $owner->id];
+                    ->state(function (array $attributes, User $coach) {
+                        return ['sport_id' => 2, 'user_id' => $coach->id];
                     }),
                 ['role' => 'admin']
             )
@@ -140,7 +140,7 @@ class UserSeeder extends Seeder
             ))
             ->create([
                 'sport_id' => 2,
-                'type' => 'owner',
+                'type' => 'coach',
                 'verified' => true,
             ]);
 
