@@ -4,11 +4,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\EnsureHasSport;
 use App\Http\Controllers\TeamsController;
+use App\Http\Controllers\CoachesController;
 use App\Http\Controllers\PlayersController;
 use App\Http\Controllers\AttachmentsController;
 use App\Http\Controllers\ImpersonationController;
-use App\Http\Controllers\PlayersFilterController;
-use App\Http\Controllers\PlayersSearchController;
+use App\Http\Controllers\FilterController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PlayerProfilesController;
 
 require __DIR__ . '/public.php';
@@ -29,13 +30,12 @@ Route::middleware([
     })->name('dashboard');
 
     Route::get('/players', [PlayersController::class, 'index'])->name('players.index');
+    Route::get('/coaches', [CoachesController::class, 'index'])->name('coaches.index');
     Route::get('/players/show/{player}', [PlayersController::class, 'show'])->name('player.show');
+    Route::get('/coaches/show/{coach}', [CoachesController::class, 'show'])->name('coach.show');
     Route::get('/players/create', [PlayersController::class, 'create'])->name('player.create');
 
-    Route::get('/players/search', PlayersSearchController::class)->name('players.search.index');
-    Route::get('/players/filter', PlayersFilterController::class)->name('players.filter.index');
-
-    require __DIR__ . '/stepper.php';
+    // require __DIR__ . '/stepper.php';
 
     Route::get('/player/profile/{player}', [PlayerProfilesController::class, 'edit'])
         ->withoutMiddleware([EnsureHasSport::class])->name('player.profile.edit');
@@ -46,6 +46,9 @@ Route::middleware([
     Route::post('/player/attachments/{player}', [AttachmentsController::class, 'store'])->name('player.attachments.store');
     Route::get('/player/attachments/{item}', [AttachmentsController::class, 'show'])->name('player.attachments.show');
     Route::get('/player/attachments/delete/{item}', [AttachmentsController::class, 'destroy'])->name('player.attachments.destroy');
+
+    Route::get('/search', SearchController::class)->name('search.index');
+    Route::get('/filter', FilterController::class)->name('filter.index');
 
     Route::post('/upload', function (Request $request) {
         $path = $request->file('fileupload')->store('tmp', 'public');
