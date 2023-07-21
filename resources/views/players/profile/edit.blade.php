@@ -1,3 +1,5 @@
+@inject('countries', 'App\Services\User\Country')
+
 <x-app-layout>
     <div class="min-h-screen overflow-hidden bg-white py-12 lg:overflow-visible lg:px-0">
         <div class="mx-auto grid grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
@@ -17,6 +19,17 @@
 
                     <div class="space-y-12">
                         <div class="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-3">
+                            <div class="sm:col-span-1">
+                                <label for="nationality" class="block text-sm font-medium leading-6 text-gray-900">Nationality</label>
+                                <div class="mt-2">
+                                    <select id="nationality" name="nationality" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        @foreach ($countries->all() as $code => $country)
+                                            <option value="{{ $code }}" {{ $player->nationality === $code ? 'selected' : '' }}>{{ $country }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="sm:col-span-1">
                                 <label for="age" class="block text-sm font-medium leading-6 text-gray-900">Birthday</label>
                                 <div class="mt-2">
@@ -64,7 +77,11 @@
                             <div class="sm:col-span-1">
                                 <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Country (Residency)</label>
                                 <div class="mt-2">
-                                    <input type="text" name="country" id="country" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="United States" value="{{ $player->country }}">
+                                    <select id="country" name="country" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        @foreach ($countries->all() as $code => $country)
+                                            <option value="{{ $code }}" {{ $player->country === $code ? 'selected' : '' }}>{{ $country }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 
@@ -75,7 +92,7 @@
                                         <div>
                                             <div class="relative flex gap-x-3">
                                                 <div class="flex h-6 items-center">
-                                                    <input @if (in_array('center', json_decode($player->position))) checked @endif id="center" name="position[]" value="center" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                    <input @if (in_array('center', json_decode($player->position) ?? [])) checked @endif id="center" name="position[]" value="center" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                                                 </div>
                                                 <div class="text-sm leading-6">
                                                     <label for="center" class="font-medium text-gray-900">Center</label>
@@ -83,7 +100,7 @@
                                             </div>
                                             <div class="relative flex gap-x-3">
                                                 <div class="flex h-6 items-center">
-                                                    <input @if (in_array('power-forward', json_decode($player->position))) checked @endif id="power-forward" name="position[]" value="power-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                    <input @if (in_array('power-forward', json_decode($player->position) ?? [])) checked @endif id="power-forward" name="position[]" value="power-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                                                 </div>
                                                 <div class="text-sm leading-6">
                                                     <label for="power-forward" class="font-medium text-gray-900">Power Forward</label>
@@ -91,7 +108,7 @@
                                             </div>
                                             <div class="relative flex gap-x-3">
                                                 <div class="flex h-6 items-center">
-                                                    <input @if (in_array('small-forward', json_decode($player->position))) checked @endif id="small-forward" name="position[]" value="small-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                    <input @if (in_array('small-forward', json_decode($player->position) ?? [])) checked @endif id="small-forward" name="position[]" value="small-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                                                 </div>
                                                 <div class="text-sm leading-6">
                                                     <label for="small-forward" class="font-medium text-gray-900">Small Forward</label>
@@ -99,7 +116,7 @@
                                             </div>
                                             <div class="relative flex gap-x-3">
                                                 <div class="flex h-6 items-center">
-                                                    <input @if (in_array('point-guard', json_decode($player->position))) checked @endif id="point-guard" name="position[]" value="point-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                    <input @if (in_array('point-guard', json_decode($player->position) ?? [])) checked @endif id="point-guard" name="position[]" value="point-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                                                 </div>
                                                 <div class="text-sm leading-6">
                                                     <label for="point-guard" class="font-medium text-gray-900">Point Guard</label>
@@ -107,7 +124,7 @@
                                             </div>
                                             <div class="relative flex gap-x-3">
                                                 <div class="flex h-6 items-center">
-                                                    <input @if (in_array('shooting-guard', json_decode($player->position))) checked @endif id="shooting-guard" name="position[]" value="shooting-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                    <input @if (in_array('shooting-guard', json_decode($player->position) ?? [])) checked @endif id="shooting-guard" name="position[]" value="shooting-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                                                 </div>
                                                 <div class="text-sm leading-6">
                                                     <label for="shooting-guard" class="font-medium text-gray-900">Shooting Guard</label>
