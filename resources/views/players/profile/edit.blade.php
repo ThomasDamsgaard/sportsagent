@@ -85,12 +85,12 @@
                                 </div>
                             </div>
 
-                            <div class="col-span-1">
+                            <div class="col-span-full">
                                 <label class="mt-2 block text-sm font-medium leading-6 text-gray-900">Prefered Position(s)</label>
                                 <div>
                                     <fieldset>
-                                        <div>
-                                            <div class="relative flex gap-x-3">
+                                        <div class="gap-x-4 sm:flex sm:flex-row">
+                                            <div class="relative flex gap-x-2">
                                                 <div class="flex h-6 items-center">
                                                     <input @if (in_array('center', json_decode($player->position) ?? [])) checked @endif id="center" name="position[]" value="center" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                                                 </div>
@@ -98,7 +98,7 @@
                                                     <label for="center" class="font-medium text-gray-900">Center</label>
                                                 </div>
                                             </div>
-                                            <div class="relative flex gap-x-3">
+                                            <div class="relative flex gap-x-2">
                                                 <div class="flex h-6 items-center">
                                                     <input @if (in_array('power-forward', json_decode($player->position) ?? [])) checked @endif id="power-forward" name="position[]" value="power-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                                                 </div>
@@ -106,7 +106,7 @@
                                                     <label for="power-forward" class="font-medium text-gray-900">Power Forward</label>
                                                 </div>
                                             </div>
-                                            <div class="relative flex gap-x-3">
+                                            <div class="relative flex gap-x-2">
                                                 <div class="flex h-6 items-center">
                                                     <input @if (in_array('small-forward', json_decode($player->position) ?? [])) checked @endif id="small-forward" name="position[]" value="small-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                                                 </div>
@@ -114,7 +114,7 @@
                                                     <label for="small-forward" class="font-medium text-gray-900">Small Forward</label>
                                                 </div>
                                             </div>
-                                            <div class="relative flex gap-x-3">
+                                            <div class="relative flex gap-x-2">
                                                 <div class="flex h-6 items-center">
                                                     <input @if (in_array('point-guard', json_decode($player->position) ?? [])) checked @endif id="point-guard" name="position[]" value="point-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                                                 </div>
@@ -122,7 +122,7 @@
                                                     <label for="point-guard" class="font-medium text-gray-900">Point Guard</label>
                                                 </div>
                                             </div>
-                                            <div class="relative flex gap-x-3">
+                                            <div class="relative flex gap-x-2">
                                                 <div class="flex h-6 items-center">
                                                     <input @if (in_array('shooting-guard', json_decode($player->position) ?? [])) checked @endif id="shooting-guard" name="position[]" value="shooting-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                                                 </div>
@@ -136,10 +136,13 @@
                             </div>
 
 
-                            <div class="sm:col-span-2">
+                            <div class="sm:col-span-full">
                                 <label for="about" class="block text-sm font-medium leading-6 text-gray-900">About</label>
                                 <div class="mt-2">
-                                    <textarea id="about" name="about" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                                    <x-trix name="biography" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        {!! $player->biography !!}
+                                    </x-trix>
+                                    {{-- <textarea id="about" name="about" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea> --}}
                                 </div>
                                 <p class="mt-3 text-sm leading-6 text-gray-600">Write about yourself.</p>
                             </div>
@@ -158,10 +161,15 @@
     </div>
 
     @push('styles')
+        <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
         <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.3/dist/flowbite.min.css" />
         <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
         <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet" />
         <style>
+            .trix-button-group.trix-button-group--file-tools {
+                display: none;
+            }
+
             .filepond--root {
                 font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
                 /* max-height: 10rem; */
@@ -255,12 +263,17 @@
     @endpush
 
     @push('scripts')
+        <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
         <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
         <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
         <script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
         {{-- <script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script> --}}
         <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
         <script>
+            document.addEventListener("trix-file-accept", (event) => {
+                event.preventDefault()
+            })
+
             FilePond.registerPlugin(FilePondPluginImagePreview);
             FilePond.registerPlugin(FilePondPluginFileValidateType);
             FilePond.registerPlugin(FilePondPluginImageTransform);
