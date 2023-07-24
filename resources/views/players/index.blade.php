@@ -159,6 +159,9 @@
                                                                 <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                                                                     Position
                                                                 </th>
+                                                                <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                                                                    Verified
+                                                                </th>
                                                                 <th scope="col" class="relative w-1/6 px-6 py-3">
                                                                     <span class="sr-only">Show</span>
                                                                 </th>
@@ -182,6 +185,11 @@
                                                                     </td>
                                                                     <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
                                                                         {{ Str::title(Str::replace('-', ' ', $player->position)) }}
+                                                                    </td>
+                                                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
+                                                                        @if ($player->verified)
+                                                                            @svg('heroicon-o-check', 'text-green-500 h-4 w-4')
+                                                                        @endif
                                                                     </td>
                                                                     <td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
                                                                         <a href="{{ route('player.show', ['player' => $player]) }}" class="text-green-600 hover:text-green-900">Show</a>
