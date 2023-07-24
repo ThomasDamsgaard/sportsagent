@@ -11,6 +11,7 @@ use App\Http\Controllers\ImpersonationController;
 use App\Http\Controllers\FilterController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PlayerProfilesController;
+use Illuminate\Support\Facades\Http;
 
 require __DIR__ . '/public.php';
 
@@ -59,6 +60,17 @@ Route::middleware([
     Route::get('/teams', [TeamsController::class, 'index'])->name('teams.index');
     Route::get('/teams/show/{team}', [TeamsController::class, 'show'])->name('team.show');
     // Route::get('/teams/create', [TeamsController::class, 'create'])->name('team.create');
+
+    Route::get('api', function () {
+        $response = Http::withHeaders([
+            'x-apisports-key' => config('services.api-sports.key'),
+        ])
+            ->get('https://v1.basketball.api-sports.io/teams', [
+                'id' => '218',
+            ]);
+
+        return $response->json();
+    });
 });
 
 Route::get('/impersonation/{userId}', [ImpersonationController::class, 'create'])->name('impersonation.create');
