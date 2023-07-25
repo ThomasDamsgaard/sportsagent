@@ -19,6 +19,16 @@
 
                     <div class="space-y-12">
                         <div class="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-3">
+                            @if (!auth()->user()->sport_id)
+                                <div class="sm:col-span-1">
+                                    <label for="sport_id" class="block text-sm font-medium leading-6 text-gray-900">Sport</label>
+                                    <div class="mt-2">
+                                        <select id="sport_id" name="sport_id" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                            <option value="1">Basketball</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            @endif
                             <div class="sm:col-span-1">
                                 <label for="nationality" class="block text-sm font-medium leading-6 text-gray-900">Nationality</label>
                                 <div class="mt-2">

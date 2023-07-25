@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
     private function generateAdmin(): User
     {
         return User::factory()->create([
-            'sport_id' => NULL,
+            'sport_id' => 1,
             'name' => 'Admin User',
             'email' => 'admin@example.com',
             'type' => 'admin',
