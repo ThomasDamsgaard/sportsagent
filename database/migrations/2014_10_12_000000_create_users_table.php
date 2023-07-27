@@ -24,11 +24,12 @@ return new class extends Migration
             $table->dateTime('age')->nullable();
             $table->integer('height')->nullable();
             $table->integer('weight')->nullable();
-            $table->string('position')->nullable();
+            $table->json('position')->nullable();
             $table->string('salary')->nullable();
             $table->string('city')->nullable();
             $table->string('country')->nullable();
             $table->text('biography')->nullable();
+            $table->json('continent')->nullable();
             $table->text('career')->nullable();
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();

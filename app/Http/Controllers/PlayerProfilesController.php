@@ -10,7 +10,7 @@ class PlayerProfilesController extends Controller
 {
     public function update(Request $request, User $player): RedirectResponse
     {
-        dd($request);
+        // dd($request);
         $player->update([
             'sport_id' => $request->sport_id ? $request->sport_id : $player->sport_id,
             'age' => $request->age,
@@ -21,6 +21,7 @@ class PlayerProfilesController extends Controller
             'city' => $request->city,
             'country' => $request->country,
             'biography' => $request->biography,
+            'position' => json_encode($request->position),
             'career' => $request->career,
         ]);
 
