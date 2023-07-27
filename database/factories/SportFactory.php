@@ -17,7 +17,7 @@ class SportFactory extends Factory
     public function definition()
     {
         return [
-            'name' => 'handball',
+            'name' => 'basketball',
         ];
     }
 }

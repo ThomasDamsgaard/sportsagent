@@ -9,11 +9,12 @@
                             <div>
                                 <!-- Filters -->
                                 <form id="filters" action="{{ route('filter.index') }}">
-                                    <input name="_type" type="hidden" value="player">
-                                    <input name="_model" type="hidden" value="players">
+                                    <input name="_type" type="hidden" value="coach">
+                                    <input name="_model" type="hidden" value="coaches">
 
                                     <h3 class="sr-only">Filters</h3>
                                     <div class="border-b border-gray-200 py-6">
+
                                         <ul role="list" class="space-y-4 text-sm font-medium text-gray-900">
                                             <li>
                                                 <div class="flex flex-row items-center">
@@ -28,7 +29,7 @@
                                                     </div>
                                                     <div class="text-sm leading-6">
                                                         <label for="verified" class="font-medium text-gray-900">Verified</label>
-                                                        <p class="text-gray-500">Get only players with public verified results</p>
+                                                        <p class="text-gray-500">Get only coaches with public previous hirings</p>
                                                     </div>
                                                 </div>
                                             </li>
@@ -38,30 +39,30 @@
                                     {{-- Positions --}}
                                     <div class="border-b border-gray-200 py-6">
                                         <h3>
-                                            <div class="text-sm font-medium text-gray-900">Position(s)</div>
+                                            <div class="text-sm font-medium text-gray-900">Role(s)</div>
                                         </h3>
                                         <div class="pt-4">
                                             <div class="space-y-4">
                                                 <div class="flex items-center">
-                                                    <input @if (request('position') && in_array('center', request('position'))) checked @endif id="center" name="position[]" onclick="document.querySelector('#filters').submit();" value="center" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                                    <label for="center" class="ml-3 text-sm text-gray-600">Center</label>
+                                                    <input @if (request('role') && in_array('head-coach', request('role'))) checked @endif id="head-coach" name="role[]" onclick="document.querySelector('#filters').submit();" value="head-coach" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                    <label for="head-coach" class="ml-3 text-sm text-gray-600">Head coach</label>
                                                 </div>
                                                 <div class="flex items-center">
-                                                    <input @if (request('position') && in_array('power-forward', request('position'))) checked @endif id="power-forward" name="position[]" onclick="document.querySelector('#filters').submit();" value="power-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                                    <label for="power-forward" class="ml-3 text-sm text-gray-600">Power Forward</label>
+                                                    <input @if (request('role') && in_array('assistan-coach', request('role'))) checked @endif id="assistan-coach" name="role[]" onclick="document.querySelector('#filters').submit();" value="assistan-coach" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                    <label for="assistan-coach" class="ml-3 text-sm text-gray-600">Assistant Coach</label>
                                                 </div>
-                                                <div class="flex items-center">
-                                                    <input @if (request('position') && in_array('small-forward', request('position'))) checked @endif id="small-forward" name="position[]" onclick="document.querySelector('#filters').submit();" value="small-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                {{-- <div class="flex items-center">
+                                                    <input @if (request('role') && in_array('small-forward', request('role'))) checked @endif id="small-forward" name="role[]" onclick="document.querySelector('#filters').submit();" value="small-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
                                                     <label for="small-forward" class="ml-3 text-sm text-gray-600">Small Forward</label>
                                                 </div>
                                                 <div class="flex items-center">
-                                                    <input @if (request('position') && in_array('point-guard', request('position'))) checked @endif id="point-guard" name="position[]" onclick="document.querySelector('#filters').submit();" value="point-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                    <input @if (request('role') && in_array('point-guard', request('role'))) checked @endif id="point-guard" name="role[]" onclick="document.querySelector('#filters').submit();" value="point-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
                                                     <label for="point-guard" class="ml-3 text-sm text-gray-600">Point Guard</label>
                                                 </div>
                                                 <div class="flex items-center">
-                                                    <input @if (request('position') && in_array('shooting-guard', request('position'))) checked @endif id="shooting-guard" name="position[]" onclick="document.querySelector('#filters').submit();" value="shooting-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                    <input @if (request('role') && in_array('shooting-guard', request('role'))) checked @endif id="shooting-guard" name="role[]" onclick="document.querySelector('#filters').submit();" value="shooting-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
                                                     <label for="shooting-guard" class="ml-3 text-sm text-gray-600">Shooting Guard</label>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>
@@ -115,24 +116,24 @@
 
                                 {{-- Name Search --}}
                                 <form id="search" action="{{ route('search.index') }}">
-                                    <input name="_type" type="hidden" value="player">
-                                    <input name="_model" type="hidden" value="players">
+                                    <input name="_type" type="hidden" value="coach">
+                                    <input name="_model" type="hidden" value="coaches">
                                     <div class="border-b border-gray-200 py-6">
                                         <div class="flex items-center">
-                                            <label for="search" class="sr-only">Search Players By Name</label>
+                                            <label for="search" class="sr-only">Search Coaches By Name</label>
                                             <div class="relative w-full">
                                                 <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                                                     <svg aria-hidden="true" class="h-5 w-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
                                                     </svg>
                                                 </div>
-                                                <input type="text" id="search" name="search" class="block w-full rounded-md border-gray-200 pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Search Players By Name">
+                                                <input type="text" id="search" name="search" class="block w-full rounded-md border-gray-200 pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Search Coaches By Name">
                                             </div>
                                             <button type="submit" class="ml-2 rounded-lg border border-blue-700 bg-blue-700 p-2 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300">
                                                 <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                                 </svg>
-                                                <span class="sr-only">Search Players By Name</span>
+                                                <span class="sr-only">Search Coaches By Name</span>
                                             </button>
                                         </div>
                                     </div>
@@ -158,40 +159,32 @@
                                                                 <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                                                                     Position
                                                                 </th>
-                                                                <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                                                    Verified
-                                                                </th>
                                                                 <th scope="col" class="relative w-1/6 px-6 py-3">
                                                                     <span class="sr-only">Show</span>
                                                                 </th>
                                                             </tr>
                                                         </thead>
                                                         <tbody class="divide-y divide-gray-200 bg-white">
-                                                            @foreach ($players as $player)
+                                                            @foreach ($coaches as $coach)
                                                                 <tr>
                                                                     <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
                                                                         <div class="flex items-center">
-                                                                            {{ $player->name }}
+                                                                            {{ $coach->name }}
                                                                             @if (auth()->user()->type == 'admin')
-                                                                                <a class="ml-1 text-xs text-indigo-600" href="{{ route('impersonation.create', ['userId' => $player->id]) }}">Impersonate</a>
+                                                                                <a class="ml-1 text-xs text-indigo-600" href="{{ route('impersonation.create', ['userId' => $coach->id]) }}">Impersonate</a>
                                                                             @endif
                                                                         </div>
                                                                     </td>
                                                                     <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
                                                                         <div class="flex items-center">
-                                                                            {{ $player->currentTeam?->name }}
+                                                                            {{ $coach->currentTeam?->name }}
                                                                         </div>
                                                                     </td>
                                                                     <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
-                                                                        {{ Str::title(Str::replace('-', ' ', $player->position)) }}
-                                                                    </td>
-                                                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
-                                                                        @if ($player->verified)
-                                                                            @svg('heroicon-o-check', 'text-green-500 h-4 w-4')
-                                                                        @endif
+                                                                        {{ Str::title(Str::replace('-', ' ', $coach->position)) }}
                                                                     </td>
                                                                     <td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
-                                                                        <a href="{{ route('player.show', ['player' => $player]) }}" class="text-green-600 hover:text-green-900">Show</a>
+                                                                        <a href="{{ route('coach.show', ['coach' => $coach]) }}" class="text-green-600 hover:text-green-900">Show</a>
                                                                     </td>
                                                                 </tr>
                                                             @endforeach
@@ -201,7 +194,7 @@
                                             </div>
                                         </div>
                                         <div class="mx-2 sm:mx-0">
-                                            {{ $players->links() }}
+                                            {{ $coaches->links() }}
                                         </div>
                                     </div>
                                 </div>

@@ -3,8 +3,8 @@
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="sm:grid sm:grid-cols-3 sm:gap-4">
                 <div class="sm:col-span-1">hej</div>
-                <div class="overflow-hidden bg-white shadow sm:rounded-lg sm:col-span-2">
-                    <div class="flex justify-between items-center px-4 py-5 sm:px-6">
+                <div class="overflow-hidden bg-white shadow sm:col-span-2 sm:rounded-lg">
+                    <div class="flex items-center justify-between px-4 py-5 sm:px-6">
                         <div>
                             <h3 class="text-lg font-medium leading-6 text-gray-900">Talent Information</h3>
                             <p class="mt-1 max-w-2xl text-sm text-gray-500">Personal details and attachments.</p>
@@ -17,46 +17,46 @@
                         <dl>
                             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Full name</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $player->name }}</dd>
+                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $coach->name }}</dd>
                             </div>
-                            @if ($player->nationality)
+                            @if ($coach->nationality)
                                 <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                     <dt class="text-sm font-medium text-gray-500">Nationality</dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                        <x-dynamic-component component="flag-language-{{ $player->nationality }}" class="h-6 w-6" />
+                                        <x-dynamic-component component="flag-country-{{ $coach->nationality }}" class="h-6 w-6" />
                                     </dd>
                                 </div>
                             @endif
                             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Age</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $player->calculateAge() }}</dd>
+                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $coach->calculateAge() }}</dd>
                             </div>
                             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Prefered position</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $player->position }}</dd>
+                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $coach->position }}</dd>
                             </div>
                             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Height</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $player->height }}</dd>
+                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $coach->height }}</dd>
                             </div>
                             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Weight</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $player->weight }}</dd>
+                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $coach->weight }}</dd>
                             </div>
                             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Salary expectation</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">€ {{ $player->salary }}</dd>
+                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">€ {{ $coach->salary }}</dd>
                             </div>
                             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Biography</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $player->biography }}</dd>
+                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $coach->biography }}</dd>
                             </div>
                             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Attachments</dt>
                                 <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                    <ul role="list" class="bg-white divide-y divide-gray-200 rounded-md border border-gray-200">
+                                    <ul role="list" class="divide-y divide-gray-200 rounded-md border border-gray-200 bg-white">
 
-                                        @forelse ($player->getMedia('attachments') as $item)
+                                        @forelse ($coach->getMedia('attachments') as $item)
                                             <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
                                                 <div class="flex w-0 flex-1 items-center">
                                                     @switch($item)
@@ -81,7 +81,7 @@
                                             @empty
                                                 <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
                                                     <div class="flex w-0 flex-1 items-center">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-400">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-gray-400">
                                                             <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
                                                         </svg>
 
@@ -93,7 +93,7 @@
                                     </dd>
                                 </div>
 
-                                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                {{-- <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                     <dt class="text-sm font-medium text-gray-500">Testimonials</dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                                         <ul role="list" class="space-y-8">
@@ -111,7 +111,7 @@
                                                     <div class="mt-1">
                                                         {{ $testimonial->body }}
                                                     </div>
-                                                    <div class="mt-1 text-gray-500 font-semibold">
+                                                    <div class="mt-1 font-semibold text-gray-500">
                                                         {{ $testimonial->created_at->diffForHumans() }}
                                                     </div>
                                                 </li>
@@ -120,7 +120,7 @@
                                             @endforelse
                                         </ul>
                                     </dd>
-                                </div>
+                                </div> --}}
                             </dl>
                         </div>
                     </div>
@@ -137,50 +137,50 @@
                         <div class="border-t border-gray-200">
                             <dl>
                                 <div class="bg-white">
-                                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                                        <table class="table-fixed min-w-full divide-y divide-gray-200">
+                                    <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+                                        <table class="min-w-full table-fixed divide-y divide-gray-200">
                                             <thead class="bg-gray-50">
                                                 <tr>
-                                                    <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                                                         Matches
                                                     </th>
-                                                    <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                                                         Goals
                                                     </th>
-                                                    <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                                                         Shots
                                                     </th>
-                                                    <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                                                         Efficiency
                                                     </th>
-                                                    <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                                                         7m Shots
                                                     </th>
                                                 </tr>
                                             </thead>
-                                            <tbody class="bg-white divide-y divide-gray-200">
+                                            <tbody class="divide-y divide-gray-200 bg-white">
                                                 <tr>
-                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
                                                         <div class="flex items-center">
                                                             13
                                                         </div>
                                                     </td>
-                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
                                                         <div class="flex items-center">
                                                             6
                                                         </div>
                                                     </td>
-                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
                                                         <div class="flex items-center">
                                                             24
                                                         </div>
                                                     </td>
-                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
                                                         <div class="flex items-center">
                                                             25%
                                                         </div>
                                                     </td>
-                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
                                                         <div class="flex items-center">
                                                             0
                                                         </div>

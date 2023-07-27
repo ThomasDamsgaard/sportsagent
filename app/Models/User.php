@@ -7,12 +7,14 @@ use App\Scopes\GenderScope;
 use Laravel\Cashier\Billable;
 use Laravel\Scout\Searchable;
 use App\Traits\BelongsToSport;
+use Illuminate\Support\Carbon;
 use Laravel\Jetstream\HasTeams;
 use App\Traits\HasNoPersonalTeam;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia;
 use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -65,6 +67,7 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
         'age' => 'datetime',
+        'positions' => 'array',
         'trial_ends_at' => 'datetime',
         'verified' => 'boolean',
     ];
@@ -93,12 +96,6 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
      */
     public function toSearchableArray(): array
     {
-        // $array = $this->toArray();
-
-        // Customize the data array...
-
-        // return $array;
-
         return [
             'name' => $this->name,
             'verified' => '',
@@ -121,9 +118,14 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
         return $this->hasOne(Achievement::class);
     }
 
-    public function scopeExcludeCurrentUser($query)
+    public function scopeExcludeCurrentUser(Builder $query): void
     {
         $query->where('id', '!=', auth()->user()->id);
+    }
+
+    public function scopeOnlyPlayers(Builder $query): void
+    {
+        $query->where('type', 'player');
     }
 
     // public function scopeSearch($query, string $terms = null)
@@ -137,6 +139,27 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
 
     public function calculateAge(): int|string
     {
-        return $this->age ? \Carbon\Carbon::parse($this->age)->age : 'Not registered';
+        return $this->age ? Carbon::parse($this->age)->age : 'Not registered';
+    }
+
+    public function scopeSearchFilters(Builder $query, string $type): void
+    {
+        $query
+            ->where('type', $type)
+            ->when(request('verified'), function ($query) {
+                $query->where('verified', true);
+            })
+            ->when(request('position'), function ($query) {
+                $query->whereIn('position', array_values(request('position')))->get();
+            })
+            ->when(request('age-to'), function ($query) {
+                $query->whereBetween(
+                    'age',
+                    [
+                        Carbon::now()->subYears(request('age-to')),
+                        Carbon::now()->subYears(request('age-from')) ?: 50,
+                    ]
+                );
+            });
     }
 }

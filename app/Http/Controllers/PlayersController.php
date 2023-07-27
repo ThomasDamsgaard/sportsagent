@@ -57,7 +57,6 @@ class PlayersController extends Controller
         $player = $player->load(['achievement', 'testimonials.writer' => function ($query) {
             $query->withoutGlobalScope(GenderScope::class);
         }]);
-        // dd($player);
 
         return view('players.show', ['player' => $player]);
     }
