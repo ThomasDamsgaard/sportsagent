@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
     private function generateAdmin(): User
     {
         return User::factory()->create([
-            'sport_id' => NULL,
+            'sport_id' => 1,
             'name' => 'Admin User',
             'email' => 'admin@example.com',
             'type' => 'admin',
@@ -75,6 +75,17 @@ class UserSeeder extends Seeder
                 'verified' => true,
             ]);
 
+        $coaches = User::factory()
+            ->count(30)
+            ->state(new Sequence(
+                ['current_team_id' => 1],
+                ['current_team_id' => 2],
+                ['current_team_id' => 3],
+            ))
+            ->create([
+                'type' => 'coach',
+            ]);
+
         $user = User::factory()->create([
             'sport_id' => 1,
             'name' => 'Basketball User',
@@ -83,6 +94,8 @@ class UserSeeder extends Seeder
             'current_team_id' => 1,
             'verified' => true,
         ]);
+
+        $user->teams()->attach(1, ['role' => 'player']);
 
         $players = User::factory()
             ->count(30)
@@ -95,7 +108,9 @@ class UserSeeder extends Seeder
 
         $teams = Team::where('sport_id', 1)->get();
 
-        $user->teams()->attach(1, ['role' => 'player']);
+        $coaches->each(function ($coach) use ($teams) {
+            $coach->teams()->attach($teams->random()->id, ['role' => 'coach']);
+        });
 
         $players->each(function ($user) use ($teams) {
             $user->teams()->attach($teams->random()->id, ['role' => 'player']);

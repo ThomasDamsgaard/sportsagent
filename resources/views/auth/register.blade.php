@@ -11,12 +11,12 @@
 
             <div>
                 <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-jet-input id="name" class="mt-1 block w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="gender" value="{{ __('Gender') }}" />
-                <x-jet-select id="gender" class="block mt-1 w-full" type="text" name="gender" required>
+                <x-jet-select id="gender" class="mt-1 block w-full" type="text" name="gender" required>
                     <option disabled selected></option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -25,26 +25,25 @@
 
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                <x-jet-input id="email" class="mt-1 block w-full" type="email" name="email" :value="old('email')" required />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="sport_id" value="{{ __('Sport') }}" />
-                <x-jet-select id="sport_id" class="block mt-1 w-full" type="text" name="sport_id" required>
+                <x-jet-select id="sport_id" class="mt-1 block w-full" type="text" name="sport_id" required>
                     <option disabled selected></option>
-                    <option value="1">Soccer</option>
-                    <option value="2">Basketball</option>
+                    <option value="1">Basketball</option>
                 </x-jet-select>
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                <x-jet-input id="password" class="mt-1 block w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                <x-jet-input id="password_confirmation" class="mt-1 block w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
@@ -64,8 +63,8 @@
                 </div>
             @endif
 
-            <div class="flex flex-col items-center justify-end my-8 space-y-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+            <div class="my-8 flex flex-col items-center justify-end space-y-4">
+                <a class="text-sm text-gray-600 underline hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
 

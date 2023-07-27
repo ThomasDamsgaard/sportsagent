@@ -55,6 +55,10 @@ class JetstreamServiceProvider extends ServiceProvider
             'delete',
         ])->description('Administrator users can perform any action.');
 
+        Jetstream::role('coach', 'Coach', [
+            'read',
+        ])->description('Coach users have the ability to read only.');
+
         Jetstream::role('player', 'Player', [
             'read',
         ])->description('Player users have the ability to read only.');
