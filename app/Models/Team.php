@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
 use App\Traits\BelongsToSport;
 use Laravel\Jetstream\Events\TeamCreated;
 use Laravel\Jetstream\Events\TeamDeleted;
@@ -11,7 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Team extends JetstreamTeam
 {
-    use HasFactory, BelongsToSport;
+    use HasFactory, BelongsToSport, Searchable;
 
     /**
      * The attributes that should be cast.
@@ -42,6 +43,19 @@ class Team extends JetstreamTeam
         'updated' => TeamUpdated::class,
         'deleted' => TeamDeleted::class,
     ];
+
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array<string, mixed>
+     */
+    public function toSearchableArray(): array
+    {
+        return [
+            'name' => $this->name,
+            'verified' => '',
+        ];
+    }
 
     public function scopeSearch($query, string $terms = null)
     {

@@ -96,12 +96,6 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
      */
     public function toSearchableArray(): array
     {
-        // $array = $this->toArray();
-
-        // Customize the data array...
-
-        // return $array;
-
         return [
             'name' => $this->name,
             'verified' => '',
@@ -145,7 +139,7 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
 
     public function calculateAge(): int|string
     {
-        return $this->age ? \Carbon\Carbon::parse($this->age)->age : 'Not registered';
+        return $this->age ? Carbon::parse($this->age)->age : 'Not registered';
     }
 
     public function scopeSearchFilters(Builder $query, string $type): void

@@ -14,7 +14,6 @@
 
                                     <h3 class="sr-only">Filters</h3>
                                     <div class="border-b border-gray-200 py-6">
-
                                         <ul role="list" class="space-y-4 text-sm font-medium text-gray-900">
                                             <li>
                                                 <div class="flex flex-row items-center">

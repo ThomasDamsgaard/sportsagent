@@ -11,6 +11,8 @@ use App\Http\Controllers\ImpersonationController;
 use App\Http\Controllers\FilterController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PlayerProfilesController;
+use App\Http\Controllers\Teams\TeamsFilterController;
+use App\Http\Controllers\Teams\TeamsSearchController;
 use Illuminate\Support\Facades\Http;
 
 require __DIR__ . '/public.php';
@@ -37,6 +39,9 @@ Route::middleware([
     Route::get('/players/create', [PlayersController::class, 'create'])->name('player.create');
 
     // require __DIR__ . '/stepper.php';
+
+    Route::get('/teams/search', TeamsSearchController::class)->name('teams.search.index');
+    Route::get('/teams/filter', TeamsFilterController::class)->name('teams.filter.index');
 
     Route::get('/player/profile/{player}', [PlayerProfilesController::class, 'edit'])
         ->withoutMiddleware([EnsureHasSport::class])->name('player.profile.edit');
