@@ -16,12 +16,11 @@ class PlayerProfilesController extends Controller
             'age' => $request->age,
             'height' => $request->height,
             'weight' => $request->weight,
-            'position' => json_encode($request->position),
+            'positions' => json_encode($request->positions),
             'salary' => $request->currency . $request->salary,
             'city' => $request->city,
             'country' => $request->country,
             'biography' => $request->biography,
-            'position' => json_encode($request->position),
             'career' => $request->career,
         ]);
 

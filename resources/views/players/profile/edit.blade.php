@@ -185,11 +185,11 @@
                                     <label for="positions" class="block text-sm font-medium leading-6 text-gray-900">Prefered Position(s)</label>
                                     <div class="mt-2">
                                         <select id="positions" name="positions[]" multiple autocomplete="off" placeholder="Positions" class="block w-full rounded-md border-0 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" aria-placeholder="Continent">
-                                            <option value="center">Center</option>
-                                            <option value="power-forward">Power Forward</option>
-                                            <option value="small-forward" @if (in_array('small-forward', json_decode($player->position) ?? [])) selected @endif>Small Forward</option>
-                                            <option value="point-guard">Point Guard</option>
-                                            <option value="shooting-guard">Shooting Guard</option>
+                                            <option value="center" @if (in_array('center', json_decode($player->positions) ?? [])) selected @endif>Center</option>
+                                            <option value="power-forward" @if (in_array('power-forward', json_decode($player->positions) ?? [])) selected @endif>Power Forward</option>
+                                            <option value="small-forward" @if (in_array('small-forward', json_decode($player->positions) ?? [])) selected @endif>Small Forward</option>
+                                            <option value="point-guard" @if (in_array('point-guard', json_decode($player->positions) ?? [])) selected @endif>Point Guard</option>
+                                            <option value="shooting-guard" @if (in_array('shooting-guard', json_decode($player->positions) ?? [])) selected @endif>Shooting Guard</option>
                                         </select>
                                     </div>
                                 </div>

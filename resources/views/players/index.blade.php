@@ -43,23 +43,23 @@
                                         <div class="pt-4">
                                             <div class="space-y-4">
                                                 <div class="flex items-center">
-                                                    <input @if (request('position') && in_array('center', request('position'))) checked @endif id="center" name="position[]" onclick="document.querySelector('#filters').submit();" value="center" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                    <input @if (request('positions') && in_array('center', request('positions'))) checked @endif id="center" name="positions[]" onclick="document.querySelector('#filters').submit();" value="center" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
                                                     <label for="center" class="ml-3 text-sm text-gray-600">Center</label>
                                                 </div>
                                                 <div class="flex items-center">
-                                                    <input @if (request('position') && in_array('power-forward', request('position'))) checked @endif id="power-forward" name="position[]" onclick="document.querySelector('#filters').submit();" value="power-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                    <input @if (request('positions') && in_array('power-forward', request('positions'))) checked @endif id="power-forward" name="positions[]" onclick="document.querySelector('#filters').submit();" value="power-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
                                                     <label for="power-forward" class="ml-3 text-sm text-gray-600">Power Forward</label>
                                                 </div>
                                                 <div class="flex items-center">
-                                                    <input @if (request('position') && in_array('small-forward', request('position'))) checked @endif id="small-forward" name="position[]" onclick="document.querySelector('#filters').submit();" value="small-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                    <input @if (request('positions') && in_array('small-forward', request('positions'))) checked @endif id="small-forward" name="positions[]" onclick="document.querySelector('#filters').submit();" value="small-forward" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
                                                     <label for="small-forward" class="ml-3 text-sm text-gray-600">Small Forward</label>
                                                 </div>
                                                 <div class="flex items-center">
-                                                    <input @if (request('position') && in_array('point-guard', request('position'))) checked @endif id="point-guard" name="position[]" onclick="document.querySelector('#filters').submit();" value="point-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                    <input @if (request('positions') && in_array('point-guard', request('positions'))) checked @endif id="point-guard" name="positions[]" onclick="document.querySelector('#filters').submit();" value="point-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
                                                     <label for="point-guard" class="ml-3 text-sm text-gray-600">Point Guard</label>
                                                 </div>
                                                 <div class="flex items-center">
-                                                    <input @if (request('position') && in_array('shooting-guard', request('position'))) checked @endif id="shooting-guard" name="position[]" onclick="document.querySelector('#filters').submit();" value="shooting-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                    <input @if (request('positions') && in_array('shooting-guard', request('positions'))) checked @endif id="shooting-guard" name="positions[]" onclick="document.querySelector('#filters').submit();" value="shooting-guard" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
                                                     <label for="shooting-guard" class="ml-3 text-sm text-gray-600">Shooting Guard</label>
                                                 </div>
                                             </div>
@@ -156,7 +156,7 @@
                                                                     Team
                                                                 </th>
                                                                 <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                                                    Position
+                                                                    Positions
                                                                 </th>
                                                                 <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                                                                     Verified
@@ -183,7 +183,7 @@
                                                                         </div>
                                                                     </td>
                                                                     <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
-                                                                        {{ Str::title(Str::replace('-', ' ', $player->position)) }}
+                                                                        {{ Str::title(Str::replace('-', ' ', $player->positions)) }}
                                                                     </td>
                                                                     <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
                                                                         @if ($player->verified)

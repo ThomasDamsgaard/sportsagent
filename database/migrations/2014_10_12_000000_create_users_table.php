@@ -24,7 +24,7 @@ return new class extends Migration
             $table->dateTime('age')->nullable();
             $table->integer('height')->nullable();
             $table->integer('weight')->nullable();
-            $table->json('position')->nullable();
+            $table->json('positions')->nullable();
             $table->string('salary')->nullable();
             $table->string('city')->nullable();
             $table->string('country')->nullable();
