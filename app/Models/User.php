@@ -149,8 +149,8 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
             ->when(request('verified'), function ($query) {
                 $query->where('verified', true);
             })
-            ->when(request('position'), function ($query) {
-                $query->whereIn('position', array_values(request('position')))->get();
+            ->when(request('positions'), function ($query) {
+                $query->whereIn('positions', array_values(request('positions')))->get();
             })
             ->when(request('age-to'), function ($query) {
                 $query->whereBetween(

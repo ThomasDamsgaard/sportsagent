@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->string('country')->nullable();
             $table->text('biography')->nullable();
-            $table->json('continent')->nullable();
+            $table->json('continents')->nullable();
             $table->text('career')->nullable();
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();

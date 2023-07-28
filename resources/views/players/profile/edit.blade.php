@@ -343,10 +343,20 @@
             <script>
                 new TomSelect('#positions', {
                     maxItems: 5,
+                    plugins: {
+                        remove_button: {
+                            title: 'Remove this item',
+                        }
+                    },
                 });
 
                 new TomSelect('#continents', {
                     maxItems: 6,
+                    plugins: {
+                        remove_button: {
+                            title: 'Remove this item',
+                        }
+                    },
                 });
 
                 document.addEventListener("trix-file-accept", (event) => {
