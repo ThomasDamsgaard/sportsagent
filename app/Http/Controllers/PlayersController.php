@@ -18,7 +18,6 @@ class PlayersController extends Controller
         $players = User::query()
             ->where('type', 'player')
             ->where('id', '!=', auth()->user()->id)
-            // ->search(trim(request('search')) ?? '')
             ->with('achievement')
             ->simplePaginate(15);
 
