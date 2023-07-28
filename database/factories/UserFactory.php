@@ -39,6 +39,7 @@ class UserFactory extends Factory
             'positions' => $this->faker->randomElement(['center', 'shooting-guard', 'point-guard', 'power-forward', 'small-forward']),
             'salary' => '$' . $this->faker->numberBetween(1000, 10000),
             'biography' => $this->faker->text(),
+            'continents' => $this->faker->randomElement(['af', 'as', 'eu', 'na', 'oc', 'sa']),
             'verified' => $this->faker->randomElement([true, false]),
             'two_factor_secret' => null,
             'two_factor_recovery_codes' => null,

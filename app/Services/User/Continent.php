@@ -7,7 +7,7 @@ class Continent
     protected array $continents = [
         'af' => 'Africa',
         'as' => 'Asia',
-        'eu' => 'Europa',
+        'eu' => 'Europe',
         'na' => 'North America',
         'oc' => 'Oceania',
         'sa' => 'South America',

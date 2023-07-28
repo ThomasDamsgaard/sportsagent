@@ -68,6 +68,7 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
         'email_verified_at' => 'datetime',
         'age' => 'datetime',
         'positions' => 'array',
+        'continents' => 'array',
         'trial_ends_at' => 'datetime',
         'verified' => 'boolean',
     ];
@@ -151,6 +152,9 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
             })
             ->when(request('positions'), function ($query) {
                 $query->whereIn('positions', array_values(request('positions')))->get();
+            })
+            ->when(request('continents'), function ($query) {
+                $query->whereIn('continents', array_values(request('continents')))->get();
             })
             ->when(request('age-to'), function ($query) {
                 $query->whereBetween(

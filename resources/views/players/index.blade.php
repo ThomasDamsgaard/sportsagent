@@ -1,3 +1,4 @@
+@inject('continents', 'App\Services\User\Continent')
 <x-app-layout>
     <div class="">
         <div class="bg-white">
@@ -91,6 +92,8 @@
                                         </div>
                                     </div>
 
+
+
                                     {{-- Salary --}}
                                     {{-- <div class="border-b border-gray-200 py-6">
                                     <h3>
@@ -111,6 +114,48 @@
                                         </div>
                                     </div>
                                 </div> --}}
+
+                                    {{-- Continents --}}
+                                    <div class="border-b border-gray-200 py-6">
+                                        <h3>
+                                            <div class="text-sm font-medium text-gray-900">Continent(s) Wished To Play</div>
+                                        </h3>
+                                        <div class="pt-4">
+                                            <div class="space-y-4">
+                                                @foreach ($continents->all() as $code => $continent)
+                                                    <div class="flex items-center">
+                                                        <input @if (request('continents') && in_array($code, request('continents'))) checked @endif id="{{ $code }}" name="continents[]" onclick="document.querySelector('#filters').submit();" value="{{ $code }}" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                        <label for="{{ $code }}" class="ml-3 text-sm text-gray-600">{{ $continent }}</label>
+                                                    </div>
+                                                @endforeach
+                                                {{-- <div class="flex items-center">
+                                                    <input @if (request('continents') && in_array('af', request('continents'))) checked @endif id="af" name="continents[]" onclick="document.querySelector('#filters').submit();" value="af" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                    <label for="af" class="ml-3 text-sm text-gray-600">Africa</label>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input @if (request('continents') && in_array('as', request('continents'))) checked @endif id="as" name="continents[]" onclick="document.querySelector('#filters').submit();" value="as" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                    <label for="as" class="ml-3 text-sm text-gray-600">Asia</label>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input @if (request('continents') && in_array('eu', request('continents'))) checked @endif id="eu" name="continents[]" onclick="document.querySelector('#filters').submit();" value="eu" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                    <label for="eu" class="ml-3 text-sm text-gray-600">Europe</label>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input @if (request('continents') && in_array('na', request('continents'))) checked @endif id="na" name="continents[]" onclick="document.querySelector('#filters').submit();" value="na" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                    <label for="na" class="ml-3 text-sm text-gray-600">North America</label>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input @if (request('continents') && in_array('oc', request('continents'))) checked @endif id="oc" name="continents[]" onclick="document.querySelector('#filters').submit();" value="oc" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                    <label for="oc" class="ml-3 text-sm text-gray-600">Oceania</label>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input @if (request('continents') && in_array('sa', request('continents'))) checked @endif id="sa" name="continents[]" onclick="document.querySelector('#filters').submit();" value="sa" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                    <label for="sa" class="ml-3 text-sm text-gray-600">South America</label>
+                                                </div> --}}
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </form>
 
                                 {{-- Name Search --}}
