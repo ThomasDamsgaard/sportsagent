@@ -199,7 +199,7 @@
                                     <div class="mt-2">
                                         <select id="continents" name="continents[]" multiple autocomplete="off" placeholder="Continent" class="block w-full rounded-md border-0 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" aria-placeholder="Continent">
                                             @foreach ($continents->all() as $code => $continent)
-                                                <option value="{{ $code }}">{{ $continent }}</option>
+                                                <option value="{{ $code }}" @if (in_array($code, json_decode($player->continents) ?? [])) selected @endif>{{ $continent }}</option>
                                             @endforeach
                                         </select>
                                     </div>

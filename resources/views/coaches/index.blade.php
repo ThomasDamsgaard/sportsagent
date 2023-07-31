@@ -181,7 +181,7 @@
                                                                         </div>
                                                                     </td>
                                                                     <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
-                                                                        {{ Str::title(Str::replace('-', ' ', $coach->position)) }}
+                                                                        {{ Str::title(Str::replace('-', ' ', $coach->positions)) }}
                                                                     </td>
                                                                     <td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
                                                                         <a href="{{ route('coach.show', ['coach' => $coach]) }}" class="text-green-600 hover:text-green-900">Show</a>
