@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\League;
 use Laravel\Scout\Searchable;
 use App\Traits\BelongsToSport;
 use Laravel\Jetstream\Events\TeamCreated;
 use Laravel\Jetstream\Events\TeamDeleted;
 use Laravel\Jetstream\Events\TeamUpdated;
 use Laravel\Jetstream\Team as JetstreamTeam;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Team extends JetstreamTeam
@@ -28,10 +30,7 @@ class Team extends JetstreamTeam
      *
      * @var string<int, string>
      */
-    protected $fillable = [
-        'name',
-        'personal_team',
-    ];
+    protected $guarded = [];
 
     /**
      * The event map for the model.
@@ -55,6 +54,11 @@ class Team extends JetstreamTeam
             'name' => $this->name,
             'verified' => '',
         ];
+    }
+
+    public function league(): BelongsTo
+    {
+        return $this->belongsTo(League::class);
     }
 
     public function scopeSearch($query, string $terms = null)
