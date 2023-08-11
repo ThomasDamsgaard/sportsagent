@@ -17,9 +17,7 @@ class TeamSeeder extends Seeder
      */
     public function run()
     {
-        // Team::truncate();
-        $json = File::get('database/data/leagues/denmark.json');
-        $teams = json_decode($json, true);
+        $teams = json_decode(File::get('database/data/leagues/denmark.json'), true);
 
         foreach ($teams as $team) {
             Team::create([

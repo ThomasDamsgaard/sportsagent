@@ -5,16 +5,18 @@ namespace App\Models;
 use App\Models\League;
 use Laravel\Scout\Searchable;
 use App\Traits\BelongsToSport;
+use Spatie\MediaLibrary\HasMedia;
 use Laravel\Jetstream\Events\TeamCreated;
 use Laravel\Jetstream\Events\TeamDeleted;
 use Laravel\Jetstream\Events\TeamUpdated;
 use Laravel\Jetstream\Team as JetstreamTeam;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Team extends JetstreamTeam
+class Team extends JetstreamTeam implements HasMedia
 {
-    use HasFactory, BelongsToSport, Searchable;
+    use HasFactory, BelongsToSport, Searchable, InteractsWithMedia;
 
     /**
      * The attributes that should be cast.
