@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('teams', function (Blueprint $table) {
+        Schema::create('leagues', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('sport_id')->index()->nullable();
-            $table->foreignId('user_id')->index()->nullable();
-            $table->foreignId('league_id')->nullable();
-            $table->string('name')->index();
+            $table->string('name')->nullable();
             $table->string('country')->nullable();
-            $table->string('logo')->nullable();
-            $table->boolean('personal_team');
+            $table->string('continent')->nullable();
+            $table->json('ranking')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('teams');
+        Schema::dropIfExists('leagues');
     }
 };

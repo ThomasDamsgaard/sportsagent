@@ -14,7 +14,9 @@ class TeamsController extends Controller
      */
     public function index()
     {
-        $teams = Team::all();
+        $teams = Team::query()
+            ->with('league')
+            ->get();
         // ->search(request('search'));
 
         return view('squads.index', ['teams' => $teams]);
@@ -49,7 +51,7 @@ class TeamsController extends Controller
      */
     public function show(Team $team)
     {
-        return view('squads.show', ['team' => $team]);
+        return view('squads.show', ['team' => $team->load('league')]);
     }
 
     /**

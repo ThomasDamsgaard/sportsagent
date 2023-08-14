@@ -212,22 +212,89 @@
                                     </div>
                                     <p class="mt-3 text-sm leading-6 text-gray-600">Where did you play? When? What are your best results?</p>
                                 </div>
-
-
                             </div>
                             <div class="flex items-center justify-end gap-x-6">
                                 <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
 
+        {{-- <form action="{{ route('player.attachments.store', ['player' => $player]) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+
+            <div class="mx-auto mt-12 grid grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+
+                <div class="px-4 lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8">
+
+                    <div class="lg:pr-4">
+                        <div class="lg:max-w-lg">
+                            <p class="mt-2 text-base font-semibold leading-7 text-indigo-600">Current Attachments</p>
+                        </div>
+                        <div class="mt-4 space-y-12">
+                            <ul role="list" class="divide-y divide-gray-200 rounded-md border border-gray-200 bg-white">
+
+                                @forelse ($player->getMedia('attachments') as $item)
+                                    <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
+                                        <div class="flex w-0 flex-1 items-center">
+                                            @switch($item)
+                                                @case($item->mime_type == 'application/pdf')
+                                                    @svg('heroicon-m-paper-clip', 'h-5 w-5 flex-shrink-0 text-gray-400')
+                                                @break
+
+                                                @case($item->mime_type == 'image/png' || $item->mime_type == 'image/jpeg')
+                                                    @svg('heroicon-s-camera', 'h-5 w-5 flex-shrink-0 text-gray-400')
+                                                @break
+
+                                                @case($item->mime_type == 'video/quicktime' || $item->mime_type == 'video/quicktime')
+                                                    @svg('heroicon-m-video-camera', 'h-5 w-5 flex-shrink-0 text-gray-400')
+                                                @break
+                                            @endswitch
+                                            <span class="ml-2 w-0 flex-1 truncate">{{ $item->file_name }}</span>
+                                        </div>
+                                        <div class="ml-4 flex-shrink-0">
+                                            <a href="{{ route('player.attachments.show', ['item' => $item]) }}" class="font-medium text-indigo-600 hover:text-indigo-500">Download</a>
+                                        </div>
+                                        <div class="ml-4 flex-shrink-0">
+                                            @livewire('delete-attachment', ['item' => $item], key($item->id))
+                                        </div>
+                                    </li>
+                                    @empty
+                                        <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
+                                            <div class="flex w-0 flex-1 items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-gray-400">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                                                </svg>
+
+                                                <span class="ml-2 w-0 flex-1 truncate">No attachments uploaded yet.</span>
+                                            </div>
+                                        </li>
+                                    @endforelse
+                                </ul>
+                            </div>
                         </div>
 
-                        <p class="mt-2 text-base font-semibold leading-7 text-indigo-600">Attachments</p>
+                        <div>
+                            <div class="lg:max-w-lg">
+                                <p class="mt-2 text-base font-semibold leading-7 text-indigo-600">Upload Attachments</p>
+                            </div>
+                            <div class="mt-4 space-y-12">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-auto h-8 w-8 text-gray-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776" />
+                                </svg>
+                                <input id="fileupload" name="fileupload" type="file" class="mt-1">
+                                <label for="fileupload_name" class="mt-1 block text-sm font-medium leading-6 text-gray-900">Attachment Name</label>
+                                <input type="text" name="fileupload_name" id="fileupload_name" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required>
+                                <x-jet-button type="submit">Submit</x-jet-button>
 
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-            </div>
-        </form>
+            </form> --}}
 
         @push('styles')
             <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet" />

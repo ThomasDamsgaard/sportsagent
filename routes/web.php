@@ -70,10 +70,10 @@ Route::middleware([
         $response = Http::withHeaders([
             'x-apisports-key' => config('services.api-sports.key'),
         ])
-            ->get('https://v1.basketball.api-sports.io/statistics', [
-                'season' => '2019-2020',
-                'team' => '139',
-                'league' => '12'
+            ->get('https://v1.basketball.api-sports.io/teams', [
+                // 'season' => '2019-2020',
+                // 'team' => '139',
+                'country' => 'denmark'
             ]);
 
         return $response->json();

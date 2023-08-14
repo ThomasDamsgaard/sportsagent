@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
 
         $this->generateBasketballUsers();
 
-        $this->generateBadmintonUsers();
+        // $this->generateBadmintonUsers();
     }
 
     private function generateAdmin(): User
@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
     {
         User::factory()
             ->hasAttached(
-                Team::factory(['name' => 'Odense Basketball', 'country' => 'dk', 'league' => '1. Divison'])
+                Team::factory(['name' => 'Svendborg Rabbits', 'country' => 'dk', 'league_id' => 1, 'logo' => 'https://media-2.api-sports.io/basketball/teams/470.png'])
                     ->state(function (array $attributes, User $user) {
                         return ['user_id' => $user->id];
                     }),
@@ -55,17 +55,17 @@ class UserSeeder extends Seeder
 
         $coach = User::factory()
             ->count(2)
-            ->hasAttached(
-                Team::factory()
-                    ->state(new Sequence(
-                        ['name' => 'Aalborg Basketball', 'country' => 'dk', 'league' => '1. Divison'],
-                        ['name' => 'København Basketball', 'country' => 'dk', 'league' => '1. Divison'],
-                    ))
-                    ->state(function (array $attributes, User $coach) {
-                        return ['user_id' => $coach->id];
-                    }),
-                ['role' => 'admin']
-            )
+            // ->hasAttached(
+            //     Team::factory()
+            //         ->state(new Sequence(
+            //             ['name' => 'Aalborg Basketball', 'country' => 'dk', 'league_id' => 1],
+            //             ['name' => 'København Basketball', 'country' => 'dk', 'league_id' => 1],
+            //         ))
+            //         ->state(function (array $attributes, User $coach) {
+            //             return ['user_id' => $coach->id];
+            //         }),
+            //     ['role' => 'admin']
+            // )
             ->state(new Sequence(
                 ['current_team_id' => 2],
                 ['current_team_id' => 3],

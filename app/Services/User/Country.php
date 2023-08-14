@@ -264,4 +264,9 @@ class Country
     {
         return $this->countries;
     }
+
+    public function getCountry($code)
+    {
+        return $this->countries[$code];
+    }
 }
