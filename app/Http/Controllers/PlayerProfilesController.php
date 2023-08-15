@@ -24,10 +24,6 @@ class PlayerProfilesController extends Controller
             'career' => $request->career,
         ]);
 
-        // if (url()->previous() == route('stepper.first')) {
-        //     return redirect()->route('stepper.second');
-        // }
-
         $request->session()->flash('flash.banner', 'Profile Edited!');
         $request->session()->flash('flash.bannerStyle', 'success');
 
