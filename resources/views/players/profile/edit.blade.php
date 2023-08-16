@@ -208,7 +208,7 @@
                                 <div class="sm:col-span-full">
                                     <label for="career" class="block text-sm font-medium leading-6 text-gray-900">Previous Career</label>
                                     <div class="mt-2">
-                                        <x-trix name="career"></x-trix>
+                                        <x-trix name="career">{{ $player->career }}</x-trix>
                                     </div>
                                     <p class="mt-3 text-sm leading-6 text-gray-600">Where did you play? When? What are your best results?</p>
                                 </div>
