@@ -24,7 +24,7 @@
             <a href="{{ route('teams') }}" class="text-sm font-semibold leading-6 text-gray-900">For Teams</a>
 
 
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
+            {{-- <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a> --}}
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             @if (!Route::is('login'))
