@@ -222,61 +222,61 @@
             </div>
         </form>
 
-        {{-- <form action="{{ route('player.attachments.store', ['player' => $player]) }}" method="POST" enctype="multipart/form-data">
-            @csrf
+        <livewire:filepond />
 
-            <div class="mx-auto mt-12 grid grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
 
-                <div class="px-4 lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8">
+        <div class="mx-auto mt-12 grid grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
 
-                    <div class="lg:pr-4">
-                        <div class="lg:max-w-lg">
-                            <p class="mt-2 text-base font-semibold leading-7 text-indigo-600">Current Attachments</p>
-                        </div>
-                        <div class="mt-4 space-y-12">
-                            <ul role="list" class="divide-y divide-gray-200 rounded-md border border-gray-200 bg-white">
+            <div class="px-4 lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8">
 
-                                @forelse ($player->getMedia('attachments') as $item)
+                <div class="lg:pr-4">
+                    <div class="lg:max-w-lg">
+                        <p class="mt-2 text-base font-semibold leading-7 text-indigo-600">Current Attachments</p>
+                    </div>
+                    <div class="mt-4 space-y-12">
+                        <ul role="list" class="divide-y divide-gray-200 rounded-md border border-gray-200 bg-white">
+
+                            @forelse ($player->getMedia('attachments') as $item)
+                                <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
+                                    <div class="flex w-0 flex-1 items-center">
+                                        @switch($item)
+                                            @case($item->mime_type == 'application/pdf')
+                                                @svg('heroicon-m-paper-clip', 'h-5 w-5 flex-shrink-0 text-gray-400')
+                                            @break
+
+                                            @case($item->mime_type == 'image/png' || $item->mime_type == 'image/jpeg')
+                                                @svg('heroicon-s-camera', 'h-5 w-5 flex-shrink-0 text-gray-400')
+                                            @break
+
+                                            @case($item->mime_type == 'video/quicktime' || $item->mime_type == 'video/quicktime')
+                                                @svg('heroicon-m-video-camera', 'h-5 w-5 flex-shrink-0 text-gray-400')
+                                            @break
+                                        @endswitch
+                                        <span class="ml-2 w-0 flex-1 truncate">{{ $item->file_name }}</span>
+                                    </div>
+                                    <div class="ml-4 flex-shrink-0">
+                                        <a href="{{ route('player.attachments.show', ['item' => $item]) }}" class="font-medium text-indigo-600 hover:text-indigo-500">Download</a>
+                                    </div>
+                                    <div class="ml-4 flex-shrink-0">
+                                        @livewire('delete-attachment', ['item' => $item], key($item->id))
+                                    </div>
+                                </li>
+                                @empty
                                     <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
                                         <div class="flex w-0 flex-1 items-center">
-                                            @switch($item)
-                                                @case($item->mime_type == 'application/pdf')
-                                                    @svg('heroicon-m-paper-clip', 'h-5 w-5 flex-shrink-0 text-gray-400')
-                                                @break
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-gray-400">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                                            </svg>
 
-                                                @case($item->mime_type == 'image/png' || $item->mime_type == 'image/jpeg')
-                                                    @svg('heroicon-s-camera', 'h-5 w-5 flex-shrink-0 text-gray-400')
-                                                @break
-
-                                                @case($item->mime_type == 'video/quicktime' || $item->mime_type == 'video/quicktime')
-                                                    @svg('heroicon-m-video-camera', 'h-5 w-5 flex-shrink-0 text-gray-400')
-                                                @break
-                                            @endswitch
-                                            <span class="ml-2 w-0 flex-1 truncate">{{ $item->file_name }}</span>
-                                        </div>
-                                        <div class="ml-4 flex-shrink-0">
-                                            <a href="{{ route('player.attachments.show', ['item' => $item]) }}" class="font-medium text-indigo-600 hover:text-indigo-500">Download</a>
-                                        </div>
-                                        <div class="ml-4 flex-shrink-0">
-                                            @livewire('delete-attachment', ['item' => $item], key($item->id))
+                                            <span class="ml-2 w-0 flex-1 truncate">No attachments uploaded yet.</span>
                                         </div>
                                     </li>
-                                    @empty
-                                        <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
-                                            <div class="flex w-0 flex-1 items-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-gray-400">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
-                                                </svg>
-
-                                                <span class="ml-2 w-0 flex-1 truncate">No attachments uploaded yet.</span>
-                                            </div>
-                                        </li>
-                                    @endforelse
-                                </ul>
-                            </div>
+                                @endforelse
+                            </ul>
                         </div>
+                    </div>
 
-                        <div>
+                    {{-- <div>
                             <div class="lg:max-w-lg">
                                 <p class="mt-2 text-base font-semibold leading-7 text-indigo-600">Upload Attachments</p>
                             </div>
@@ -284,178 +284,177 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-auto h-8 w-8 text-gray-300">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776" />
                                 </svg>
-                                <input id="fileupload" name="fileupload" type="file" class="mt-1">
+                                <input id="fileupload" name="fileupload" type="file" multiple class="mt-1">
                                 <label for="fileupload_name" class="mt-1 block text-sm font-medium leading-6 text-gray-900">Attachment Name</label>
                                 <input type="text" name="fileupload_name" id="fileupload_name" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required>
                                 <x-jet-button type="submit">Submit</x-jet-button>
 
                             </div>
-                        </div>
-                    </div>
+                        </div> --}}
                 </div>
+            </div>
 
-            </form> --}}
 
-        @push('styles')
-            <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet" />
-            <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
-            <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.3/dist/flowbite.min.css" />
-            <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
-            <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet" />
-            <style>
-                .trix-button-group.trix-button-group--file-tools {
-                    display: none;
-                }
-
-                .filepond--root {
-                    font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-                    /* max-height: 10rem; */
-                    font-size: 0.875rem;
-                }
-
-                /* the text color of the drop label*/
-                .filepond--drop-label {
-                    color: rgb(75 85 99);
-                    line-height: 1.25rem;
-                }
-
-                /* underline color for "Browse" button */
-                .filepond--label-action {
-                    --tw-text-opacity: 1;
-                    color: rgb(79 70 229 / var(--tw-text-opacity));
-                    text-decoration-color: transparent;
-                    font-weight: 500;
-                }
-
-                /* the background color of the filepond drop area */
-                .filepond--panel-root {
-                    background-color: #eee;
-                }
-
-                /* the border radius of the drop area */
-                .filepond--panel-root {
-                    border-radius: 0.5em;
-                }
-
-                /* the border radius of the file item */
-                .filepond--item-panel {
-                    border-radius: 0.5em;
-                }
-
-                /* the background color of the file and file panel (used when dropping an image) */
-                .filepond--item-panel {
-                    background-color: #555;
-                }
-
-                /* the background color of the drop circle */
-                .filepond--drip-blob {
-                    background-color: #999;
-                }
-
-                /* the background color of the black action buttons */
-                .filepond--file-action-button {
-                    background-color: rgba(0, 0, 0, 0.5);
-                }
-
-                /* the icon color of the black action buttons */
-                .filepond--file-action-button {
-                    color: white;
-                }
-
-                /* the color of the focus ring */
-                .filepond--file-action-button:hover,
-                .filepond--file-action-button:focus {
-                    box-shadow: 0 0 0 0.125em rgba(255, 255, 255, 0.9);
-                }
-
-                /* the text color of the file status and info labels */
-                .filepond--file {
-                    color: white;
-                }
-
-                /* error state color */
-                [data-filepond-item-state*='error'] .filepond--item-panel,
-                [data-filepond-item-state*='invalid'] .filepond--item-panel {
-                    background-color: red;
-                }
-
-                [data-filepond-item-state='processing-complete'] .filepond--item-panel {
-                    background-color: green;
-                }
-
-                /* bordered drop area */
-                .filepond--panel-root {
-                    background-color: transparent;
-                    border-radius: 0.375rem;
-                    border: 2px;
-                    border-style: dashed;
-                    --tw-border-opacity: 1;
-                    border-color: rgb(209 213 219 / var(--tw-border-opacity));
-                }
-
-                .filepond--credits {
-                    display: none;
-                }
-            </style>
-        @endpush
-
-        @push('scripts')
-            <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
-            <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
-            <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
-            <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
-            <script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
-            {{-- <script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script> --}}
-            <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
-            <script>
-                new TomSelect('#positions', {
-                    maxItems: 5,
-                    plugins: {
-                        remove_button: {
-                            title: 'Remove this item',
-                        }
-                    },
-                });
-
-                new TomSelect('#continents', {
-                    maxItems: 6,
-                    plugins: {
-                        remove_button: {
-                            title: 'Remove this item',
-                        }
-                    },
-                });
-
-                document.addEventListener("trix-file-accept", (event) => {
-                    event.preventDefault()
-                })
-
-                FilePond.registerPlugin(FilePondPluginImagePreview);
-                FilePond.registerPlugin(FilePondPluginFileValidateType);
-                FilePond.registerPlugin(FilePondPluginImageTransform);
-                // FilePond.registerPlugin(FilePondPluginImageResize);
-                // Init FilePond
-                // Get a reference to the file input element
-                const inputElement = document.querySelector('#fileupload');
-
-                // Create a FilePond instance
-                const pond = FilePond.create(inputElement, {
-                    imageResizeTargetWidth: 800,
-                    imageResizeMode: 'contain',
-                    imageResizeUpscale: false,
-                    acceptedFileTypes: [
-                        'application/pdf', 'image/png', 'image/jpeg', 'video/mpeg', 'video/quicktime'
-                    ],
-                    server: {
-                        url: '/upload',
-                        headers: {
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                        }
+            @push('styles')
+                <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet" />
+                <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+                <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.3/dist/flowbite.min.css" />
+                <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+                <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet" />
+                <style>
+                    .trix-button-group.trix-button-group--file-tools {
+                        display: none;
                     }
-                });
-            </script>
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/datepicker.min.js"></script>
-        @endpush
+                    .filepond--root {
+                        font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+                        /* max-height: 10rem; */
+                        font-size: 0.875rem;
+                    }
 
-</x-app-layout>
+                    /* the text color of the drop label*/
+                    .filepond--drop-label {
+                        color: rgb(75 85 99);
+                        line-height: 1.25rem;
+                    }
+
+                    /* underline color for "Browse" button */
+                    .filepond--label-action {
+                        --tw-text-opacity: 1;
+                        color: rgb(79 70 229 / var(--tw-text-opacity));
+                        text-decoration-color: transparent;
+                        font-weight: 500;
+                    }
+
+                    /* the background color of the filepond drop area */
+                    .filepond--panel-root {
+                        background-color: #eee;
+                    }
+
+                    /* the border radius of the drop area */
+                    .filepond--panel-root {
+                        border-radius: 0.5em;
+                    }
+
+                    /* the border radius of the file item */
+                    .filepond--item-panel {
+                        border-radius: 0.5em;
+                    }
+
+                    /* the background color of the file and file panel (used when dropping an image) */
+                    .filepond--item-panel {
+                        background-color: #555;
+                    }
+
+                    /* the background color of the drop circle */
+                    .filepond--drip-blob {
+                        background-color: #999;
+                    }
+
+                    /* the background color of the black action buttons */
+                    .filepond--file-action-button {
+                        background-color: rgba(0, 0, 0, 0.5);
+                    }
+
+                    /* the icon color of the black action buttons */
+                    .filepond--file-action-button {
+                        color: white;
+                    }
+
+                    /* the color of the focus ring */
+                    .filepond--file-action-button:hover,
+                    .filepond--file-action-button:focus {
+                        box-shadow: 0 0 0 0.125em rgba(255, 255, 255, 0.9);
+                    }
+
+                    /* the text color of the file status and info labels */
+                    .filepond--file {
+                        color: white;
+                    }
+
+                    /* error state color */
+                    [data-filepond-item-state*='error'] .filepond--item-panel,
+                    [data-filepond-item-state*='invalid'] .filepond--item-panel {
+                        background-color: red;
+                    }
+
+                    [data-filepond-item-state='processing-complete'] .filepond--item-panel {
+                        background-color: green;
+                    }
+
+                    /* bordered drop area */
+                    .filepond--panel-root {
+                        background-color: transparent;
+                        border-radius: 0.375rem;
+                        border: 2px;
+                        border-style: dashed;
+                        --tw-border-opacity: 1;
+                        border-color: rgb(209 213 219 / var(--tw-border-opacity));
+                    }
+
+                    .filepond--credits {
+                        display: none;
+                    }
+                </style>
+            @endpush
+
+            @push('scripts')
+                <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+                <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+                <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+                <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+                <script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
+                {{-- <script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script> --}}
+                <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+                <script>
+                    new TomSelect('#positions', {
+                        maxItems: 5,
+                        plugins: {
+                            remove_button: {
+                                title: 'Remove this item',
+                            }
+                        },
+                    });
+
+                    new TomSelect('#continents', {
+                        maxItems: 6,
+                        plugins: {
+                            remove_button: {
+                                title: 'Remove this item',
+                            }
+                        },
+                    });
+
+                    document.addEventListener("trix-file-accept", (event) => {
+                        event.preventDefault()
+                    })
+
+                    FilePond.registerPlugin(FilePondPluginImagePreview);
+                    FilePond.registerPlugin(FilePondPluginFileValidateType);
+                    FilePond.registerPlugin(FilePondPluginImageTransform);
+                    // FilePond.registerPlugin(FilePondPluginImageResize);
+                    // Init FilePond
+                    // Get a reference to the file input element
+                    const inputElement = document.querySelector('#fileupload');
+
+                    // Create a FilePond instance
+                    const pond = FilePond.create(inputElement, {
+                        imageResizeTargetWidth: 800,
+                        imageResizeMode: 'contain',
+                        imageResizeUpscale: false,
+                        acceptedFileTypes: [
+                            'application/pdf', 'image/png', 'image/jpeg', 'video/mpeg', 'video/quicktime'
+                        ],
+                        server: {
+                            url: '/upload',
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            }
+                        }
+                    });
+                </script>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/datepicker.min.js"></script>
+            @endpush
+
+    </x-app-layout>
