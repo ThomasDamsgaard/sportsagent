@@ -15,30 +15,23 @@ class Filepond extends Component
         'files.required' => 'You must select one or more files to upload.',
     ];
 
-    public function updatedFiles()
-    {
-        // $this->validate(
-        //     [
-        //         'files' => ['required'],
-        //     ]
-        // );
-    }
     public function save()
     {
-        // dd($this->files);
-
         $this->validate([
             'files' => ['required'],
         ]);
 
         collect($this->files)->each(function ($file) {
-            auth()->user()->addMedia($file->getRealPath())->toMediaCollection('attachments');
+            auth()->user()
+                ->addMedia($file->getRealPath())
+                ->usingName($file->getClientOriginalName())
+                ->toMediaCollection('attachments');
         });
 
         session()->flash('flash.banner', 'Attachment Added!');
         session()->flash('flash.bannerStyle', 'success');
 
-        // return redirect()->back();
+        return redirect()->to(route('player.profile.edit', ['player' => auth()->user()]));
     }
 
     public function render()

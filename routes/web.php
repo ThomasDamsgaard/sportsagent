@@ -49,7 +49,7 @@ Route::middleware([
         ->withoutMiddleware([EnsureHasSport::class])->name('player.profile.update');
 
 
-    Route::post('/player/attachments/{player}', [AttachmentsController::class, 'store'])->name('player.attachments.store');
+    // Route::post('/player/attachments/{player}', [AttachmentsController::class, 'store'])->name('player.attachments.store');
     Route::get('/player/attachments/{item}', [AttachmentsController::class, 'show'])->name('player.attachments.show');
     Route::get('/player/attachments/delete/{item}', [AttachmentsController::class, 'destroy'])->name('player.attachments.destroy');
 

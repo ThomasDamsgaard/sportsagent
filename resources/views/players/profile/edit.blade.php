@@ -252,7 +252,7 @@
                                                 @svg('heroicon-m-video-camera', 'h-5 w-5 flex-shrink-0 text-gray-400')
                                             @break
                                         @endswitch
-                                        <span class="ml-2 w-0 flex-1 truncate">{{ $item->file_name }}</span>
+                                        <span class="ml-2 w-0 flex-1 truncate">{{ $item->name }}</span>
                                     </div>
                                     <div class="ml-4 flex-shrink-0">
                                         <a href="{{ route('player.attachments.show', ['item' => $item]) }}" class="font-medium text-indigo-600 hover:text-indigo-500">Download</a>
