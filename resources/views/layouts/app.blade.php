@@ -50,17 +50,17 @@
             @include('components.guarded.impersonation')
         @endif
 
-        @if (auth()->user()->onGenericTrial())
+        {{-- @if (auth()->user()->onGenericTrial())
             {{ session()->flash('flash.banner', 'Your free trial expires in ' . now()->diffInDays(auth()->user()->trial_ends_at) . ' day(s)') }}
             {{ session()->flash('flash.bannerStyle', 'trial') }}
-        @endif
+        @endif --}}
 
         <x-jet-validation-errors></x-jet-validation-errors>
 
         <!-- Page Heading -->
         @if (isset($header))
             <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                     {{ $header }}
                 </div>
             </header>

@@ -69,7 +69,7 @@
                 </a>
 
                 <x-jet-button class="bg-gray-600">
-                    {{ __('Start 90 days trial') }}
+                    {{ __('Start A Free Account') }}
                 </x-jet-button>
 
                 {{-- <x-jet-social-button class="inline-flex items-center bg-gray-600" href="{{ route('google.index') }}" type="button">
