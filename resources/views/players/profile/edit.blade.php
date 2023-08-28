@@ -27,7 +27,10 @@
                     <div class="lg:pr-4">
                         <div class="lg:max-w-lg">
                             <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Update your account's information</h1>
-                            <p class="mt-2 text-base font-semibold leading-7 text-indigo-600">Profile Information</p>
+                            <p class="mt-4 text-base leading-7 text-gray-700">
+                                <strong class="font-semibold text-gray-900">Share Your Story</strong> - Your journey as an athlete is a story important to tell. So start by telling us about your self. Once that is done, you can upload attachments to showcase yourself.
+                            </p>
+                            <p class="mt-8 text-base font-semibold leading-7 text-indigo-600">Profile Information</p>
                         </div>
                         <div class="mt-4 space-y-12">
                             <div class="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-3">
@@ -172,7 +175,16 @@
         </form>
     </div>
 
-    @if (!auth()->user()->age)
+    @if (auth()->user()->age)
+
+        <div class="flex items-center bg-white">
+            <hr class="flex-grow border-t border-gray-300">
+            <span class="flex flex-row items-center px-3 text-gray-600">
+                @svg('heroicon-s-paper-clip', 'h-4 mr-2')
+                Attachments
+            </span>
+            <hr class="flex-grow border-t border-gray-300">
+        </div>
 
 
         <div class="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
@@ -184,7 +196,10 @@
                     <div class="lg:pr-4">
                         <div class="lg:max-w-lg">
                             <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Upload your attachments</h1>
-                            <p class="mt-2 text-base font-semibold leading-7 text-indigo-600">Current Attachments</p>
+                            <p class="mt-4 text-base leading-7 text-gray-700">
+                                This section is really important! Let others see your talent and journey, conveyed through your best video clips and testimonials, thus exposing your unique abilities before clubs and scouts aon the platform.
+                            </p>
+                            <p class="mt-8 text-base font-semibold leading-7 text-indigo-600">Current Attachments</p>
                         </div>
                         <div class="mt-4 space-y-12">
                             <div class="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-3">
@@ -255,7 +270,7 @@
         {{-- <div>
             <div>
                 <div class="lg:max-w-lg">
-                    <p class="mt-2 text-base font-semibold leading-7 text-indigo-600">Current Attachments</p>
+                    <p class="mt-8 text-base font-semibold leading-7 text-indigo-600">Current Attachments</p>
                 </div>
                 <div class="mt-4 space-y-12">
                     <ul role="list" class="divide-y divide-gray-200 rounded-md border border-gray-200 bg-white">
