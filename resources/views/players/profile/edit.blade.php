@@ -79,7 +79,7 @@
 
                                             <div class="mt-8">
                                                 <p class="my-4 text-base font-semibold leading-7 text-indigo-600">Upload Attachments</p>
-                                                <livewire:filepond />
+                                                <livewire:attachment />
                                             </div>
                                         </div>
                                     </div>
