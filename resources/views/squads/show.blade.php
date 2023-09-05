@@ -28,42 +28,10 @@
                                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $team->league->name }}</dd>
                                 </div>
 
-                                {{-- <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                    <dt class="text-sm font-medium text-gray-500">Games Played / Won</dt>
+                                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Socials</dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">21 / 18</dd>
                                 </div>
-                                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                    <dt class="text-sm font-medium text-gray-500">Goals</dt>
-                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">684 - 586</dd>
-                                </div>
-                                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                    <dt class="text-sm font-medium text-gray-500">Form</dt>
-                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">VVLVV</dd>
-                                </div>
-                                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                    <dt class="text-sm font-medium text-gray-500">Squad</dt>
-                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                        <div>
-                                            <div id="table" class="flex flex-col">
-                                                <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                                                    <div class="inline-block min-w-full align-middle sm:px-6 lg:px-8">
-                                                        @foreach ($team->users as $player)
-                                                            <div class="@if ($loop->last) border-b-0 @endif flex items-center justify-between border-b border-gray-100">
-                                                                <div class="flex py-6">
-                                                                    <img class="h-6 w-6 rounded-full object-cover ring-2 ring-gray-200" src="{{ $player->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
-                                                                    <div class="ml-4 flex items-center">
-                                                                        {{ $player->name }}
-                                                                    </div>
-                                                                </div>
-                                                                <a href="{{ route('player.show', ['player' => $player]) }}" class="text-green-600 hover:text-green-900">View</a>
-                                                            </div>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </dd>
-                                </div> --}}
 
                                 <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                     <dt class="text-sm font-medium text-gray-500">Biography</dt>
