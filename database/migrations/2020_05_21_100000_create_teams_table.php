@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('name')->index();
             $table->string('country')->nullable();
             $table->string('logo')->nullable();
+            $table->json('contact')->nullable();
+            $table->string('website')->nullable();
+            $table->json('socials')->nullable();
             $table->boolean('personal_team');
             $table->timestamps();
         });

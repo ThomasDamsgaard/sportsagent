@@ -25,6 +25,8 @@ class Team extends JetstreamTeam implements HasMedia
      */
     protected $casts = [
         'personal_team' => 'boolean',
+        'contact' => 'array',
+        'socials' => 'array',
     ];
 
     /**
