@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Team;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Factories\Sequence;
@@ -20,13 +21,10 @@ class TeamSeeder extends Seeder
         $teams = json_decode(File::get('database/data/leagues/denmark.json'), true);
 
         foreach ($teams as $team) {
-            Team::create([
-                'sport_id' => 1,
-                'league_id' => 1,
+            Team::factory()->create([
                 'name' => $team['name'],
-                'country' => 'dk',
+                'country' => Str::lower($team['country']['code']),
                 'logo' => $team['logo'],
-                'personal_team' => 0,
             ]);
         }
     }

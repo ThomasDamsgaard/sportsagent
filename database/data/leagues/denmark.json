@@ -1,21 +1,144 @@
 [
-    {"id":464,"name":"Bakken Bears","logo":"https:\/\/media-2.api-sports.io\/basketball\/teams\/464.png","nationnal":false,"country":{"id":13,"name":"Denmark","code":"DK","flag":"https:\/\/media-2.api-sports.io\/flags\/dk.svg"}},
+    {
+        "id": 464,
+        "name": "Bakken Bears",
+        "logo": "https://media-2.api-sports.io/basketball/teams/464.png",
+        "nationnal": false,
+        "country": {
+            "id": 13,
+            "name": "Denmark",
+            "code": "DK",
+            "flag": "https://media-2.api-sports.io/flags/dk.svg"
+        }
+    },
 
-    {"id":2258,"name":"Bears Academy","logo":"https:\/\/media-3.api-sports.io\/basketball\/teams\/2258.png","nationnal":false,"country":{"id":13,"name":"Denmark","code":"DK","flag":"https:\/\/media-3.api-sports.io\/flags\/dk.svg"}},
+    {
+        "id": 2258,
+        "name": "Bears Academy",
+        "logo": "https://media-3.api-sports.io/basketball/teams/2258.png",
+        "nationnal": false,
+        "country": {
+            "id": 13,
+            "name": "Denmark",
+            "code": "DK",
+            "flag": "https://media-3.api-sports.io/flags/dk.svg"
+        }
+    },
 
-    {"id":468,"name":"Horsens IC","logo":"https:\/\/media-3.api-sports.io\/basketball\/teams\/468.png","nationnal":false,"country":{"id":13,"name":"Denmark","code":"DK","flag":"https:\/\/media-1.api-sports.io\/flags\/dk.svg"}},
+    {
+        "id": 468,
+        "name": "Horsens IC",
+        "logo": "https://media-3.api-sports.io/basketball/teams/468.png",
+        "nationnal": false,
+        "country": {
+            "id": 13,
+            "name": "Denmark",
+            "code": "DK",
+            "flag": "https://media-1.api-sports.io/flags/dk.svg"
+        }
+    },
 
-    {"id":469,"name":"Randers Cimbria","logo":"https:\/\/media-2.api-sports.io\/basketball\/teams\/469.png","nationnal":false,"country":{"id":13,"name":"Denmark","code":"DK","flag":"https:\/\/media-2.api-sports.io\/flags\/dk.svg"}},
+    {
+        "id": 469,
+        "name": "Randers Cimbria",
+        "logo": "https://media-2.api-sports.io/basketball/teams/469.png",
+        "nationnal": false,
+        "country": {
+            "id": 13,
+            "name": "Denmark",
+            "code": "DK",
+            "flag": "https://media-2.api-sports.io/flags/dk.svg"
+        }
+    },
 
-    {"id":471,"name":"Team FOG Naestved","logo":"https:\/\/media-2.api-sports.io\/basketball\/teams\/471.png","nationnal":false,"country":{"id":13,"name":"Denmark","code":"DK","flag":"https:\/\/media-1.api-sports.io\/flags\/dk.svg"}},
+    {
+        "id": 471,
+        "name": "Team FOG Naestved",
+        "logo": "https://media-2.api-sports.io/basketball/teams/471.png",
+        "nationnal": false,
+        "country": {
+            "id": 13,
+            "name": "Denmark",
+            "code": "DK",
+            "flag": "https://media-1.api-sports.io/flags/dk.svg"
+        }
+    },
 
-    {"id":5015,"name":"Holbaek-Stenhus","logo":"https:\/\/media-1.api-sports.io\/basketball\/teams\/5015.png","nationnal":false,"country":{"id":13,"name":"Denmark","code":"DK","flag":"https:\/\/media-3.api-sports.io\/flags\/dk.svg"}},
+    {
+        "id": 5015,
+        "name": "Holbaek-Stenhus",
+        "logo": "https://media-1.api-sports.io/basketball/teams/5015.png",
+        "nationnal": false,
+        "country": {
+            "id": 13,
+            "name": "Denmark",
+            "code": "DK",
+            "flag": "https://media-3.api-sports.io/flags/dk.svg"
+        }
+    },
 
-    {"id":465,"name":"Basket Club Copenhagen","logo":"https:\/\/media-3.api-sports.io\/basketball\/teams\/465.png","nationnal":false,"country":{"id":13,"name":"Denmark","code":"DK","flag":"https:\/\/media-3.api-sports.io\/flags\/dk.svg"}},
+    {
+        "id": 465,
+        "name": "Basket Club Copenhagen",
+        "logo": "https://media-3.api-sports.io/basketball/teams/465.png",
+        "nationnal": false,
+        "country": {
+            "id": 13,
+            "name": "Denmark",
+            "code": "DK",
+            "flag": "https://media-3.api-sports.io/flags/dk.svg"
+        }
+    },
 
-    {"id":5145,"name":"BMS Herlev","logo":"https:\/\/media-3.api-sports.io\/basketball\/teams\/5145.png","nationnal":false,"country":{"id":13,"name":"Denmark","code":"DK","flag":"https:\/\/media-2.api-sports.io\/flags\/dk.svg"}},
+    {
+        "id": 5145,
+        "name": "BMS Herlev",
+        "logo": "https://media-3.api-sports.io/basketball/teams/5145.png",
+        "nationnal": false,
+        "country": {
+            "id": 13,
+            "name": "Denmark",
+            "code": "DK",
+            "flag": "https://media-2.api-sports.io/flags/dk.svg"
+        }
+    },
 
-    {"id":472,"name":"Vaerlose Blue Hawks","logo":"https:\/\/media-3.api-sports.io\/basketball\/teams\/472.png","nationnal":false,"country":{"id":13,"name":"Denmark","code":"DK","flag":"https:\/\/media-2.api-sports.io\/flags\/dk.svg"}},
+    {
+        "id": 472,
+        "name": "Vaerlose Blue Hawks",
+        "logo": "https://media-3.api-sports.io/basketball/teams/472.png",
+        "nationnal": false,
+        "country": {
+            "id": 13,
+            "name": "Denmark",
+            "code": "DK",
+            "flag": "https://media-2.api-sports.io/flags/dk.svg"
+        }
+    },
 
-    {"id":463,"name":"BK Amager","logo":"https:\/\/media-2.api-sports.io\/basketball\/teams\/463.png","nationnal":false,"country":{"id":13,"name":"Denmark","code":"DK","flag":"https:\/\/media-1.api-sports.io\/flags\/dk.svg"}}
+    {
+        "id": 463,
+        "name": "BK Amager",
+        "logo": "https://media-2.api-sports.io/basketball/teams/463.png",
+        "nationnal": false,
+        "country": {
+            "id": 13,
+            "name": "Denmark",
+            "code": "DK",
+            "flag": "https://media-1.api-sports.io/flags/dk.svg"
+        }
+    },
+
+    {
+        "id": 463,
+        "name": "Svendborg Rabbits",
+        "logo": "https://media-2.api-sports.io/basketball/teams/470.png",
+        "nationnal": false,
+        "country": {
+            "id": 13,
+            "name": "Denmark",
+            "code": "DK",
+            "flag": "https://media-1.api-sports.io/flags/dk.svg"
+        }
+    }
 ]
