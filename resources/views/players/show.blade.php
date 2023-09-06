@@ -304,7 +304,7 @@
                                     </dd>
                                 </div>
 
-                                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                {{-- <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                     <dt class="text-sm font-medium text-gray-500">Testimonials</dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                                         <ul role="list" class="space-y-8">
@@ -315,7 +315,7 @@
                                                         <div>
                                                             <h3 class="text-base font-semibold leading-7 tracking-tight"><a href="{{ route('player.show', ['player' => $testimonial->writer]) }}">{{ $testimonial->writer->name }}</a></h3>
                                                             <p class="text-sm font-semibold leading-6 text-indigo-600">
-                                                                {{ Str::ucfirst($testimonial->writer->type) }} - {{ Str::ucfirst($testimonial->writer->currentTeam->name) }}
+                                                                {{ Str::ucfirst($testimonial->writer->type) }}
                                                             </p>
                                                         </div>
                                                     </div>
@@ -331,76 +331,7 @@
                                             @endforelse
                                         </ul>
                                     </dd>
-                                </div>
-                            </dl>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-12">
-                    <div class="overflow-hidden bg-white shadow sm:rounded-lg">
-                        <div class="flex items-center px-4 py-5 sm:px-6">
-                            <div>
-                                <h3 class="text-lg font-medium leading-6 text-gray-900">Statistics</h3>
-                                <p class="mt-1 max-w-2xl text-sm text-gray-500">Personal details and attachments.</p>
-                            </div>
-                        </div>
-                        <div class="border-t border-gray-200">
-                            <dl>
-                                <div class="bg-white">
-                                    <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
-                                        <table class="min-w-full table-fixed divide-y divide-gray-200">
-                                            <thead class="bg-gray-50">
-                                                <tr>
-                                                    <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                                        Matches
-                                                    </th>
-                                                    <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                                        Goals
-                                                    </th>
-                                                    <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                                        Shots
-                                                    </th>
-                                                    <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                                        Efficiency
-                                                    </th>
-                                                    <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                                        7m Shots
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="divide-y divide-gray-200 bg-white">
-                                                <tr>
-                                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
-                                                        <div class="flex items-center">
-                                                            13
-                                                        </div>
-                                                    </td>
-                                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
-                                                        <div class="flex items-center">
-                                                            6
-                                                        </div>
-                                                    </td>
-                                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
-                                                        <div class="flex items-center">
-                                                            24
-                                                        </div>
-                                                    </td>
-                                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
-                                                        <div class="flex items-center">
-                                                            25%
-                                                        </div>
-                                                    </td>
-                                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
-                                                        <div class="flex items-center">
-                                                            0
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                                </div> --}}
                             </dl>
                         </div>
                     </div>
