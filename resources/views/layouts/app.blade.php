@@ -46,6 +46,8 @@
     <div class="min-h-screen bg-gray-100">
         @livewire('navigation-menu')
 
+        @include('components.guarded.beta')
+
         @if (session()->has('impersonation'))
             @include('components.guarded.impersonation')
         @endif
