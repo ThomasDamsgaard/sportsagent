@@ -20,8 +20,6 @@ class UserSeeder extends Seeder
         $this->generateAdmin();
 
         $this->generateBasketballUsers();
-
-        // $this->generateBadmintonUsers();
     }
 
     private function generateAdmin(): User
@@ -115,74 +113,5 @@ class UserSeeder extends Seeder
         // $players->each(function ($user) use ($teams) {
         //     $user->teams()->attach($teams->random()->id, ['role' => 'player']);
         // });
-    }
-
-    private function generateBadmintonUsers()
-    {
-        User::factory()
-            ->hasAttached(
-                Team::factory(['name' => 'Odense Badminton', 'country' => 'dk', 'league' => '1. Divison'])
-                    ->state(function (array $attributes, User $user) {
-                        return ['sport_id' => 2, 'user_id' => $user->id];
-                    }),
-                ['role' => 'admin']
-            )
-            ->create([
-                'sport_id' => 2,
-                'name' => 'Badminton User',
-                'email' => 'badminton@example.com',
-                'type' => 'coach',
-                'current_team_id' => 4,
-            ]);
-
-        $coach = User::factory()
-            ->count(2)
-            ->hasAttached(
-                Team::factory()
-                    ->state(new Sequence(
-                        ['name' => 'Aalborg Badminton', 'country' => 'dk', 'league' => '1. Divison'],
-                        ['name' => 'København Badminton', 'country' => 'dk', 'league' => '1. Divison'],
-                    ))
-                    ->state(function (array $attributes, User $coach) {
-                        return ['sport_id' => 2, 'user_id' => $coach->id];
-                    }),
-                ['role' => 'admin']
-            )
-            ->state(new Sequence(
-                // ['current_team_id' => 4],
-                ['current_team_id' => 5],
-                ['current_team_id' => 6],
-            ))
-            ->create([
-                'sport_id' => 2,
-                'type' => 'coach',
-                'verified' => true,
-            ]);
-
-        $user = User::factory()->create([
-            'sport_id' => 2,
-            'name' => 'Badminton User',
-            'email' => 'badmintonuser@example.com',
-            'type' => 'player',
-            'current_team_id' => 4,
-            'verified' => true,
-        ]);
-
-        $players = User::factory()
-            ->count(30)
-            ->state(new Sequence(
-                ['current_team_id' => 4],
-                ['current_team_id' => 5],
-                ['current_team_id' => 6],
-            ))
-            ->create(['sport_id' => 2]);
-
-        $teams = Team::where('sport_id', 2)->get();
-
-        $user->teams()->attach(4, ['role' => 'player']);
-
-        $players->each(function ($user) use ($teams) {
-            $user->teams()->attach($teams->random()->id, ['role' => 'player']);
-        });
     }
 }
