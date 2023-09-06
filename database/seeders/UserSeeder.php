@@ -38,13 +38,13 @@ class UserSeeder extends Seeder
     private function generateBasketballUsers()
     {
         User::factory()
-            ->hasAttached(
-                Team::factory(['name' => 'Svendborg Rabbits', 'country' => 'dk', 'league_id' => 1, 'logo' => 'https://media-2.api-sports.io/basketball/teams/470.png'])
-                    ->state(function (array $attributes, User $user) {
-                        return ['user_id' => $user->id];
-                    }),
-                ['role' => 'admin']
-            )
+            // ->hasAttached(
+            //     Team::factory(['name' => 'Svendborg Rabbits', 'country' => 'dk', 'league_id' => 1, 'logo' => 'https://media-2.api-sports.io/basketball/teams/470.png'])
+            //         ->state(function (array $attributes, User $user) {
+            //             return ['user_id' => $user->id];
+            //         }),
+            //     ['role' => 'admin']
+            // )
             ->create([
                 'sport_id' => 1,
                 'name' => 'Test User',
@@ -66,10 +66,10 @@ class UserSeeder extends Seeder
             //         }),
             //     ['role' => 'admin']
             // )
-            ->state(new Sequence(
-                ['current_team_id' => 2],
-                ['current_team_id' => 3],
-            ))
+            // ->state(new Sequence(
+            //     ['current_team_id' => 2],
+            //     ['current_team_id' => 3],
+            // ))
             ->create([
                 'type' => 'coach',
                 'verified' => true,
@@ -77,11 +77,11 @@ class UserSeeder extends Seeder
 
         $coaches = User::factory()
             ->count(30)
-            ->state(new Sequence(
-                ['current_team_id' => 1],
-                ['current_team_id' => 2],
-                ['current_team_id' => 3],
-            ))
+            // ->state(new Sequence(
+            //     ['current_team_id' => 1],
+            //     ['current_team_id' => 2],
+            //     ['current_team_id' => 3],
+            // ))
             ->create([
                 'type' => 'coach',
             ]);
@@ -91,30 +91,30 @@ class UserSeeder extends Seeder
             'name' => 'Basketball User',
             'email' => 'basketballuser@example.com',
             'type' => 'player',
-            'current_team_id' => 1,
+            // 'current_team_id' => 1,
             'verified' => true,
         ]);
 
-        $user->teams()->attach(1, ['role' => 'player']);
+        // $user->teams()->attach(1, ['role' => 'player']);
 
         $players = User::factory()
             ->count(30)
-            ->state(new Sequence(
-                ['current_team_id' => 1],
-                ['current_team_id' => 2],
-                ['current_team_id' => 3],
-            ))
+            // ->state(new Sequence(
+            //     ['current_team_id' => 1],
+            //     ['current_team_id' => 2],
+            //     ['current_team_id' => 3],
+            // ))
             ->create();
 
-        $teams = Team::where('sport_id', 1)->get();
+        // $teams = Team::where('sport_id', 1)->get();
 
-        $coaches->each(function ($coach) use ($teams) {
-            $coach->teams()->attach($teams->random()->id, ['role' => 'coach']);
-        });
+        // $coaches->each(function ($coach) use ($teams) {
+        //     $coach->teams()->attach($teams->random()->id, ['role' => 'coach']);
+        // });
 
-        $players->each(function ($user) use ($teams) {
-            $user->teams()->attach($teams->random()->id, ['role' => 'player']);
-        });
+        // $players->each(function ($user) use ($teams) {
+        //     $user->teams()->attach($teams->random()->id, ['role' => 'player']);
+        // });
     }
 
     private function generateBadmintonUsers()
