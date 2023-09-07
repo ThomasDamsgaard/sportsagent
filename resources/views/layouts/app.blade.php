@@ -72,6 +72,9 @@
         <main>
             {{ $slot }}
         </main>
+
+        @include('components.guarded.feedback')
+
     </div>
 
     @stack('modals')

@@ -50,7 +50,7 @@
                                 <span>As part of our service, we offer <strong class="font-semibold text-gray-900">sample contracts and connect you with specialized sports lawyers</strong> who can guide you through the process of setting up contractual agreements.</span>
                             </li>
                         </ul>
-                        <h3 class="mt-8 text-xl font-semibold tracking-tight text-gray-900">
+                        {{-- <h3 class="mt-8 text-xl font-semibold tracking-tight text-gray-900">
                             Initial focus on several prominent sports that boast a high level of professionalism and abundant talent:
                         </h3>
                         <p class="mt-8">
@@ -76,7 +76,7 @@
                                     <strong class="font-semibold text-gray-900">Handball</strong> - he Scandinavian countries are known for their surplus of exceptional handball talents, ready to take on a new challenge in a foreign country.
                                 </span>
                             </li>
-                        </ul>
+                        </ul> --}}
                     </div>
                 </div>
             </div>
