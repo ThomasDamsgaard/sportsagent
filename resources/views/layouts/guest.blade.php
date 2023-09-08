@@ -34,6 +34,8 @@
             })(window, document, "clarity", "script", "hmh0j7to5a");
         </script>
     @endif
+
+    @livewireStyles
 </head>
 
 <body>
@@ -67,6 +69,8 @@
             menu.classList.add('hidden');
         })
     </script>
+
+    @livewireScripts
 
 </body>
 

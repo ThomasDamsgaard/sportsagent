@@ -75,7 +75,7 @@
                                         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                             <dt class="flex items-center text-sm font-medium text-gray-500">Birthday</dt>
                                             <dd class="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0">
-                                                <input datepicker datepicker-format="yyyy/mm/dd" type="text" wire:model="age" id="age" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required>
+                                                <input datepicker datepicker-format="yyyy/mm/dd" type="text" wire:model.live="age" id="age" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required>
                                             </dd>
                                         </div>
                                         <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -104,7 +104,7 @@
                                         <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                             <dt class="text-sm font-medium text-gray-500">Biography</dt>
                                             <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                                <textarea id="biography" wire:model="biography" rows="3" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required></textarea>
+                                                <textarea id="biography" wire:model.live="biography" rows="3" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required></textarea>
                                             </dd>
                                         </div>
 
@@ -157,7 +157,7 @@
                                     </div>
                                 </div>
                                 <div class="border-t border-gray-200">
-                                    <form wire:submit.prevent="save">
+                                    <form wire:submit="save">
                                         @csrf
                                         <dl>
                                             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -166,7 +166,7 @@
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-auto h-8 w-8 text-gray-300">
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776" />
                                                     </svg>
-                                                    <x-guarded.filepond wire:model="files" multiple />
+                                                    <x-guarded.filepond wire:model.live="files" multiple />
                                                     {{-- <input id="fileupload" name="fileupload" type="file" class="mt-1"> --}}
                                                     <label for="fileupload_name" class="block text-sm font-medium leading-6 text-gray-900 mt-1">Attachment Name</label>
                                                     <input type="text" name="fileupload_name" id="fileupload_name" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required>
@@ -201,7 +201,7 @@
                                     </div>
                                 </div>
                                 <div class="border-t border-gray-200">
-                                    <form wire:submit.prevent="save">
+                                    <form wire:submit="save">
                                         @csrf
                                         <dl>
                                             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -210,7 +210,7 @@
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-auto h-8 w-8 text-gray-300">
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776" />
                                                     </svg>
-                                                    <input id="fileupload" name="fileupload" wire:model="fileupload" type="file" class="mt-1" multiple>
+                                                    <input id="fileupload" name="fileupload" wire:model.live="fileupload" type="file" class="mt-1" multiple>
                                                     <label for="fileupload_name" class="block text-sm font-medium leading-6 text-gray-900 mt-1">Attachment Name</label>
                                                     <input type="text" name="fileupload_name" id="fileupload_name" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required>
                                                     @error('fileupload.*')
