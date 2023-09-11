@@ -35,6 +35,7 @@
         </script>
     @endif
 
+    <!-- Styles -->
     @livewireStyles
 </head>
 
