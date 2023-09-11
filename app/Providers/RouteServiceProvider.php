@@ -57,4 +57,19 @@ class RouteServiceProvider extends ServiceProvider
             return Limit::perMinute(10)->by($request->ip());
         });
     }
+
+    public function map(Route $router)
+    {
+        if (app()->environment('local')) {
+            $this->mapDevRoutes($router);
+        }
+    }
+
+    protected function mapDevRoutes(Route $router)
+    {
+        $router
+            ->middleware('web')
+            ->prefix('dev')
+            ->group(base_path('routes/dev.php'));
+    }
 }
