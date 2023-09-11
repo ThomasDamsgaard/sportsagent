@@ -15,17 +15,6 @@ use Laravel\Jetstream\Jetstream;
 class JetstreamServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
-     */
-    public function register(): void
-    {
-        $this->registerComponent('select');
-        $this->registerComponent('social-button');
-        $this->registerComponent('button-link');
-        $this->registerComponent('filepond');
-    }
-
-    /**
      * Bootstrap any application services.
      */
     public function boot(): void
@@ -62,10 +51,5 @@ class JetstreamServiceProvider extends ServiceProvider
         Jetstream::role('player', 'Player', [
             'read',
         ])->description('Player users have the ability to read only.');
-    }
-
-    protected function registerComponent(string $component)
-    {
-        \Illuminate\Support\Facades\Blade::component('vendor/jetstream/components/' . $component, 'jet-' . $component);
     }
 }

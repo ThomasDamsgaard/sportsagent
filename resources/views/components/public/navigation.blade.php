@@ -3,7 +3,7 @@
         <div class="flex lg:flex-1">
             <a href="/" class="-m-1.5 p-1.5">
                 <span class="sr-only">Sports Agency</span>
-                <x-jet-application-mark class="h-8" />
+                <x-application-mark class="h-8" />
             </a>
         </div>
         <div class="flex lg:hidden">
@@ -38,7 +38,7 @@
             <div class="flex items-center justify-between">
                 <a href="#" class="-m-1.5 p-1.5">
                     <span class="sr-only">Sports Agency</span>
-                    <x-jet-application-mark class="h-8" />
+                    <x-application-mark class="h-8" />
                 </a>
                 <button id="close" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
                     <span class="sr-only">Close menu</span>
@@ -51,8 +51,8 @@
             <div class="mt-6 flow-root">
                 <div class="-my-6 divide-y divide-gray-500/10">
                     <div class="space-y-2 py-6">
-                        <a href="{{ route('players') }}" class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">For Players</a>
-                        <a href="{{ route('teams') }}" class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">For Teams</a>
+                        <a href="{{ route('players') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">For Players</a>
+                        <a href="{{ route('teams') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">For Teams</a>
                         {{-- <a href="{{ route('features') }}" class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">Features</a>
 
                         <a href="{{ route('pricing') }}" class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">Pricing</a>
@@ -60,7 +60,7 @@
                         <a href="#" class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">Company</a> --}}
                     </div>
                     <div class="py-6">
-                        <a href="{{ route('login') }}" class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-6 text-gray-900 hover:bg-gray-400/10">Log in</a>
+                        <a href="{{ route('login') }}" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-6 text-gray-900 hover:bg-gray-400/10">Log in</a>
                     </div>
                 </div>
             </div>

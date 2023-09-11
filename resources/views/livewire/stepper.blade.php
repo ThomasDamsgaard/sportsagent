@@ -2,40 +2,40 @@
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div>
-                <ol class="flex items-center w-full px-4 sm:px-0 text-sm font-medium text-center text-gray-500 sm:text-base">
-                    <li class="flex md:w-full items-center {{ $currentStep != 1 ? '' : 'text-blue-600' }} sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
-                        <span class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200">
+                <ol class="flex w-full items-center px-4 text-center text-sm font-medium text-gray-500 sm:px-0 sm:text-base">
+                    <li class="{{ $currentStep != 1 ? '' : 'text-blue-600' }} after:border-1 flex items-center after:mx-6 after:hidden after:h-1 after:w-full after:border-b after:border-gray-200 dark:after:border-gray-700 sm:after:inline-block sm:after:content-[''] md:w-full xl:after:mx-10">
+                        <span class="flex items-center after:mx-2 after:text-gray-200 after:content-['/'] sm:after:hidden">
                             @if ($currentStep == 1)
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2 sm:w-5 sm:h-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 h-4 w-4 sm:h-5 sm:w-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
                                 </svg>
                             @endif
                             @if ($currentStep > 1)
-                                <svg aria-hidden="true" class="w-4 h-4 mr-2 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <svg aria-hidden="true" class="mr-2 h-4 w-4 sm:h-5 sm:w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                                 </svg>
                             @endif
-                            Personal <span class="hidden sm:inline-flex sm:ml-1">Info</span>
+                            Personal <span class="hidden sm:ml-1 sm:inline-flex">Info</span>
                         </span>
                     </li>
-                    <li class="flex md:w-full items-center {{ $currentStep != 2 ? '' : 'text-blue-600' }} after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
-                        <span class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200">
+                    <li class="{{ $currentStep != 2 ? '' : 'text-blue-600' }} after:border-1 flex items-center after:mx-6 after:hidden after:h-1 after:w-full after:border-b after:border-gray-200 after:content-[''] dark:after:border-gray-700 sm:after:inline-block md:w-full xl:after:mx-10">
+                        <span class="flex items-center after:mx-2 after:text-gray-200 after:content-['/'] sm:after:hidden">
                             @if ($currentStep == 2)
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2 sm:w-5 sm:h-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 h-4 w-4 sm:h-5 sm:w-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15m0-3l-3-3m0 0l-3 3m3-3V15" />
                                 </svg>
                             @endif
                             @if ($currentStep > 2)
-                                <svg aria-hidden="true" class="w-4 h-4 mr-2 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <svg aria-hidden="true" class="mr-2 h-4 w-4 sm:h-5 sm:w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                                 </svg>
                             @endif
                             Attachments
                         </span>
                     </li>
-                    <li class="flex items-center {{ $currentStep != 3 ? '' : 'text-blue-600' }}">
+                    <li class="{{ $currentStep != 3 ? '' : 'text-blue-600' }} flex items-center">
                         @if ($currentStep == 3)
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2 sm:w-5 sm:h-5">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 h-4 w-4 sm:h-5 sm:w-5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
                             </svg>
                         @endif
@@ -44,7 +44,7 @@
                 </ol>
 
                 <div class="py-12">
-                    <div class="mx-auto max-w-7xl sm:px-6 lg:px-8 space-y-12">
+                    <div class="mx-auto max-w-7xl space-y-12 sm:px-6 lg:px-8">
                         <div class="{{ $currentStep != 1 ? 'hidden' : 'block' }}">
                             <div class="overflow-hidden bg-white shadow sm:rounded-lg">
                                 <div class="flex items-center px-4 py-5 sm:px-6">
@@ -63,11 +63,11 @@
                                             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                 <dt class="flex items-center text-sm font-medium text-gray-500">Sport</dt>
                                                 <dd class="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0">
-                                                    <x-jet-select id="sport_id" class="block w-full" type="text" name="sport_id" required>
+                                                    <x-select id="sport_id" class="block w-full" type="text" name="sport_id" required>
                                                         <option disabled selected></option>
                                                         <option value="1">Soccer</option>
                                                         <option value="2">Basketball</option>
-                                                    </x-jet-select>
+                                                    </x-select>
                                                 </dd>
                                             </div>
                                         @endif
@@ -129,19 +129,19 @@
                                             </dd>
                                         </div> --}}
                                     </dl>
-                                    <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6 shadow sm:rounded-bl-md sm:rounded-br-md">
-                                        <x-jet-button wire:click="firstStepSubmit" wire:loading.attr="disabled">
+                                    <div class="flex items-center justify-end bg-gray-50 px-4 py-3 text-right shadow sm:rounded-bl-md sm:rounded-br-md sm:px-6">
+                                        <x-button wire:click="firstStepSubmit" wire:loading.attr="disabled">
                                             <span wire:loading.remove wire.target="firstStepSubmit">Next</span>
                                             <span wire:loading wire.target="firstStepSubmit">
                                                 <div role="status">
-                                                    <svg aria-hidden="true" class="w-4 h-4 mr-2 text-gray-200 animate-spin fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg aria-hidden="true" class="mr-2 h-4 w-4 animate-spin fill-blue-600 text-gray-200" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
                                                         <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill" />
                                                     </svg>
                                                     <span class="sr-only">Loading...</span>
                                                 </div>
                                             </span>
-                                        </x-jet-button>
+                                        </x-button>
                                     </div>
                                     {{-- </form> --}}
                                 </div>
@@ -168,24 +168,24 @@
                                                     </svg>
                                                     <x-guarded.filepond wire:model.live="files" multiple />
                                                     {{-- <input id="fileupload" name="fileupload" type="file" class="mt-1"> --}}
-                                                    <label for="fileupload_name" class="block text-sm font-medium leading-6 text-gray-900 mt-1">Attachment Name</label>
+                                                    <label for="fileupload_name" class="mt-1 block text-sm font-medium leading-6 text-gray-900">Attachment Name</label>
                                                     <input type="text" name="fileupload_name" id="fileupload_name" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required>
                                                 </dd>
                                             </div>
                                         </dl>
-                                        <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6 shadow sm:rounded-bl-md sm:rounded-br-md">
-                                            <x-jet-button wire:click="secondStepSubmit" wire:loading.attr="disabled">
+                                        <div class="flex items-center justify-end bg-gray-50 px-4 py-3 text-right shadow sm:rounded-bl-md sm:rounded-br-md sm:px-6">
+                                            <x-button wire:click="secondStepSubmit" wire:loading.attr="disabled">
                                                 <span wire:loading.remove wire.target="firstStepSubmit">Next</span>
                                                 <span wire:loading wire.target="firstStepSubmit">
                                                     <div role="status">
-                                                        <svg aria-hidden="true" class="w-4 h-4 mr-2 text-gray-200 animate-spin fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <svg aria-hidden="true" class="mr-2 h-4 w-4 animate-spin fill-blue-600 text-gray-200" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
                                                             <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill" />
                                                         </svg>
                                                         <span class="sr-only">Loading...</span>
                                                     </div>
                                                 </span>
-                                            </x-jet-button>
+                                            </x-button>
                                         </div>
                                     </form>
                                 </div>
@@ -220,8 +220,8 @@
                                             </div>
                                         </dl>
                                         <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6 shadow sm:rounded-bl-md sm:rounded-br-md">
-                                            <x-jet-button type="submit">Submit</x-jet-button>
-                                            <x-jet-button wire:click="secondStepSubmit" wire:loading.attr="disabled">Next</x-jet-button>
+                                            <x-button type="submit">Submit</x-button>
+                                            <x-button wire:click="secondStepSubmit" wire:loading.attr="disabled">Next</x-button>
 
                                         </div>
                                     </form>

@@ -1,4 +1,4 @@
-<x-jet-action-section>
+<x-action-section>
     <x-slot name="title">
         {{ __('Subscription') }}
     </x-slot>
@@ -19,9 +19,9 @@
         </div>
 
         <div class="mt-5">
-            <x-jet-button-link href="{{ route('portal.show') }}">
+            <x-button-link href="{{ route('portal.show') }}">
                 {{ __('To Customer Portal') }}
-            </x-jet-button-link>
+            </x-button-link>
         </div>
     </x-slot>
-</x-jet-action-section>
+</x-action-section>
