@@ -36,6 +36,12 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+
+            if (app()->environment('local')) {
+                Route::middleware('web')
+                    ->prefix('dev')
+                    ->group(base_path('routes/dev.php'));
+            }
         });
     }
 
@@ -56,20 +62,5 @@ class RouteServiceProvider extends ServiceProvider
         RateLimiter::for('uploads', function (Request $request) {
             return Limit::perMinute(10)->by($request->ip());
         });
-    }
-
-    public function map(Route $router)
-    {
-        if (app()->environment('local')) {
-            $this->mapDevRoutes($router);
-        }
-    }
-
-    protected function mapDevRoutes(Route $router)
-    {
-        $router
-            ->middleware('web')
-            ->prefix('dev')
-            ->group(base_path('routes/dev.php'));
     }
 }
