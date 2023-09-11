@@ -206,9 +206,13 @@
                                     <div class="sm:col-span-full">
                                         <label for="biography" class="block text-sm font-medium leading-6 text-gray-900">Biography</label>
                                         <div class="mt-2">
-                                            <x-trix name="biography">
+                                            <div>
+                                                <input name="biography" id="biography" value="{!! $player->biography !!}" type="hidden">
+                                                <trix-editor input="biography" class="trix-content"></trix-editor>
+                                            </div>
+                                            {{-- <x-trix name="biography">
                                                 {!! $player->biography !!}
-                                            </x-trix>
+                                            </x-trix> --}}
                                         </div>
                                         <p class="mt-3 text-sm leading-6 text-gray-600">Write about yourself.</p>
                                     </div>
@@ -252,7 +256,11 @@
                                     <div class="sm:col-span-full">
                                         <label for="career" class="block text-sm font-medium leading-6 text-gray-900">Previous Career</label>
                                         <div class="mt-2">
-                                            <x-trix name="career">{{ $player->career }}</x-trix>
+                                            <div>
+                                                <input name="career" id="career" value="{!! $player->career !!}" type="hidden">
+                                                <trix-editor input="career" class="trix-content"></trix-editor>
+                                            </div>
+                                            {{-- <x-trix name="career">{{ $player->career }}</x-trix> --}}
                                         </div>
                                         <p class="mt-3 text-sm leading-6 text-gray-600">Where did you play? When? What are your best results?</p>
                                     </div>
