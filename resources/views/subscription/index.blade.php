@@ -1,7 +1,7 @@
 <x-app-layout>
-    <x-jet-authentication-card>
+    <x-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <x-authentication-card-logo />
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
@@ -13,22 +13,22 @@
 
         <div class="mt-4 flex items-center justify-between">
             <div>
-                <x-jet-button type="button">
+                <x-button type="button">
                     {{ __('Subscribe') }}
-                </x-jet-button>
+                </x-button>
             </div>
 
             <div>
                 <form method="POST" action="{{ route('logout') }}" class="inline">
                     @csrf
 
-                    <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 ml-2">
+                    <button type="submit" class="ml-2 text-sm text-gray-600 underline hover:text-gray-900">
                         {{ __('Log Out') }}
                     </button>
                 </form>
             </div>
         </div>
-    </x-jet-authentication-card>
+    </x-authentication-card>
 
     @push('scripts')
         <script src="https://js.stripe.com/v3/" defer></script>

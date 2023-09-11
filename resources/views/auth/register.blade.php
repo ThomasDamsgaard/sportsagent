@@ -1,56 +1,56 @@
 <x-guest-layout>
-    <x-jet-validation-errors class="my-4" />
+    <x-validation-errors class="my-4" />
 
-    <x-jet-authentication-card>
+    <x-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <x-authentication-card-logo />
         </x-slot>
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
             <div>
-                <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="mt-1 block w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-label for="name" value="{{ __('Name') }}" />
+                <x-input id="name" class="mt-1 block w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="gender" value="{{ __('Gender') }}" />
-                <x-jet-select id="gender" class="mt-1 block w-full" type="text" name="gender" required>
+                <x-label for="gender" value="{{ __('Gender') }}" />
+                <x-select id="gender" class="mt-1 block w-full" type="text" name="gender" required>
                     <option disabled selected></option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
-                </x-jet-select>
+                </x-select>
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="mt-1 block w-full" type="email" name="email" :value="old('email')" required />
+                <x-label for="email" value="{{ __('Email') }}" />
+                <x-input id="email" class="mt-1 block w-full" type="email" name="email" :value="old('email')" required />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="sport_id" value="{{ __('Sport') }}" />
-                <x-jet-select id="sport_id" class="mt-1 block w-full" type="text" name="sport_id" required>
+                <x-label for="sport_id" value="{{ __('Sport') }}" />
+                <x-select id="sport_id" class="mt-1 block w-full" type="text" name="sport_id" required>
                     <option disabled selected></option>
                     <option value="1">Basketball</option>
-                </x-jet-select>
+                </x-select>
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="mt-1 block w-full" type="password" name="password" required autocomplete="new-password" />
+                <x-label for="password" value="{{ __('Password') }}" />
+                <x-input id="password" class="mt-1 block w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-jet-input id="password_confirmation" class="mt-1 block w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <x-input id="password_confirmation" class="mt-1 block w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">
-                    <x-jet-label for="terms">
+                    <x-label for="terms">
                         <div class="flex items-center">
-                            <x-jet-checkbox name="terms" id="terms" required />
+                            <x-checkbox name="terms" id="terms" required />
 
                             <div class="ml-2">
                                 {!! __('I agree to the :terms_of_service and :privacy_policy', [
@@ -59,7 +59,7 @@
                                 ]) !!}
                             </div>
                         </div>
-                    </x-jet-label>
+                    </x-label>
                 </div>
             @endif
 
@@ -68,16 +68,16 @@
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-jet-button class="bg-gray-600">
+                <x-button class="bg-gray-600">
                     {{ __('Start A Free Account') }}
-                </x-jet-button>
+                </x-button>
 
-                {{-- <x-jet-social-button class="inline-flex items-center bg-gray-600" href="{{ route('google.index') }}" type="button">
+                {{-- <x-social-button class="inline-flex items-center bg-gray-600" href="{{ route('google.index') }}" type="button">
                     <svg class="w-4 h-4 mr-2 -ml-1" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
                         <path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"></path>
                     </svg>
                     {{ __('Continue With Google') }}
-                </x-jet-social-button> --}}
+                </x-social-button> --}}
 
 
                 {{-- <div class="mb-4 text-sm text-gray-600">
@@ -88,5 +88,5 @@
                 </div> --}}
             </div>
         </form>
-    </x-jet-authentication-card>
+    </x-authentication-card>
 </x-guest-layout>

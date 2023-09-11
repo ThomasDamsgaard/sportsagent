@@ -1,7 +1,7 @@
 <div>
-    <a wire:click="$set('confirmingAttachmentDeletion', 'true')" class="font-medium text-red-600 cursor-pointer hover:text-red-500">Delete</a>
+    <a wire:click="$set('confirmingAttachmentDeletion', 'true')" class="cursor-pointer font-medium text-red-600 hover:text-red-500">Delete</a>
 
-    <x-jet-confirmation-modal wire:model="confirmingAttachmentDeletion">
+    <x-confirmation-modal wire:model.live="confirmingAttachmentDeletion">
         <x-slot name="title">
             Delete Attachment
         </x-slot>
@@ -11,13 +11,13 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-jet-secondary-button wire:click="$toggle('confirmingAttachmentDeletion')" wire:loading.attr="disabled">
+            <x-secondary-button wire:click="$toggle('confirmingAttachmentDeletion')" wire:loading.attr="disabled">
                 Close
-            </x-jet-secondary-button>
+            </x-secondary-button>
 
-            <x-jet-danger-button class="ml-2" wire:click="delete({{ $item->id }})" wire:loading.attr="disabled">
+            <x-danger-button class="ml-2" wire:click="delete({{ $item->id }})" wire:loading.attr="disabled">
                 Delete Attachment
-            </x-jet-danger-button>
+            </x-danger-button>
         </x-slot>
-    </x-jet-confirmation-modal>
+    </x-confirmation-modal>
 </div>

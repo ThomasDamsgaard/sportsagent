@@ -41,7 +41,7 @@
 </head>
 
 <body class="font-sans antialiased">
-    <x-jet-banner />
+    <x-banner />
 
     <div class="min-h-screen bg-gray-100">
         @livewire('navigation-menu')
@@ -57,7 +57,7 @@
             {{ session()->flash('flash.bannerStyle', 'trial') }}
         @endif --}}
 
-        <x-jet-validation-errors></x-jet-validation-errors>
+        <x-validation-errors></x-validation-errors>
 
         <!-- Page Heading -->
         @if (isset($header))

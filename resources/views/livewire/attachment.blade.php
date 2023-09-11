@@ -1,5 +1,5 @@
-<form wire:submit.prevent="save">
-    <x-jet-filepond wire:model="files" multiple />
+<form wire:submit="save">
+    <x-filepond wire:model.live="files" multiple />
     @error('files')
         <p class="my-2 text-sm text-red-600">{{ $message }}</p>
     @enderror
