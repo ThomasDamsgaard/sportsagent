@@ -11,23 +11,27 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('teams.index') }}" :active="request()->routeIs('teams')">
-                        {{ __('Teams') }}
-                    </x-nav-link>
-                </div>
+                @player
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link href="{{ route('teams.index') }}" :active="request()->routeIs('teams.index')">
+                            {{ __('Teams') }}
+                        </x-nav-link>
+                    </div>
+                @endplayer
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('players.index') }}" :active="request()->routeIs('players.index')">
-                        {{ __('Players') }}
-                    </x-nav-link>
-                </div>
+                @owner
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link href="{{ route('players.index') }}" :active="request()->routeIs('players.index')">
+                            {{ __('Players') }}
+                        </x-nav-link>
+                    </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('coaches.index') }}" :active="request()->routeIs('coaches.index')">
-                        {{ __('Coaches') }}
-                    </x-nav-link>
-                </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link href="{{ route('coaches.index') }}" :active="request()->routeIs('coaches.index')">
+                            {{ __('Coaches') }}
+                        </x-nav-link>
+                    </div>
+                @endowner
             </div>
 
             <div class="hidden sm:ml-6 sm:flex sm:items-center">
@@ -160,6 +164,22 @@
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
+            @player
+                <x-responsive-nav-link href="{{ route('teams.index') }}" :active="request()->routeIs('teams.index')">
+                    {{ __('Teams') }}
+                </x-responsive-nav-link>
+            @endplayer
+
+            @owner
+                <x-responsive-nav-link href="{{ route('players.index') }}" :active="request()->routeIs('players.index')">
+                    {{ __('Players') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link href="{{ route('coaches.index') }}" :active="request()->routeIs('coaches.index')">
+                    {{ __('Coaches') }}
+                </x-responsive-nav-link>
+            @endowner
+
         </div>
 
         <!-- Responsive Settings Options -->
@@ -229,7 +249,7 @@
                     </div>
 
                     @foreach (Auth::user()->allTeams() as $team)
-                        <x-switchable-team :team="$team" component="jet-responsive-nav-link" />
+                        <x-switchable-team :team="$team" component="responsive-nav-link" />
                     @endforeach
                 @endif
             </div>
