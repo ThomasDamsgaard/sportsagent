@@ -3,12 +3,17 @@
         <div class="relative overflow-hidden">
             <div class="pb-80 pt-16 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
                 <div class="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
+                    <div class="hidden sm:mb-8 sm:flex sm:justify-center">
+                    </div>
                     <div class="sm:max-w-lg">
                         <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Empower Your Sports Dreams</h1>
                         <p class="mt-6 text-lg leading-8 text-gray-600">Get attention from teams, players and coaches from all over the world with our <span class="font-semibold italic">Virtual Sports Agent.</span></p>
+                        <div class="mx-auto mt-8 hidden rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 sm:block sm:max-w-sm">
+                            See how we empower your sports dreams. <a href="{{ route('players') }}" class="font-semibold text-indigo-600"><span class="absolute inset-0" aria-hidden="true"></span>Read more <span aria-hidden="true">&rarr;</span></a>
+                        </div>
                         <div class="mt-10 flex items-center justify-center gap-x-6">
                             <a href="{{ route('register') }}" type="button" class="inline-flex items-center rounded-md border border-transparent bg-gray-600 px-4 py-2 text-base font-semibold normal-case leading-7 tracking-widest text-white shadow-sm transition hover:bg-gray-500 focus:border-gray-900 focus:outline-none focus:ring focus:ring-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 active:bg-gray-900 disabled:opacity-25">Register Now</a>
-                            <a href="{{ route('login') }}" class="rounded-md border border-gray-100 px-4 py-2 text-sm font-semibold leading-7 text-gray-800 hover:border-gray-200 hover:text-gray-900">Login To Your Account <span aria-hidden="true">→</span></a>
+                            <a href="{{ route('login') }}" class="rounded-md border border-gray-100 px-4 py-2 text-sm font-semibold leading-7 text-gray-800 hover:border-gray-200 hover:text-gray-900">Login To Your Account</a>
                         </div>
                     </div>
                     <div>
