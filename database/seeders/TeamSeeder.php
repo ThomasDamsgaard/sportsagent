@@ -20,12 +20,23 @@ class TeamSeeder extends Seeder
     {
         $teams = json_decode(File::get('database/data/leagues/denmark.json'), true);
 
-        foreach ($teams as $team) {
-            Team::factory()->create([
-                'name' => $team['name'],
-                'country' => Str::lower($team['country']['code']),
-                'logo' => $team['logo'],
-            ]);
+        if (app()->environment('local')) {
+            collect($teams)->each(function ($team) {
+                Team::create([
+                    'name' => $team['name'],
+                    'country' => Str::lower($team['country']['code']),
+                    'logo' => $team['logo'],
+                    'personal_team' => false,
+                ]);
+            });
+        } else {
+            foreach ($teams as $team) {
+                Team::factory()->create([
+                    'name' => $team['name'],
+                    'country' => Str::lower($team['country']['code']),
+                    'logo' => $team['logo'],
+                ]);
+            }
         }
     }
 }
