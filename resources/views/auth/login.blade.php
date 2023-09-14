@@ -21,7 +21,7 @@
         @env('local')
         <div class="space-y-2">
             <x-login-link email="admin@example.com" redirect-url="{{ route('dashboard') }}" label="Admin" />
-            <x-login-link email="basketball@example.com" redirect-url="{{ route('dashboard') }}" label="Owner" />
+            <x-login-link email="basketballowner@example.com" redirect-url="{{ route('dashboard') }}" label="Owner" />
             <x-login-link email="basketballuser@example.com" redirect-url="{{ route('dashboard') }}" label="User" />
             <x-login-link email="badminton@example.com" redirect-url="{{ route('dashboard') }}" label="B Owner" />
             <x-login-link email="badmintonuser@example.com" redirect-url="{{ route('dashboard') }}" label="B User" />

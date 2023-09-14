@@ -45,9 +45,9 @@ class UserSeeder extends Seeder
             // )
             ->create([
                 'sport_id' => 1,
-                'name' => 'Test User',
-                'email' => 'basketball@example.com',
-                'type' => 'coach',
+                'name' => 'Owner User',
+                'email' => 'basketballowner@example.com',
+                'type' => 'owner',
                 'current_team_id' => 1,
             ]);
 
@@ -75,11 +75,6 @@ class UserSeeder extends Seeder
 
         $coaches = User::factory()
             ->count(30)
-            // ->state(new Sequence(
-            //     ['current_team_id' => 1],
-            //     ['current_team_id' => 2],
-            //     ['current_team_id' => 3],
-            // ))
             ->create([
                 'type' => 'coach',
             ]);
@@ -89,7 +84,6 @@ class UserSeeder extends Seeder
             'name' => 'Basketball User',
             'email' => 'basketballuser@example.com',
             'type' => 'player',
-            // 'current_team_id' => 1,
             'verified' => true,
         ]);
 

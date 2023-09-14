@@ -26,7 +26,6 @@ class TeamFactory extends Factory
             'name' => $this->faker->unique()->company(),
             'sport_id' => 1,
             'league_id' => 1,
-            'user_id' => User::factory(),
             'personal_team' => false,
             'contact' => ['name' => 'Contact Person', 'email' => $this->faker->safeEmail()],
             'website' => $this->faker->url(),
@@ -34,7 +33,6 @@ class TeamFactory extends Factory
                 ['facebook' => 'https://facebook.com/'],
                 ['x' => 'https://twitter.com/']
             ],
-            'personal_team' => 0,
         ];
     }
 }
