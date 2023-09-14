@@ -335,9 +335,6 @@
                                                                     Name
                                                                 </th>
                                                                 <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                                                    Team
-                                                                </th>
-                                                                <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                                                                     Positions
                                                                 </th>
                                                                 <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
@@ -357,11 +354,6 @@
                                                                             @if (auth()->user()->type == 'admin')
                                                                                 <a class="ml-1 text-xs text-indigo-600" href="{{ route('impersonation.create', ['userId' => $player->id]) }}">Impersonate</a>
                                                                             @endif
-                                                                        </div>
-                                                                    </td>
-                                                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
-                                                                        <div class="flex items-center">
-                                                                            {{ $player->currentTeam?->name }}
                                                                         </div>
                                                                     </td>
                                                                     <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">

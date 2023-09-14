@@ -154,7 +154,7 @@
                                                                     Name
                                                                 </th>
                                                                 <th scope="col" class="w-1/6 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                                                    Team
+                                                                    Verified
                                                                 </th>
                                                                 <th scope="col" class="relative w-1/6 px-6 py-3">
                                                                     <span class="sr-only">Show</span>
@@ -173,9 +173,9 @@
                                                                         </div>
                                                                     </td>
                                                                     <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
-                                                                        <div class="flex items-center">
-                                                                            {{ $coach->currentTeam?->name }}
-                                                                        </div>
+                                                                        @if ($coach->verified)
+                                                                            @svg('heroicon-o-check', 'text-green-500 h-4 w-4')
+                                                                        @endif
                                                                     </td>
                                                                     <td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
                                                                         <a href="{{ route('coach.show', ['coach' => $coach]) }}" class="text-green-600 hover:text-green-900">Show</a>
