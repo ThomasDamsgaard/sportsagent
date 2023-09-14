@@ -20,7 +20,7 @@ class TeamSeeder extends Seeder
     {
         $teams = json_decode(File::get('database/data/leagues/denmark.json'), true);
 
-        if (app()->environment('local')) {
+        if (app()->environment('production')) {
             collect($teams)->each(function ($team) {
                 Team::create([
                     'name' => $team['name'],
