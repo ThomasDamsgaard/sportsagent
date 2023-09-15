@@ -19,7 +19,7 @@
                 <x-select id="gender" class="mt-1 block w-full" type="text" name="gender" required>
                     <option disabled selected></option>
                     <option value="male">Male</option>
-                    <option value="female">Female</option>
+                    {{-- <option value="female">Female</option> --}}
                 </x-select>
             </div>
 
