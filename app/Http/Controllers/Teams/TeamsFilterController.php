@@ -10,8 +10,6 @@ class TeamsFilterController extends Controller
 {
     public function __invoke()
     {
-
-        dd(request());
         $teams = Team::search(trim(request('country')) ?? '')
             // ->query(fn (Builder $query) => $query->when(request('verified'), function ($query) {
             //     $query->where('verified', true);
