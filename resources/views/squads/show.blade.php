@@ -2,7 +2,7 @@
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="flex flex-col space-x-6 sm:flex-row">
-                <div class="mb-12 max-w-4xl">
+                <div class="mb-12 max-w-4xl flex-grow">
                     <div class="overflow-hidden bg-white shadow sm:rounded-lg">
                         <div class="flex items-center justify-between px-4 py-5 sm:px-6">
                             <div>
