@@ -5,7 +5,7 @@
         "logo": "https://media-2.api-sports.io/basketball/teams/464.png",
         "nationnal": false,
         "country": {
-            "id": 13,
+            "id": 1,
             "name": "Denmark",
             "code": "DK",
             "flag": "https://media-2.api-sports.io/flags/dk.svg"
@@ -18,7 +18,7 @@
         "logo": "https://media-3.api-sports.io/basketball/teams/2258.png",
         "nationnal": false,
         "country": {
-            "id": 13,
+            "id": 1,
             "name": "Denmark",
             "code": "DK",
             "flag": "https://media-3.api-sports.io/flags/dk.svg"
@@ -31,7 +31,7 @@
         "logo": "https://media-3.api-sports.io/basketball/teams/468.png",
         "nationnal": false,
         "country": {
-            "id": 13,
+            "id": 1,
             "name": "Denmark",
             "code": "DK",
             "flag": "https://media-1.api-sports.io/flags/dk.svg"
@@ -44,7 +44,7 @@
         "logo": "https://media-2.api-sports.io/basketball/teams/469.png",
         "nationnal": false,
         "country": {
-            "id": 13,
+            "id": 1,
             "name": "Denmark",
             "code": "DK",
             "flag": "https://media-2.api-sports.io/flags/dk.svg"
@@ -57,7 +57,7 @@
         "logo": "https://media-2.api-sports.io/basketball/teams/471.png",
         "nationnal": false,
         "country": {
-            "id": 13,
+            "id": 1,
             "name": "Denmark",
             "code": "DK",
             "flag": "https://media-1.api-sports.io/flags/dk.svg"
@@ -70,7 +70,7 @@
         "logo": "https://media-1.api-sports.io/basketball/teams/5015.png",
         "nationnal": false,
         "country": {
-            "id": 13,
+            "id": 1,
             "name": "Denmark",
             "code": "DK",
             "flag": "https://media-3.api-sports.io/flags/dk.svg"
@@ -83,7 +83,7 @@
         "logo": "https://media-3.api-sports.io/basketball/teams/465.png",
         "nationnal": false,
         "country": {
-            "id": 13,
+            "id": 1,
             "name": "Denmark",
             "code": "DK",
             "flag": "https://media-3.api-sports.io/flags/dk.svg"
@@ -96,7 +96,7 @@
         "logo": "https://media-3.api-sports.io/basketball/teams/5145.png",
         "nationnal": false,
         "country": {
-            "id": 13,
+            "id": 1,
             "name": "Denmark",
             "code": "DK",
             "flag": "https://media-2.api-sports.io/flags/dk.svg"
@@ -109,7 +109,7 @@
         "logo": "https://media-3.api-sports.io/basketball/teams/472.png",
         "nationnal": false,
         "country": {
-            "id": 13,
+            "id": 1,
             "name": "Denmark",
             "code": "DK",
             "flag": "https://media-2.api-sports.io/flags/dk.svg"
@@ -122,7 +122,7 @@
         "logo": "https://media-2.api-sports.io/basketball/teams/463.png",
         "nationnal": false,
         "country": {
-            "id": 13,
+            "id": 1,
             "name": "Denmark",
             "code": "DK",
             "flag": "https://media-1.api-sports.io/flags/dk.svg"
@@ -135,10 +135,60 @@
         "logo": "https://media-2.api-sports.io/basketball/teams/470.png",
         "nationnal": false,
         "country": {
-            "id": 13,
+            "id": 1,
             "name": "Denmark",
             "code": "DK",
             "flag": "https://media-1.api-sports.io/flags/dk.svg"
+        }
+    },
+
+    {
+        "id": 520,
+        "name": "Bamberg",
+        "logo": "https://media-4.api-sports.io/basketball/teams/520.png",
+        "nationnal": false,
+        "country": {
+            "id": 2,
+            "name": "Germany",
+            "code": "DE",
+            "flag": "https://media-4.api-sports.io/flags/de.svg"
+        }
+    },
+
+    {
+        "id": 523,
+        "name": "Bayreuth",
+        "logo": "https://media-4.api-sports.io/basketball/teams/523.png",
+        "nationnal": false,
+        "country": {
+            "id": 2,
+            "name": "Germany",
+            "code": "DE",
+            "flag": "https://media-4.api-sports.io/flags/de.svg"
+        }
+    },
+    {
+        "id": 522,
+        "name": "Bayern",
+        "logo": "https://media-4.api-sports.io/basketball/teams/522.png",
+        "nationnal": false,
+        "country": {
+            "id": 2,
+            "name": "Germany",
+            "code": "DE",
+            "flag": "https://media-4.api-sports.io/flags/de.svg"
+        }
+    },
+    {
+        "id": 519,
+        "name": "Alba Berlin",
+        "logo": "https://media-4.api-sports.io/basketball/teams/519.png",
+        "nationnal": false,
+        "country": {
+            "id": 2,
+            "name": "Germany",
+            "code": "DE",
+            "flag": "https://media-4.api-sports.io/flags/de.svg"
         }
     }
 ]
