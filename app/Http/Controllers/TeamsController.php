@@ -16,6 +16,7 @@ class TeamsController extends Controller
     {
         $teams = Team::query()
             ->with('league')
+            ->inRandomOrder()
             ->get();
         // ->search(request('search'));
 
