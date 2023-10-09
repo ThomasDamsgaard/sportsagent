@@ -20,7 +20,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Clarity -->
-    @if (app()->environment(['staging', 'production']))
+    @if (app()->environment('production'))
         <script type="text/javascript">
             (function(c, l, a, r, i, t, y) {
                 c[a] = c[a] || function() {
