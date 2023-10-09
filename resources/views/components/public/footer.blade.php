@@ -10,10 +10,10 @@
             <li>
                 <a href="{{ route('faq') }}" class="mr-2 hover:underline md:mr-2">FAQs</a>
             </li>
-            <li class="mr-2">|</li>
+            {{-- <li class="mr-2">|</li>
             <li>
                 <a href="#" class="mr-2 hover:underline md:mr-2">Contact</a>
-            </li>
+            </li> --}}
             <li class="mr-2">|</li>
             <li>
                 <a href="{{ route('policy.show') }}" class="mr-2 hover:underline md:mr-2">Privacy</a>
