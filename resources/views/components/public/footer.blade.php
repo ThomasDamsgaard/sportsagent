@@ -1,7 +1,7 @@
 <footer class="my-8">
     <div class="mx-auto max-w-7xl px-6 text-center lg:px-8">
         <p class="my-6 text-sm leading-6 text-gray-600">Online Sports Talents is a startup that aims to offer a platform connecting sports talents, clubs, and organizations.</p>
-        <ul class="mb-6 flex flex-wrap items-center justify-center text-gray-900 dark:text-white">
+        <ul class="mb-6 flex flex-wrap items-center justify-center text-gray-900">
             {{-- <li>
                 <a href="#" class="mr-2 hover:underline md:mr-2">About</a>
             </li>
