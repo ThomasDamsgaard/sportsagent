@@ -75,6 +75,42 @@
             </div>
         </div>
 
+        <section class="bg-white">
+            <div class="mx-auto max-w-screen-xl px-6 py-24 sm:px-8 sm:py-32">
+                <div class="mx-auto mb-8 max-w-screen-sm text-center sm:mb-16">
+                    <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900">Our Team</h2>
+                    <p class="font-light text-gray-500 dark:text-gray-400 sm:mb-16 sm:text-xl">Explore the whole collection of open-source web components and elements built with the utility classes from Tailwind</p>
+                </div>
+                <div class="mb-6 grid gap-8 sm:mb-16 md:grid-cols-2">
+                    <div class="items-center rounded-lg bg-gray-50 shadow dark:border-gray-700 dark:bg-gray-800 sm:flex">
+                        <a href="#">
+                            <img class="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="Bonnie Avatar">
+                        </a>
+                        <div class="p-5">
+                            <h3 class="text-xl font-bold tracking-tight text-gray-900">
+                                <a href="#">Troels Troelsen</a>
+                            </h3>
+                            <span class="text-gray-500 dark:text-gray-400">CEO & Web Developer</span>
+                            <p class="mb-4 mt-3 font-light text-gray-500 dark:text-gray-400">Bonnie drives the technical strategy of the flowbite platform and brand.</p>
+                        </div>
+                    </div>
+                    <div class="items-center rounded-lg bg-gray-50 shadow dark:border-gray-700 dark:bg-gray-800 sm:flex">
+                        <a href="#">
+                            <img class="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="Jese Avatar">
+                        </a>
+                        <div class="p-5">
+                            <h3 class="text-xl font-bold tracking-tight text-gray-900">
+                                <a href="#">Thomas Damsgaard</a>
+                            </h3>
+                            <span class="text-gray-500 dark:text-gray-400">CTO</span>
+                            <p class="mb-4 mt-3 font-light text-gray-500 dark:text-gray-400">Jese drives the technical strategy of the flowbite platform and brand.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
         {{-- <div class="mt-32">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <h2 class="text-center text-lg font-semibold leading-8 text-gray-900">Trusted by teams all over the world</h2>
