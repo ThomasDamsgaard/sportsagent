@@ -7,11 +7,24 @@
                     </div>
                     <div class="sm:max-w-lg">
                         <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Empower Your Sports Dreams</h1>
-                        <p class="mt-6 text-lg leading-8 text-gray-600"><span class="font-semibold italic">The platform</span> to directly connect with professional teams, players and coaches from all over the world.</p>
+                        <p class="mt-6 text-lg leading-8 text-gray-600"><span class="font-semibold italic">The platform</span> to directly connect with professional teams, players and coaches from all over the world. We provide career opportunities for talented individuals in the sports industry.</p>
                         <div class="mx-auto mt-8 hidden rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 sm:block sm:max-w-sm">
                             Leverage us to get a professional contract. <a href="{{ route('players') }}" class="font-semibold text-indigo-600"><span aria-hidden="true"></span>Read more <span aria-hidden="true">&rarr;</span></a>
                         </div>
-                        <div class="mt-10 flex items-center justify-center gap-x-6">
+
+                        <div class="mt-8 space-y-2 text-base leading-7 text-gray-600">
+                            <p>
+                                Several sports are large in some countries, but not as big in others, thus the talent far exceed the spots available at top level clubs.<br>
+                            </p>
+                            <p>
+                                Join Online Sports Talents to showcase your skills to clubs and associations beyond your local scene, giving you opportunities that span continents.
+                            </p>
+                            <p>
+                                You are among one of the first 1000 to <a href="{{ route('register') }}">sign up</a>. In return, enjoy our service for <span class="font-bold italic underline">free, forever!</span>
+                            </p>
+                        </div>
+
+                        <div class="mt-8 flex items-center justify-center gap-x-6">
                             <a href="{{ route('register') }}" type="button" class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-semibold normal-case leading-7 tracking-widest text-white shadow-sm transition hover:bg-indigo-500 focus:border-indigo-900 focus:outline-none focus:ring focus:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 active:bg-indigo-900 disabled:opacity-25">Register Now, Free Forever</a>
                             <a href="{{ route('login') }}" class="rounded-md border border-gray-100 px-4 py-2 text-sm font-semibold leading-7 text-gray-800 hover:border-gray-200 hover:text-gray-900">Login To Your Account</a>
                         </div>
@@ -58,7 +71,7 @@
             </div>
         </div>
 
-        <div class="bg-gray-50 py-24 sm:py-32">
+        {{-- <div class="bg-gray-50 py-24 sm:py-32">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="mx-auto max-w-2xl lg:text-center">
                     <h2 class="text-base font-semibold leading-7 text-indigo-600">Dreams Become True</h2>
@@ -73,42 +86,43 @@
                     </p>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
-        <section class="bg-white">
-            <div class="mx-auto max-w-screen-xl px-6 py-24 sm:px-8 sm:py-32">
-                <div class="mx-auto mb-8 max-w-screen-sm text-center sm:mb-16">
-                    <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900">Our Team</h2>
-                    <p class="font-light text-gray-500 dark:text-gray-400 sm:mb-16 sm:text-xl">Explore the whole collection of open-source web components and elements built with the utility classes from Tailwind</p>
-                </div>
-                <div class="mb-6 grid gap-8 sm:mb-16 md:grid-cols-2">
-                    <div class="items-center rounded-lg bg-gray-50 shadow dark:border-gray-700 dark:bg-gray-800 sm:flex">
-                        <a href="#">
-                            <img class="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="Bonnie Avatar">
-                        </a>
-                        <div class="p-5">
-                            <h3 class="text-xl font-bold tracking-tight text-gray-900">
-                                <a href="#">Troels Troelsen</a>
-                            </h3>
-                            <span class="text-gray-500 dark:text-gray-400">CEO & Web Developer</span>
-                            <p class="mb-4 mt-3 font-light text-gray-500 dark:text-gray-400">Bonnie drives the technical strategy of the flowbite platform and brand.</p>
-                        </div>
-                    </div>
-                    <div class="items-center rounded-lg bg-gray-50 shadow dark:border-gray-700 dark:bg-gray-800 sm:flex">
-                        <a href="#">
-                            <img class="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="Jese Avatar">
-                        </a>
-                        <div class="p-5">
-                            <h3 class="text-xl font-bold tracking-tight text-gray-900">
-                                <a href="#">Thomas Damsgaard</a>
-                            </h3>
-                            <span class="text-gray-500 dark:text-gray-400">CTO</span>
-                            <p class="mb-4 mt-3 font-light text-gray-500 dark:text-gray-400">Jese drives the technical strategy of the flowbite platform and brand.</p>
-                        </div>
-                    </div>
-                </div>
+        <div class="bg-gray-50 py-24 sm:py-32">
+            <div class="mx-auto mb-8 max-w-screen-sm text-center sm:mb-16">
+                <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900">Our Team</h2>
+                <p class="font-light text-gray-600 sm:mb-16 sm:text-xl">We breath sports! So much that it is incorporated in both our professional life and spare time.</p>
             </div>
-        </section>
+
+            <div class="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-2">
+                <ul role="list" class="grid gap-x-8 gap-y-12 sm:gap-y-16 xl:col-span-2 xl:grid-cols-2">
+                    <li>
+                        <div class="gap-x-6 sm:flex">
+                            <img class="h-56 w-full rounded-md object-cover sm:h-56 sm:w-56" src="{{ url('/images/tr.jpg') }}" alt="">
+                            <div>
+                                <h3 class="mt-2 text-base font-semibold leading-7 tracking-tight text-gray-900 sm:mt-0">Troels Troelsen</h3>
+                                <p class="text-sm font-semibold leading-6 text-indigo-600">MSc. Econ & Co-Founder</p>
+                                <p class="mb-4 mt-3 font-light text-gray-600">
+                                    Troels is a lifelong sportsman, mostly athletics , a.o.3 World Champion titles. Former chairman of the Danish Athletic Federation, member of the Danish Olympic Commitee, the Marketing Comission of the International Atletic Federation and twice presenting papers at the Olympic games.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="gap-x-6 sm:flex">
+                            <img class="h-56 w-full rounded-md object-cover sm:h-56 sm:w-56" src="{{ url('/images/th.png') }}" alt="">
+                            <div>
+                                <h3 class="mt-2 text-base font-semibold leading-7 tracking-tight text-gray-900 sm:mt-0">Thomas Damsgaard</h3>
+                                <p class="text-sm font-semibold leading-6 text-indigo-600">MSc. Manu, BSc. Sports Science & Co-Founder</p>
+                                <p class="mb-4 mt-3 font-light text-gray-600">
+                                    Thomas has been lifting weights and doing board sports i.e. skateboard, snowboard etc, since he was a little kid. Working as a chiropractor while coding this site.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
 
         {{-- <div class="mt-32">
