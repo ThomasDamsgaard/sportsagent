@@ -103,7 +103,12 @@
                                 <h3 class="mt-2 text-base font-semibold leading-7 tracking-tight text-gray-900 sm:mt-0">Troels Troelsen</h3>
                                 <p class="text-sm font-semibold leading-6 text-indigo-600">MSc. Econ & Co-Founder</p>
                                 <p class="mb-4 mt-3 font-light text-gray-600">
-                                    Troels is a lifelong sportsman, mostly athletics , a.o.3 World Champion titles. Former chairman of the Danish Athletic Federation, member of the Danish Olympic Commitee, the Marketing Comission of the International Atletic Federation and twice presenting papers at the Olympic games.
+                                    Troels is a lifelong sportsman a.o. 3 World Master Champion Titles
+                                    in 400m hurdles. Former: President of the Danish Track & Field Federation,
+                                    the Marketing Commission under World Athletics, the Danish OG elite committee
+                                    under the LOC and associate professor at Copenhagen Business School in Sports
+                                    Economics - probably the most quoted sports economist. Chairing or member of
+                                    several company boards in Denmark and part of 4 IPO's.
                                 </p>
                             </div>
                         </div>
