@@ -91,18 +91,25 @@
         <div class="bg-gray-50 py-24 sm:py-32">
             <div class="mx-auto mb-8 max-w-screen-sm text-center sm:mb-16">
                 <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900">Our Team</h2>
-                <p class="font-light text-gray-600 sm:mb-16 sm:text-xl">We breath sports! So much that it is incorporated in both our professional life and spare time.</p>
+                <p class="mb-4 font-light text-gray-600 sm:text-xl">We breath sports! So much that it is incorporated in both our professional life and spare time.</p>
+                <a class="flex flex-row items-center justify-center sm:mb-16" href="mailto:thomas@onlinesportstalents.com">
+                    <svg class="h-4 w-4 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                        <path stroke-linecap="round" d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25" />
+                    </svg>
+                    <p class="ml-1 text-base leading-6 text-indigo-600">
+                        Email Us.
+                    </p>
+                </a>
             </div>
-
-            <div class="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-2">
-                <ul role="list" class="grid gap-x-8 gap-y-12 sm:gap-y-16 xl:col-span-2 xl:grid-cols-2">
+            <div class="mx-auto max-w-5xl gap-x-8 gap-y-20 px-6 sm:flex lg:px-8">
+                <ul role="list" class="gap-x-8 gap-y-12 sm:flex sm:flex-col sm:gap-y-16 xl:col-span-2">
                     <li>
                         <div class="gap-x-6 sm:flex">
                             <img class="h-56 w-full rounded-md object-cover sm:h-56 sm:w-56" src="{{ url('/images/tr.jpg') }}" alt="">
                             <div>
                                 <h3 class="mt-2 text-base font-semibold leading-7 tracking-tight text-gray-900 sm:mt-0">Troels Troelsen</h3>
                                 <p class="text-sm font-semibold leading-6 text-indigo-600">MSc. Econ & Co-Founder</p>
-                                <p class="mb-4 mt-3 font-light text-gray-600">
+                                <p class="mb-8 mt-3 font-light text-gray-600 sm:mb-4">
                                     Troels is a lifelong sportsman a.o. 3 World Master Champion Titles
                                     in 400m hurdles. Former: President of the Danish Track & Field Federation,
                                     the Marketing Commission under World Athletics, the Danish OG elite committee
