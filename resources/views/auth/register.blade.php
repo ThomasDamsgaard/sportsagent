@@ -3,37 +3,14 @@
 
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
         </x-slot>
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <div>
-                <x-label for="name" value="{{ __('Name') }}" />
-                <x-input id="name" class="mt-1 block w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            </div>
-
-            <div class="mt-4">
-                <x-label for="gender" value="{{ __('Gender') }}" />
-                <x-select id="gender" class="mt-1 block w-full" type="text" name="gender" required>
-                    <option disabled selected></option>
-                    <option value="male">Male</option>
-                    {{-- <option value="female">Female</option> --}}
-                </x-select>
-            </div>
-
             <div class="mt-4">
                 <x-label for="email" value="{{ __('Email') }}" />
                 <x-input id="email" class="mt-1 block w-full" type="email" name="email" :value="old('email')" required />
-            </div>
-
-            <div class="mt-4">
-                <x-label for="sport_id" value="{{ __('Sport') }}" />
-                <x-select id="sport_id" class="mt-1 block w-full" type="text" name="sport_id" required>
-                    <option disabled selected></option>
-                    <option value="1">Basketball</option>
-                </x-select>
             </div>
 
             <div class="mt-4">

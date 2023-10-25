@@ -1,19 +1,20 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Livewire\UserOnboarding;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\EnsureHasSport;
 use App\Http\Controllers\TeamsController;
+use App\Http\Controllers\FilterController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\CoachesController;
 use App\Http\Controllers\PlayersController;
 use App\Http\Controllers\AttachmentsController;
 use App\Http\Controllers\ImpersonationController;
-use App\Http\Controllers\FilterController;
-use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PlayerProfilesController;
 use App\Http\Controllers\Teams\TeamsFilterController;
 use App\Http\Controllers\Teams\TeamsSearchController;
-use Illuminate\Support\Facades\Http;
 
 require __DIR__ . '/public.php';
 
@@ -31,6 +32,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('user-onboarding/{player}', UserOnboarding::class)->name('user.onboarding.index');
 
     Route::get('/players', [PlayersController::class, 'index'])->name('players.index');
     Route::get('/coaches', [CoachesController::class, 'index'])->name('coaches.index');
