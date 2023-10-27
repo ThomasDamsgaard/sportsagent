@@ -238,7 +238,7 @@
                                     </div>
 
                                     <div class="sm:col-span-1">
-                                        <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Expected Yearly Salary</label>
+                                        <label for="salary" class="block text-sm font-medium leading-6 text-gray-900">Expected Yearly Salary</label>
                                         <div class="mt-2">
                                             <div class="relative">
                                                 <input type="text" name="salary" id="salary" class="block w-full rounded-md border-0 py-1.5 pr-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="At Least" value="{{ \Illuminate\Support\Str::substr($player->salary, 1) }}">
@@ -297,7 +297,7 @@
                                     <div class="sm:col-span-1">
                                         <label for="positions" class="block text-sm font-medium leading-6 text-gray-900">Prefered Position(s)</label>
                                         <div class="mt-2">
-                                            <select id="positions" name="positions[]" multiple autocomplete="off" placeholder="Positions" class="block w-full rounded-md border-0 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" aria-placeholder="Continent">
+                                            <select id="positions" name="positions[]" multiple autocomplete="off" placeholder="Positions" class="block w-full rounded-md border-0 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" aria-placeholder="Position(s)">
                                                 <option value="center" @if (in_array('center', json_decode($player->positions) ?? [])) selected @endif>Center</option>
                                                 <option value="power-forward" @if (in_array('power-forward', json_decode($player->positions) ?? [])) selected @endif>Power Forward</option>
                                                 <option value="small-forward" @if (in_array('small-forward', json_decode($player->positions) ?? [])) selected @endif>Small Forward</option>
@@ -310,7 +310,7 @@
                                     <div class="sm:col-span-2">
                                         <label for="continents" class="block text-sm font-medium leading-6 text-gray-900">I wish to play in these geographic areas</label>
                                         <div class="mt-2">
-                                            <select id="continents" name="continents[]" multiple autocomplete="off" placeholder="Continent" class="block w-full rounded-md border-0 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" aria-placeholder="Continent">
+                                            <select id="continents" name="continents[]" multiple autocomplete="off" placeholder="Continent" class="block w-full rounded-md border-0 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" aria-placeholder="Continent(s)">
                                                 @foreach ($continents->all() as $code => $continent)
                                                     <option value="{{ $code }}" @if (in_array($code, json_decode($player->continents) ?? [])) selected @endif>{{ $continent }}</option>
                                                 @endforeach

@@ -2,7 +2,9 @@
 
 namespace App\Services\User;
 
-class Country
+use Livewire\Wireable;
+
+class Country implements Wireable
 {
     protected array $countries = [
         "us" => "United States",
@@ -268,5 +270,20 @@ class Country
     public function getCountry($code)
     {
         return $this->countries[$code];
+    }
+
+
+    public function toLivewire()
+    {
+        return [
+            'countries' => $this->countries,
+        ];
+    }
+
+    public static function fromLivewire($value)
+    {
+        $countries = $value['countries'];
+
+        return new static($countries);
     }
 }

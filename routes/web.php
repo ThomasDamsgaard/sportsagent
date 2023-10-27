@@ -33,7 +33,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('user-onboarding/{player}', UserOnboarding::class)->name('user.onboarding.index');
+    Route::get('user-onboarding/{user}', UserOnboarding::class)->name('user.onboarding.index');
 
     Route::get('/players', [PlayersController::class, 'index'])->name('players.index');
     Route::get('/coaches', [CoachesController::class, 'index'])->name('coaches.index');
