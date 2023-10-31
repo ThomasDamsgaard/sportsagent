@@ -2,15 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\UserOnboarded;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
-class PlayerProfilesController extends Controller
+class UserOnboardingController extends Controller
 {
-    public function update(Request $request, User $player): RedirectResponse
+    public function index(User $player): View
+    {
+        return view('players.onboarding.index', ['player' => $player]);
+    }
+
+    public function store(Request $request, User $player): RedirectResponse
     {
         $player->update([
+            'sport_id' => $request->sport_id,
+            'name' => $request->name,
+            'nationality' => $request->nationality,
+            'gender' => $request->gender,
+            'age' => $request->age,
             'height' => $request->height,
             'weight' => $request->weight,
             'positions' => json_encode($request->positions),
@@ -22,14 +34,10 @@ class PlayerProfilesController extends Controller
             'career' => $request->career,
         ]);
 
-        $request->session()->flash('flash.banner', 'Profile Edited!');
+        $request->session()->flash('flash.banner', 'Profile Updated!');
         $request->session()->flash('flash.bannerStyle', 'success');
 
+        UserOnboarded::dispatch($player);
         return redirect()->route('player.profile.edit', ['player' => $player]);
-    }
-
-    public function edit(User $player)
-    {
-        return view('players.profile.edit', ['player' => $player]);
     }
 }
