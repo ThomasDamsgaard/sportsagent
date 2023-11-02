@@ -2,7 +2,9 @@
 
 namespace App\Services\User;
 
-class Continent
+use Livewire\Wireable;
+
+class Continent implements Wireable
 {
     protected array $continents = [
         'af' => 'Africa',
@@ -16,5 +18,19 @@ class Continent
     public function all()
     {
         return $this->continents;
+    }
+
+    public function toLivewire()
+    {
+        return [
+            'continents' => $this->continents,
+        ];
+    }
+
+    public static function fromLivewire($value)
+    {
+        $continents = $value['continents'];
+
+        return new static($continents);
     }
 }

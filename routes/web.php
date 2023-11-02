@@ -1,19 +1,21 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Livewire\UserOnboarding;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\EnsureHasSport;
 use App\Http\Controllers\TeamsController;
+use App\Http\Controllers\FilterController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\CoachesController;
 use App\Http\Controllers\PlayersController;
 use App\Http\Controllers\AttachmentsController;
 use App\Http\Controllers\ImpersonationController;
-use App\Http\Controllers\FilterController;
-use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PlayerProfilesController;
+use App\Http\Controllers\UserOnboardingController;
 use App\Http\Controllers\Teams\TeamsFilterController;
 use App\Http\Controllers\Teams\TeamsSearchController;
-use Illuminate\Support\Facades\Http;
 
 require __DIR__ . '/public.php';
 
@@ -24,7 +26,7 @@ require __DIR__ . '/email.php';
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified',
+    // 'verified',
     // 'subscribed',
     'sport',
 ])->group(function () {
@@ -32,21 +34,24 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
+    Route::get('onboarding/{player}', [UserOnboardingController::class, 'index'])
+        ->withoutMiddleware([EnsureHasSport::class])->name('onboarding.index');
+    Route::patch('/onboarding/{player}', [UserOnboardingController::class, 'store'])
+        ->withoutMiddleware([EnsureHasSport::class])->name('onboarding.store');
+
+    // Route::get('user-onboarding/{user}', UserOnboarding::class)->name('user.onboarding.index');
+
     Route::get('/players', [PlayersController::class, 'index'])->name('players.index');
     Route::get('/coaches', [CoachesController::class, 'index'])->name('coaches.index');
     Route::get('/players/show/{player}', [PlayersController::class, 'show'])->name('player.show');
     Route::get('/coaches/show/{coach}', [CoachesController::class, 'show'])->name('coach.show');
     Route::get('/players/create', [PlayersController::class, 'create'])->name('player.create');
 
-    // require __DIR__ . '/stepper.php';
-
     Route::get('/teams/search', TeamsSearchController::class)->name('teams.search.index');
     Route::get('/teams/filter', TeamsFilterController::class)->name('teams.filter.index');
 
-    Route::get('/player/profile/{player}', [PlayerProfilesController::class, 'edit'])
-        ->withoutMiddleware([EnsureHasSport::class])->name('player.profile.edit');
-    Route::patch('/player/profile/{player}', [PlayerProfilesController::class, 'update'])
-        ->withoutMiddleware([EnsureHasSport::class])->name('player.profile.update');
+    Route::get('/player/profile/{player}', [PlayerProfilesController::class, 'edit'])->name('player.profile.edit');
+    Route::patch('/player/profile/{player}', [PlayerProfilesController::class, 'update'])->name('player.profile.update');
 
 
     // Route::post('/player/attachments/{player}', [AttachmentsController::class, 'store'])->name('player.attachments.store');
@@ -66,18 +71,7 @@ Route::middleware([
     Route::get('/teams/show/{team}', [TeamsController::class, 'show'])->name('team.show');
     // Route::get('/teams/create', [TeamsController::class, 'create'])->name('team.create');
 
-    Route::get('api', function () {
-        $response = Http::withHeaders([
-            'x-apisports-key' => config('services.api-sports.key'),
-        ])
-            ->get('https://v1.basketball.api-sports.io/teams', [
-                // 'season' => '2019-2020',
-                // 'team' => '139',
-                'country' => 'denmark'
-            ]);
 
-        return $response->json();
-    });
 });
 
 Route::get('/impersonation/{userId}', [ImpersonationController::class, 'create'])->name('impersonation.create');

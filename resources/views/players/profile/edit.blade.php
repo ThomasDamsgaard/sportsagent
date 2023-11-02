@@ -3,9 +3,7 @@
 
 <x-app-layout>
 
-    @if (auth()->user()->age)
-
-        {{-- <div class="flex items-center bg-white">
+    {{-- <div class="flex items-center bg-white">
             <hr class="flex-grow border-t border-gray-300">
             <span class="flex flex-row items-center px-3 text-gray-600">
                 @svg('heroicon-s-paper-clip', 'h-4 mr-2')
@@ -15,152 +13,92 @@
         </div> --}}
 
 
-        <div class="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
+    <div class="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
 
-            <div class="mx-auto grid grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+        <div class="mx-auto grid grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
 
-                <div class="px-4 lg:col-span-2 lg:col-start-2 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-1 lg:gap-x-8">
+            <div class="px-4 lg:col-span-2 lg:col-start-2 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-1 lg:gap-x-8">
 
-                    <div class="lg:pr-4">
-                        <div class="lg:max-w-lg">
-                            <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Upload your attachments</h1>
-                            <p class="mt-4 text-base leading-7 text-gray-700">
-                                <strong class="font-semibold text-gray-900">This section is really important!</strong> - Let other people see your talent and journey, conveyed through your best video clips and testimonials, thus exposing your unique abilities before clubs and scouts on the platform.
-                            </p>
-                            <p class="mt-8 text-base font-semibold leading-7 text-indigo-600">Current Attachments</p>
-                        </div>
-                        <div class="mt-4 space-y-12">
-                            <div class="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-3">
-                                <div class="sm:col-span-full">
+                <div class="lg:pr-4">
+                    <div class="lg:max-w-lg">
+                        <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Upload your attachments</h1>
+                        <p class="mt-4 text-base leading-7 text-gray-700">
+                            <strong class="font-semibold text-gray-900">This section is really important!</strong> - Let other people see your talent and journey, conveyed through your best video clips and testimonials, thus exposing your unique abilities before clubs and scouts on the platform.
+                        </p>
+                        <p class="mt-8 text-base font-semibold leading-7 text-indigo-600">Current Attachments</p>
+                    </div>
+                    <div class="mt-4 space-y-12">
+                        <div class="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-3">
+                            <div class="sm:col-span-full">
+                                <div>
                                     <div>
-                                        <div>
-                                            <div class="space-y-12">
-                                                <ul role="list" class="divide-y divide-gray-200 rounded-md border border-gray-200 bg-white">
+                                        <div class="space-y-12">
+                                            <ul role="list" class="divide-y divide-gray-200 rounded-md border border-gray-200 bg-white">
 
-                                                    @forelse ($player->getMedia('attachments') as $item)
+                                                @forelse ($player->getMedia('attachments') as $item)
+                                                    <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
+                                                        <div class="flex w-0 flex-1 items-center">
+                                                            @switch($item)
+                                                                @case($item->mime_type == 'application/pdf')
+                                                                    @svg('heroicon-m-paper-clip', 'h-5 w-5 flex-shrink-0 text-gray-400')
+                                                                @break
+
+                                                                @case($item->mime_type == 'image/png' || $item->mime_type == 'image/jpeg')
+                                                                    @svg('heroicon-s-camera', 'h-5 w-5 flex-shrink-0 text-gray-400')
+                                                                @break
+
+                                                                @case($item->mime_type == 'video/quicktime' || $item->mime_type == 'video/quicktime')
+                                                                    @svg('heroicon-m-video-camera', 'h-5 w-5 flex-shrink-0 text-gray-400')
+                                                                @break
+                                                            @endswitch
+                                                            <span class="ml-2 w-0 flex-1 truncate">{{ $item->name }}</span>
+                                                        </div>
+                                                        <div class="ml-4 flex-shrink-0">
+                                                            <a href="{{ route('player.attachments.show', ['item' => $item]) }}" class="font-medium text-indigo-600 hover:text-indigo-500">Download</a>
+                                                        </div>
+                                                        <div class="ml-4 flex-shrink-0">
+                                                            @livewire('delete-attachment', ['item' => $item], key($item->id))
+                                                        </div>
+                                                    </li>
+                                                    @empty
                                                         <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
                                                             <div class="flex w-0 flex-1 items-center">
-                                                                @switch($item)
-                                                                    @case($item->mime_type == 'application/pdf')
-                                                                        @svg('heroicon-m-paper-clip', 'h-5 w-5 flex-shrink-0 text-gray-400')
-                                                                    @break
+                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-gray-400">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                                                                </svg>
 
-                                                                    @case($item->mime_type == 'image/png' || $item->mime_type == 'image/jpeg')
-                                                                        @svg('heroicon-s-camera', 'h-5 w-5 flex-shrink-0 text-gray-400')
-                                                                    @break
-
-                                                                    @case($item->mime_type == 'video/quicktime' || $item->mime_type == 'video/quicktime')
-                                                                        @svg('heroicon-m-video-camera', 'h-5 w-5 flex-shrink-0 text-gray-400')
-                                                                    @break
-                                                                @endswitch
-                                                                <span class="ml-2 w-0 flex-1 truncate">{{ $item->name }}</span>
-                                                            </div>
-                                                            <div class="ml-4 flex-shrink-0">
-                                                                <a href="{{ route('player.attachments.show', ['item' => $item]) }}" class="font-medium text-indigo-600 hover:text-indigo-500">Download</a>
-                                                            </div>
-                                                            <div class="ml-4 flex-shrink-0">
-                                                                @livewire('delete-attachment', ['item' => $item], key($item->id))
+                                                                <span class="ml-2 w-0 flex-1 truncate">No attachments uploaded yet.</span>
                                                             </div>
                                                         </li>
-                                                        @empty
-                                                            <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
-                                                                <div class="flex w-0 flex-1 items-center">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-gray-400">
-                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
-                                                                    </svg>
-
-                                                                    <span class="ml-2 w-0 flex-1 truncate">No attachments uploaded yet.</span>
-                                                                </div>
-                                                            </li>
-                                                        @endforelse
-                                                    </ul>
-                                                </div>
+                                                    @endforelse
+                                                </ul>
                                             </div>
+                                        </div>
 
-                                            <div class="mt-8">
-                                                <p class="my-4 text-base font-semibold leading-7 text-indigo-600">Upload Attachments</p>
-                                                <livewire:attachment />
-                                            </div>
+                                        <div class="mt-8">
+                                            <p class="my-4 text-base font-semibold leading-7 text-indigo-600">Upload Attachments</p>
+                                            <livewire:attachment />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="-mt-12 lg:sticky lg:top-4 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-                        <img class="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]" src="https://source.unsplash.com/nbrxEedy1S0" alt="">
-                    </div>
+                </div>
+                <div class="-mt-12 lg:sticky lg:top-4 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+                    <img class="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]" src="https://source.unsplash.com/nbrxEedy1S0" alt="">
                 </div>
             </div>
-        @endif
+        </div>
 
-        @if (!auth()->user()->age)
-            <div class="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
-                <div class="mx-auto grid grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
-
-                    <div class="px-4 lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8">
-
-                        <div class="lg:pr-4">
-                            <div class="lg:max-w-lg">
-                                <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Explore your basketball talent with OnlineSportsTalent!</h1>
-                                <p class="mt-6 text-xl leading-8 text-gray-700">
-                                    Welcome to the platform where your sports dreams may take off.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="-mt-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-                        <img class="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]" src="https://source.unsplash.com/XmYSlYrupL8" alt="">
-                    </div>
-                    <div class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-                        <div class="lg:pr-4">
-                            <div class="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
-
-                                <h3 class="mt-8 text-xl font-semibold tracking-tight text-gray-900">Our mission is threefold: </h3>
-                                <ul role="list" class="mt-8 space-y-8 text-gray-600">
-                                    <li class="flex gap-x-3">
-                                        @svg('heroicon-s-user-circle', 'mt-1 h-5 w-5 flex-none text-indigo-600')
-                                        <span><strong class="font-semibold text-gray-900">Share Your Story</strong><br>Your journey as an athlete is a story important to tell. Your story like you want to tell it - through OnlineSportsTalent you can do just that. Let others see your talent and journey, conveyed through your best video clips and testimonials. Your story is a powerful tool that showcases your dedication, passion, and talent, thus exposing your unique abilities before clubs and scouts.
-                                            <br>We assist you in presenting your sports talent to professional clubs and colleges and to support these organizations in discovering exceptional talents like yours.
-                                            <br>Our platform acts as a conduit, facilitating direct communication between you and the interested parties, free from any interference by OnlineSportsTalent.
-                                        </span>
-                                    </li>
-                                    <li class="flex gap-x-3">
-                                        @svg('heroicon-s-chat-bubble-oval-left-ellipsis', 'mt-1 h-5 w-5 flex-none text-indigo-600')
-                                        <span><strong class="font-semibold text-gray-900">Connect with Clubs and Associations Worldwide</strong><br>Ever dreamt of showcasing your skills to clubs and associations beyond your local scene? OnlineSportsTalent isn't just a platform; it's your bridge to a global sports network. Our platform propels your talent onto the radar of international teams, giving you opportunities that span continents. Imagine being able to connect with clubs and associations, not just in your region, but around the world. Let your talent be seen by the right people, no matter where they are. </span>
-                                    </li>
-                                    <li class="flex gap-x-3">
-                                        @svg('heroicon-s-arrow-trending-up', 'mt-1 h-5 w-5 flex-none text-indigo-600')
-                                        <span><strong class="font-semibold text-gray-900">We Grow, Together We Thrive</strong><br>
-                                            OnlineSportsTalent is a platform under construction, for the love of sport and dreams of athletes. We're committed to improvement, and you're an integral part of this journey. The more you engage and share your experience on socials, the stronger the platform becomes for everyone. So – share OnlineSportsTalent as much as possible. And the more OnlineSportsTalent will be important for clubs. Sometimes you will experience flaws when we build out the site. Rest sure that we do it on purpose to make the platform better. During our initial phase, our services are absolutely free. However, once we reach a certain threshold, we will establish a fair pricing structure based on the value that OnlineSportsTalent brings to the table. For all 1000 first movers this service is free for 6 months. After this this OnlineSportsTalent might charge $ 5 per month, with ½y subscriptions. And if you get a contract – we charge nothing. This is between you and the club / organization.
-                                        </span>
-                                    </li>
-                                </ul>
-
-                                <h3 class="mt-8 text-xl font-semibold tracking-tight text-gray-900">Roadmap:</h3>
-
-                                <p class="mt-8">
-                                    When we have sufficient athletes registered on OnlineSportsTalents we expect to upload sample contracts and connect you with specialized experts, who can guide you through the process of setting up contractual agreements. To prevent you from being lured.
-                                </p>
-                                <br>
-                                <p>
-                                    Every sport is unique and we start with Basketball. But our aspirations are to expand into icehockey, soccer/football, handball – and more depending on our successes .
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex items-center bg-white">
-                <hr class="flex-grow border-t border-gray-300">
-                <span class="flex flex-row items-center px-3 text-gray-600">
-                    @svg('heroicon-o-user', 'h-4 mr-2')
-                    Personal Information
-                </span>
-                <hr class="flex-grow border-t border-gray-300">
-            </div>
-        @endif
+        <div class="flex items-center bg-white">
+            <hr class="flex-grow border-t border-gray-300">
+            <span class="flex flex-row items-center px-3 text-gray-600">
+                @svg('heroicon-o-user', 'h-4 mr-2')
+                Personal Information
+            </span>
+            <hr class="flex-grow border-t border-gray-300">
+        </div>
 
         <div class="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
             {{-- <div class="absolute inset-0 -z-10 overflow-hidden">
@@ -177,7 +115,7 @@
                 </svg>
             </div> --}}
 
-            <form action="{{ route('player.profile.update', ['player' => $player]) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('player.profile.update', ['player' => $player]) }}" method="POST">
                 @method('PATCH')
                 @csrf
                 <div class="mx-auto grid grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
@@ -194,27 +132,6 @@
                             </div>
                             <div class="mt-4 space-y-12">
                                 <div class="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-3">
-                                    @if (!auth()->user()->sport_id)
-                                        <div class="sm:col-span-1">
-                                            <label for="sport_id" class="block text-sm font-medium leading-6 text-gray-900">Sport</label>
-                                            <div class="mt-2">
-                                                <select id="sport_id" name="sport_id" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                                    <option value="1">Basketball</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    @endif
-
-                                    <div class="sm:col-span-1">
-                                        <label for="nationality" class="block text-sm font-medium leading-6 text-gray-900">Nationality</label>
-                                        <div class="mt-2">
-                                            <select id="nationality" name="nationality" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                                @foreach ($countries->all() as $code => $country)
-                                                    <option value="{{ $code }}" {{ $player->nationality === $code ? 'selected' : '' }}>{{ $country }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
 
                                     <div class="sm:col-span-1">
                                         <label for="age" class="block text-sm font-medium leading-6 text-gray-900">Birthday</label>
@@ -238,7 +155,7 @@
                                     </div>
 
                                     <div class="sm:col-span-1">
-                                        <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Expected Yearly Salary</label>
+                                        <label for="salary" class="block text-sm font-medium leading-6 text-gray-900">Expected Yearly Salary</label>
                                         <div class="mt-2">
                                             <div class="relative">
                                                 <input type="text" name="salary" id="salary" class="block w-full rounded-md border-0 py-1.5 pr-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="At Least" value="{{ \Illuminate\Support\Str::substr($player->salary, 1) }}">
@@ -294,10 +211,10 @@
                             <p class="mt-2 text-base font-semibold leading-7 text-indigo-600">Career</p>
                             <div class="mt-4 space-y-12">
                                 <div class="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-3">
-                                    <div class="sm:col-span-1">
+                                    <div class="col-span-full">
                                         <label for="positions" class="block text-sm font-medium leading-6 text-gray-900">Prefered Position(s)</label>
                                         <div class="mt-2">
-                                            <select id="positions" name="positions[]" multiple autocomplete="off" placeholder="Positions" class="block w-full rounded-md border-0 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" aria-placeholder="Continent">
+                                            <select id="positions" name="positions[]" multiple autocomplete="off" placeholder="Positions" class="block w-full rounded-md border-0 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" aria-placeholder="Position(s)">
                                                 <option value="center" @if (in_array('center', json_decode($player->positions) ?? [])) selected @endif>Center</option>
                                                 <option value="power-forward" @if (in_array('power-forward', json_decode($player->positions) ?? [])) selected @endif>Power Forward</option>
                                                 <option value="small-forward" @if (in_array('small-forward', json_decode($player->positions) ?? [])) selected @endif>Small Forward</option>
@@ -307,10 +224,10 @@
                                         </div>
                                     </div>
 
-                                    <div class="sm:col-span-2">
+                                    <div class="col-span-full">
                                         <label for="continents" class="block text-sm font-medium leading-6 text-gray-900">I wish to play in these geographic areas</label>
                                         <div class="mt-2">
-                                            <select id="continents" name="continents[]" multiple autocomplete="off" placeholder="Continent" class="block w-full rounded-md border-0 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" aria-placeholder="Continent">
+                                            <select id="continents" name="continents[]" multiple autocomplete="off" placeholder="Continent" class="block w-full rounded-md border-0 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" aria-placeholder="Continent(s)">
                                                 @foreach ($continents->all() as $code => $continent)
                                                     <option value="{{ $code }}" @if (in_array($code, json_decode($player->continents) ?? [])) selected @endif>{{ $continent }}</option>
                                                 @endforeach

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('sport_id')->index()->nullable();
-            $table->string('name')->index();
+            $table->string('name')->nullable()->index();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
@@ -26,6 +26,7 @@ return new class extends Migration
             $table->integer('weight')->nullable();
             $table->json('positions')->nullable();
             $table->string('salary')->nullable();
+            $table->char('currency')->nullable();
             $table->string('city')->nullable();
             $table->string('country')->nullable();
             $table->text('biography')->nullable();

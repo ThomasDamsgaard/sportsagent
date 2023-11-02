@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Events\UserOnboarded;
 use Illuminate\Auth\Events\Login;
 use App\Listeners\SetGenderInSession;
 use Illuminate\Support\Facades\Event;
@@ -22,6 +23,11 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         Login::class => [
+            SetSportIdInSession::class,
+            SetGenderInSession::class,
+        ],
+
+        UserOnboarded::class => [
             SetSportIdInSession::class,
             SetGenderInSession::class,
         ],
