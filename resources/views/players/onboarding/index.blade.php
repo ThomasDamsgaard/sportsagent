@@ -32,7 +32,7 @@
                                 <div class="sm:col-span-1">
                                     <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Name</label>
                                     <div class="mt-2">
-                                        <input type="text" name="name" id="name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="James Smith" required>
+                                        <input type="text" name="name" id="name" value="{{ old('name') }}" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="James Smith" required>
                                     </div>
                                 </div>
 
@@ -40,8 +40,8 @@
                                     <label for="gender" class="block text-sm font-medium leading-6 text-gray-900">Gender</label>
                                     <div class="mt-2">
                                         <select id="gender" name="gender" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
+                                            <option value="male" @selected(old('gender') == 'male')>Male</option>
+                                            <option value="female" @selected(old('gender') == 'female')>Female</option>
                                         </select>
                                     </div>
                                 </div>
@@ -60,21 +60,21 @@
                                 <div class="sm:col-span-1">
                                     <label for="age" class="block text-sm font-medium leading-6 text-gray-900">Birthday</label>
                                     <div class="mt-2">
-                                        <input datepicker datepicker-format="yyyy/mm/dd" data-date="1995/02/25" type="text" name="age" id="age" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="1995/02/25" required>
+                                        <input value="{{ old('age') }}" datepicker datepicker-format="yyyy/mm/dd" data-date="1995/02/25" type="text" name="age" id="age" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="1995/02/25" required>
                                     </div>
                                 </div>
 
                                 <div class="sm:col-span-1">
                                     <label for="height" class="block text-sm font-medium leading-6 text-gray-900">Height (cm)</label>
                                     <div class="mt-2">
-                                        <input type="number" name="height" id="height" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="195" required>
+                                        <input type="number" name="height" id="height" value="{{ old('height') }}" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="195" required>
                                     </div>
                                 </div>
 
                                 <div class="sm:col-span-1">
                                     <label for="weight" class="block text-sm font-medium leading-6 text-gray-900">Weight (kg)</label>
                                     <div class="mt-2">
-                                        <input type="number" id="weight" name="weight" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="90" required>
+                                        <input type="number" id="weight" name="weight" value="{{ old('weight') }}" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="90" required>
                                     </div>
                                 </div>
 
@@ -82,7 +82,7 @@
                                     <label for="salary" class="block text-sm font-medium leading-6 text-gray-900">Expected Yearly Salary</label>
                                     <div class="mt-2">
                                         <div class="relative">
-                                            <input type="text" name="salary" id="salary" class="block w-full rounded-md border-0 py-1.5 pr-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="At Least" value="{{ \Illuminate\Support\Str::substr($player->salary, 1) }}">
+                                            <input type="text" name="salary" id="salary" value="{{ old('salary') }}" class="block w-full rounded-md border-0 py-1.5 pr-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="At Least" value="{{ \Illuminate\Support\Str::substr($player->salary, 1) }}">
                                             <div class="absolute inset-y-0 right-0 flex items-center">
                                                 <label for="currency" class="sr-only">Currency</label>
                                                 <select id="currency" name="currency" class="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm">
@@ -97,7 +97,7 @@
                                 <div class="sm:col-span-1">
                                     <label for="city" class="block text-sm font-medium leading-6 text-gray-900">City (Residency)</label>
                                     <div class="mt-2">
-                                        <input type="text" name="city" id="city" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Los Angeles">
+                                        <input type="text" name="city" id="city" value="{{ old('city') }}" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Los Angeles">
                                     </div>
                                 </div>
 
@@ -116,7 +116,7 @@
                                     <label for="biography" class="block text-sm font-medium leading-6 text-gray-900">Biography</label>
                                     <div class="mt-2">
                                         <div>
-                                            <input name="biography" id="biography" type="hidden">
+                                            <input name="biography" id="biography" type="hidden" value="{{ old('biography') }}">
                                             <trix-editor input="biography" class="trix-content"></trix-editor>
                                         </div>
                                     </div>
@@ -163,7 +163,7 @@
                                     <label for="career" class="block text-sm font-medium leading-6 text-gray-900">Previous Career</label>
                                     <div class="mt-2">
                                         <div>
-                                            <input name="career" id="career" type="hidden">
+                                            <input name="career" id="career" type="hidden" value="{{ old('career') }}">
                                             <trix-editor input="career" class="trix-content"></trix-editor>
                                         </div>
                                     </div>

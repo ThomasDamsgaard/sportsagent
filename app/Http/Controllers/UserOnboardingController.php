@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\UserOnboarded;
+use App\Http\Requests\UserOnboardingRequest;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -15,29 +16,22 @@ class UserOnboardingController extends Controller
         return view('players.onboarding.index', ['player' => $player]);
     }
 
-    public function store(Request $request, User $player): RedirectResponse
+    public function store(UserOnboardingRequest $request, User $player): RedirectResponse
     {
+        $validated = $request->safe()->all();
+
+        $player->update($validated);
+
         $player->update([
-            'sport_id' => $request->sport_id,
-            'name' => $request->name,
-            'nationality' => $request->nationality,
-            'gender' => $request->gender,
-            'age' => $request->age,
-            'height' => $request->height,
-            'weight' => $request->weight,
-            'positions' => json_encode($request->positions),
-            'salary' => $request->currency . $request->salary,
-            'city' => $request->city,
-            'country' => $request->country,
-            'biography' => $request->biography,
-            'continents' => json_encode($request->continents),
-            'career' => $request->career,
+            'positions' => json_encode($validated['positions']),
+            'continents' => json_encode($validated['continents']),
         ]);
 
         $request->session()->flash('flash.banner', 'Profile Updated!');
         $request->session()->flash('flash.bannerStyle', 'success');
 
         UserOnboarded::dispatch($player);
+
         return redirect()->route('player.profile.edit', ['player' => $player]);
     }
 }
