@@ -12,7 +12,7 @@
 
                     <div class="lg:pr-4">
                         <div class="lg:max-w-lg">
-                            <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Update your account's information</h1>
+                            <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Fill in account information</h1>
                             <p class="mt-4 text-base leading-7 text-gray-700">
                                 <strong class="font-semibold text-gray-900">Share Your Story</strong> - Your journey as an athlete is a story important to tell. So start by telling us about your self. Once that is done, you can upload attachments to showcase yourself.
                             </p>

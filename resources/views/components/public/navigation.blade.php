@@ -20,15 +20,17 @@
 
             <a href="{{ route('pricing') }}" class="text-sm font-semibold leading-6 text-gray-900">Pricing</a> --}}
 
-            <a href="{{ route('players') }}" class="text-sm font-semibold leading-6 text-gray-900">For Players</a>
-            <a href="{{ route('teams') }}" class="text-sm font-semibold leading-6 text-gray-900">For Teams</a>
+            {{-- <a href="{{ route('players') }}" class="text-sm font-semibold leading-6 text-gray-900">For Players</a>
+            <a href="{{ route('teams') }}" class="text-sm font-semibold leading-6 text-gray-900">For Teams</a> --}}
 
 
             {{-- <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a> --}}
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             @if (!Route::is('login'))
-                <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+                <a href="{{ route('login') }}" class="rounded-md border border-gray-100 px-4 py-2 text-sm font-semibold leading-7 text-gray-800 hover:border-gray-200 hover:text-gray-900">Login To Your Account</a>
+
+                {{-- <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a> --}}
             @endif
         </div>
     </nav>
@@ -51,8 +53,8 @@
             <div class="mt-6 flow-root">
                 <div class="-my-6 divide-y divide-gray-500/10">
                     <div class="space-y-2 py-6">
-                        <a href="{{ route('players') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">For Players</a>
-                        <a href="{{ route('teams') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">For Teams</a>
+                        {{-- <a href="{{ route('players') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">For Players</a>
+                        <a href="{{ route('teams') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">For Teams</a> --}}
                         {{-- <a href="{{ route('features') }}" class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">Features</a>
 
                         <a href="{{ route('pricing') }}" class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">Pricing</a>
