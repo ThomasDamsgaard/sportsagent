@@ -13,13 +13,13 @@ class PlayerProfilesController extends Controller
         $player->attributable->update([
             'height' => $request->height,
             'weight' => $request->weight,
-            'positions' => json_encode($request->positions),
+            'positions' => $request->positions,
             'salary' => $request->salary,
             'currency' => $request->currency,
             'city' => $request->city,
             'country' => $request->country,
             'biography' => $request->biography,
-            'continents' => json_encode($request->continents),
+            'continents' => $request->continents,
             'career' => $request->career,
         ]);
 

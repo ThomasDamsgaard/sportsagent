@@ -35,8 +35,8 @@ class UserOnboardingController extends Controller
         ]));
 
         $player->attributable()->update([
-            'positions' => $request->safe()->only(['positions']),
-            'continents' => $request->safe()->only(['continents']),
+            'positions' => json_encode($request->safe()->only(['positions'])['positions']),
+            'continents' => $request->safe()->only(['continents'])['continents'],
         ]);
 
         $request->session()->flash('flash.banner', 'Profile Updated!');
