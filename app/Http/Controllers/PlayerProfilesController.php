@@ -10,7 +10,7 @@ class PlayerProfilesController extends Controller
 {
     public function update(Request $request, User $player): RedirectResponse
     {
-        $player->update([
+        $player->attributable->update([
             'height' => $request->height,
             'weight' => $request->weight,
             'positions' => json_encode($request->positions),

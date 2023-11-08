@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\PlayerAttributes;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -36,6 +37,7 @@ class UserSeeder extends Seeder
     private function generateBasketballUsers()
     {
         User::factory()
+            ->for(PlayerAttributes::factory(), 'attributable')
             // ->hasAttached(
             //     Team::factory(['name' => 'Svendborg Rabbits', 'country' => 'dk', 'league_id' => 1, 'logo' => 'https://media-2.api-sports.io/basketball/teams/470.png'])
             //         ->state(function (array $attributes, User $user) {

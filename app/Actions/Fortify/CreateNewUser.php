@@ -2,15 +2,14 @@
 
 namespace App\Actions\Fortify;
 
-use App\Enums\User\Gender;
+use App\Models\PlayerAttributes;
 use App\Models\Team;
 use App\Models\User;
+use Laravel\Jetstream\Jetstream;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rules\Enum;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
-use Laravel\Jetstream\Jetstream;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -35,9 +34,14 @@ class CreateNewUser implements CreatesNewUsers
                 'password' => Hash::make($input['password']),
                 'trial_ends_at' => now()->addYears(3),
             ]), function (User $user) {
-                // $this->createTeam($user);
+                $this->createAttributes($user);
             });
         });
+    }
+
+    protected function createAttributes(User $user): void
+    {
+        PlayerAttributes::create()->user()->save($user);
     }
 
     /**

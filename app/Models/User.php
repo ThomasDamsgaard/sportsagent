@@ -21,6 +21,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements HasMedia, MustVerifyEmail
@@ -82,6 +83,8 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
         'profile_photo_url',
     ];
 
+    protected $with = ['attributable'];
+
     /**
      * The "booted" method of the model.
      */
@@ -117,6 +120,11 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
     public function achievement(): HasOne
     {
         return $this->hasOne(Achievement::class);
+    }
+
+    public function attributable(): MorphTo
+    {
+        return $this->morphTo();
     }
 
     public function scopeExcludeCurrentUser(Builder $query): void

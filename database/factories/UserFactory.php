@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\PlayerAttributes;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -35,14 +36,16 @@ class UserFactory extends Factory
             // 'gender' => $this->faker->randomElement(['male', 'female']),
             'gender' => 'male',
             'age' => $this->faker->date(),
-            'height' => $this->faker->numberBetween(160, 210),
-            'weight' => $this->faker->numberBetween(70, 115),
-            'positions' => $this->faker->randomElement(['center', 'shooting-guard', 'point-guard', 'power-forward', 'small-forward']),
-            'salary' => $this->faker->numberBetween(1000, 10000),
-            'currency' => '$',
-            'biography' => $this->faker->text(),
-            'continents' => $this->faker->randomElement(['af', 'as', 'eu', 'na', 'oc', 'sa']),
+            // 'height' => $this->faker->numberBetween(160, 210),
+            // 'weight' => $this->faker->numberBetween(70, 115),
+            // 'positions' => $this->faker->randomElement(['center', 'shooting-guard', 'point-guard', 'power-forward', 'small-forward']),
+            // 'salary' => $this->faker->numberBetween(1000, 10000),
+            // 'currency' => '$',
+            // 'biography' => $this->faker->text(),
+            // 'continents' => $this->faker->randomElement(['af', 'as', 'eu', 'na', 'oc', 'sa']),
             'verified' => $this->faker->randomElement([true, false]),
+            'attributable_id' => PlayerAttributes::create()->id,
+            'attributable_type' => PlayerAttributes::class,
             'two_factor_secret' => null,
             'two_factor_recovery_codes' => null,
             'remember_token' => Str::random(10),
