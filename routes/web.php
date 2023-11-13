@@ -2,9 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Livewire\UserOnboarding;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\EnsureHasSport;
 use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\FilterController;
 use App\Http\Controllers\SearchController;
@@ -16,6 +14,8 @@ use App\Http\Controllers\PlayerProfilesController;
 use App\Http\Controllers\UserOnboardingController;
 use App\Http\Controllers\Teams\TeamsFilterController;
 use App\Http\Controllers\Teams\TeamsSearchController;
+use App\Http\Middleware\IsNotOnboarded;
+use App\Http\Middleware\IsOnboarded;
 
 require __DIR__ . '/public.php';
 
@@ -28,16 +28,26 @@ Route::middleware([
     config('jetstream.auth_session'),
     // 'verified',
     // 'subscribed',
-    'sport',
+    'onboarded',
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('onboarding/{player}', [UserOnboardingController::class, 'index'])
-        ->withoutMiddleware([EnsureHasSport::class])->name('onboarding.index');
-    Route::patch('/onboarding/{player}', [UserOnboardingController::class, 'store'])
-        ->withoutMiddleware([EnsureHasSport::class])->name('onboarding.store');
+    Route::middleware(['can:update,player'])->group(function () {
+        Route::get('onboarding/{player}', [UserOnboardingController::class, 'index'])
+            ->withoutMiddleware([IsOnboarded::class])
+            ->middleware(IsNotOnboarded::class)
+            ->name('onboarding.index');
+        Route::patch('/onboarding/{player}', [UserOnboardingController::class, 'store'])
+            ->withoutMiddleware([IsOnboarded::class])
+            ->middleware(IsNotOnboarded::class)
+            ->name('onboarding.store');
+
+        Route::get('/player/profile/{player}', [PlayerProfilesController::class, 'edit'])->name('player.profile.edit');
+        Route::patch('/player/profile/{player}', [PlayerProfilesController::class, 'update'])->name('player.profile.update');
+    });
+
 
     // Route::get('user-onboarding/{user}', UserOnboarding::class)->name('user.onboarding.index');
 
@@ -49,10 +59,6 @@ Route::middleware([
 
     Route::get('/teams/search', TeamsSearchController::class)->name('teams.search.index');
     Route::get('/teams/filter', TeamsFilterController::class)->name('teams.filter.index');
-
-    Route::get('/player/profile/{player}', [PlayerProfilesController::class, 'edit'])->name('player.profile.edit');
-    Route::patch('/player/profile/{player}', [PlayerProfilesController::class, 'update'])->name('player.profile.update');
-
 
     // Route::post('/player/attachments/{player}', [AttachmentsController::class, 'store'])->name('player.attachments.store');
     Route::get('/player/attachments/{item}', [AttachmentsController::class, 'show'])->name('player.attachments.show');
