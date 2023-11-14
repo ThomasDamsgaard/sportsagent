@@ -143,14 +143,14 @@
                                     <div class="sm:col-span-1">
                                         <label for="height" class="block text-sm font-medium leading-6 text-gray-900">Height (cm)</label>
                                         <div class="mt-2">
-                                            <input type="number" name="height" id="height" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="195" value="{{ $player->height }}">
+                                            <input type="number" name="height" id="height" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="195" value="{{ $player->attributable->height }}">
                                         </div>
                                     </div>
 
                                     <div class="sm:col-span-1">
                                         <label for="weight" class="block text-sm font-medium leading-6 text-gray-900">Weight (kg)</label>
                                         <div class="mt-2">
-                                            <input type="number" id="weight" name="weight" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="90" value="{{ $player->weight }}">
+                                            <input type="number" id="weight" name="weight" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="90" value="{{ $player->attributable->weight }}">
                                         </div>
                                     </div>
 
@@ -158,7 +158,7 @@
                                         <label for="salary" class="block text-sm font-medium leading-6 text-gray-900">Expected Yearly Salary</label>
                                         <div class="mt-2">
                                             <div class="relative">
-                                                <input type="text" name="salary" id="salary" class="block w-full rounded-md border-0 py-1.5 pr-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="At Least" value="{{ $player->salary }}">
+                                                <input type="text" name="salary" id="salary" class="block w-full rounded-md border-0 py-1.5 pr-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="At Least" value="{{ $player->attributable->salary }}">
                                                 <div class="absolute inset-y-0 right-0 flex items-center">
                                                     <label for="currency" class="sr-only">Currency</label>
                                                     <select id="currency" name="currency" class="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm">
@@ -173,7 +173,7 @@
                                     <div class="sm:col-span-1">
                                         <label for="city" class="block text-sm font-medium leading-6 text-gray-900">City (Residency)</label>
                                         <div class="mt-2">
-                                            <input type="text" name="city" id="city" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Los Angeles" value="{{ $player->city }}">
+                                            <input type="text" name="city" id="city" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Los Angeles" value="{{ $player->attributable->city }}">
                                         </div>
                                     </div>
 
@@ -182,7 +182,7 @@
                                         <div class="mt-2">
                                             <select id="country" name="country" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                                 @foreach ($countries->all() as $code => $country)
-                                                    <option value="{{ $code }}" {{ $player->country === $code ? 'selected' : '' }}>{{ $country }}</option>
+                                                    <option value="{{ $code }}" {{ $player->attributable->country === $code ? 'selected' : '' }}>{{ $country }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -192,7 +192,7 @@
                                         <label for="biography" class="block text-sm font-medium leading-6 text-gray-900">Biography</label>
                                         <div class="mt-2">
                                             <div>
-                                                <input name="biography" id="biography" value="{!! $player->biography !!}" type="hidden">
+                                                <input name="biography" id="biography" value="{!! $player->attributable->biography !!}" type="hidden">
                                                 <trix-editor input="biography" class="trix-content"></trix-editor>
                                             </div>
                                         </div>
@@ -215,11 +215,11 @@
                                         <label for="positions" class="block text-sm font-medium leading-6 text-gray-900">Prefered Position(s)</label>
                                         <div class="mt-2">
                                             <select id="positions" name="positions[]" multiple autocomplete="off" placeholder="Positions" class="block w-full rounded-md border-0 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" aria-placeholder="Position(s)">
-                                                <option value="center" @if (in_array('center', json_decode($player->positions) ?? [])) selected @endif>Center</option>
-                                                <option value="power-forward" @if (in_array('power-forward', json_decode($player->positions) ?? [])) selected @endif>Power Forward</option>
-                                                <option value="small-forward" @if (in_array('small-forward', json_decode($player->positions) ?? [])) selected @endif>Small Forward</option>
-                                                <option value="point-guard" @if (in_array('point-guard', json_decode($player->positions) ?? [])) selected @endif>Point Guard</option>
-                                                <option value="shooting-guard" @if (in_array('shooting-guard', json_decode($player->positions) ?? [])) selected @endif>Shooting Guard</option>
+                                                <option value="center" @if (in_array('center', json_decode($player->attributable->positions) ?? [])) selected @endif>Center</option>
+                                                <option value="power-forward" @if (in_array('power-forward', json_decode($player->attributable->positions) ?? [])) selected @endif>Power Forward</option>
+                                                <option value="small-forward" @if (in_array('small-forward', json_decode($player->attributable->positions) ?? [])) selected @endif>Small Forward</option>
+                                                <option value="point-guard" @if (in_array('point-guard', json_decode($player->attributable->positions) ?? [])) selected @endif>Point Guard</option>
+                                                <option value="shooting-guard" @if (in_array('shooting-guard', json_decode($player->attributable->positions) ?? [])) selected @endif>Shooting Guard</option>
                                             </select>
                                         </div>
                                     </div>
@@ -229,7 +229,7 @@
                                         <div class="mt-2">
                                             <select id="continents" name="continents[]" multiple autocomplete="off" placeholder="Continent" class="block w-full rounded-md border-0 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" aria-placeholder="Continent(s)">
                                                 @foreach ($continents->all() as $code => $continent)
-                                                    <option value="{{ $code }}" @if (in_array($code, json_decode($player->continents) ?? [])) selected @endif>{{ $continent }}</option>
+                                                    <option value="{{ $code }}" @if (in_array($code, json_decode($player->attributable->continents) ?? [])) selected @endif>{{ $continent }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -239,7 +239,7 @@
                                         <label for="career" class="block text-sm font-medium leading-6 text-gray-900">Previous Career</label>
                                         <div class="mt-2">
                                             <div>
-                                                <input name="career" id="career" value="{!! $player->career !!}" type="hidden">
+                                                <input name="career" id="career" value="{!! $player->attributable->career !!}" type="hidden">
                                                 <trix-editor input="career" class="trix-content"></trix-editor>
                                             </div>
                                         </div>

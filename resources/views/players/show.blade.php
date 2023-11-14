@@ -248,19 +248,19 @@
                             </div>
                             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Height</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $player->height }}</dd>
+                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $player->attributable->height ?? 'Not provided yet.' }}</dd>
                             </div>
                             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Weight</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $player->weight }}</dd>
+                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $player->attributable->weight }}</dd>
                             </div>
                             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Salary expectation</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $player->currency }}{{ $player->salary }}</dd>
+                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $player->attributable->currency }}{{ $player->attributable->salary }}</dd>
                             </div>
                             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Biography</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $player->biography }}</dd>
+                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $player->attributable->biography }}</dd>
                             </div>
                             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Attachments</dt>
@@ -283,7 +283,7 @@
                                                             @svg('heroicon-m-video-camera', 'h-5 w-5 flex-shrink-0 text-gray-400')
                                                         @break
                                                     @endswitch
-                                                    <span class="ml-2 w-0 flex-1 truncate">{{ $item->file_name }}</span>
+                                                    <span class="ml-2 w-0 flex-1 truncate">{{ $item->name }}</span>
                                                 </div>
                                                 <div class="ml-4 flex-shrink-0">
                                                     <a href="{{ route('player.attachments.show', ['item' => $item]) }}" class="font-medium text-indigo-600 hover:text-indigo-500">Download</a>

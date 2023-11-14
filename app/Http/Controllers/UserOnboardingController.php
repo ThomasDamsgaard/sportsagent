@@ -18,13 +18,25 @@ class UserOnboardingController extends Controller
 
     public function store(UserOnboardingRequest $request, User $player): RedirectResponse
     {
-        $validated = $request->safe()->all();
+        $player->update($request->safe()->only([
+            'sport_id',
+            'name',
+            'gender',
+            'nationality',
+            'age',
+        ]));
 
-        $player->update($validated);
+        $player->attributable()->update($request->safe()->except([
+            'sport_id',
+            'name',
+            'gender',
+            'nationality',
+            'age',
+        ]));
 
-        $player->update([
-            'positions' => json_encode($validated['positions']),
-            'continents' => json_encode($validated['continents']),
+        $player->attributable()->update([
+            'positions' => json_encode($request->safe()->only(['positions'])['positions']),
+            'continents' => $request->safe()->only(['continents'])['continents'],
         ]);
 
         $request->session()->flash('flash.banner', 'Profile Updated!');

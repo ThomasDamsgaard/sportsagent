@@ -21,6 +21,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements HasMedia, MustVerifyEmail
@@ -82,6 +83,8 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
         'profile_photo_url',
     ];
 
+    protected $with = ['attributable'];
+
     /**
      * The "booted" method of the model.
      */
@@ -119,6 +122,11 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
         return $this->hasOne(Achievement::class);
     }
 
+    public function attributable(): MorphTo
+    {
+        return $this->morphTo();
+    }
+
     public function scopeExcludeCurrentUser(Builder $query): void
     {
         $query->where('id', '!=', auth()->user()->id);
@@ -151,10 +159,22 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
                 $query->where('verified', true);
             })
             ->when(request('positions'), function ($query) {
-                $query->whereIn('positions', array_values(request('positions')))->get();
+                $query->whereHasMorph(
+                    'attributable',
+                    [PlayerAttributes::class],
+                    function (Builder $query) {
+                        $query->whereIn('positions', array_values(request('positions')));
+                    }
+                )->get();
             })
             ->when(request('continents'), function ($query) {
-                $query->whereIn('continents', array_values(request('continents')))->get();
+                $query->whereHasMorph(
+                    'attributable',
+                    [PlayerAttributes::class],
+                    function (Builder $query) {
+                        $query->whereIn('continents', array_values(request('continents')));
+                    }
+                )->get();
             })
             ->when(request('age-to'), function ($query) {
                 $query->whereBetween(

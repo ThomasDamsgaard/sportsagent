@@ -22,16 +22,7 @@ return new class extends Migration
             $table->string('nationality')->nullable();
             $table->enum('gender', ['male', 'female'])->nullable();
             $table->dateTime('age')->nullable();
-            $table->integer('height')->nullable();
-            $table->integer('weight')->nullable();
-            $table->json('positions')->nullable();
-            $table->string('salary')->nullable();
-            $table->char('currency')->nullable();
-            $table->string('city')->nullable();
-            $table->string('country')->nullable();
-            $table->text('biography')->nullable();
-            $table->json('continents')->nullable();
-            $table->text('career')->nullable();
+            $table->nullableMorphs('attributable');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
