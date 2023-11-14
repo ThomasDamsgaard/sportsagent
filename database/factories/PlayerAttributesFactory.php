@@ -22,8 +22,8 @@ class PlayerAttributesFactory extends Factory
             'salary' => $this->faker->numberBetween(1000, 10000),
             'currency' => '$',
             'biography' => $this->faker->text(),
-            'positions' => $this->faker->randomElement(['center', 'shooting-guard', 'point-guard', 'power-forward', 'small-forward']),
-            'continents' => $this->faker->randomElement(['af', 'as', 'eu', 'na', 'oc', 'sa']),
+            'positions' => json_encode($this->faker->randomElement(['center', 'shooting-guard', 'point-guard', 'power-forward', 'small-forward'])),
+            'continents' => json_encode($this->faker->randomElement(['af', 'as', 'eu', 'na', 'oc', 'sa'])),
             'career' => $this->faker->text(),
         ];
     }

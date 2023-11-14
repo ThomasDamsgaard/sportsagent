@@ -33,25 +33,29 @@ class UserFactory extends Factory
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'type' => 'player',
             'nationality' => $this->faker->randomElement(['us', 'dk', 'se', 'no']),
-            // 'gender' => $this->faker->randomElement(['male', 'female']),
-            'gender' => 'male',
+            'gender' => $this->faker->randomElement(['male', 'female']),
             'age' => $this->faker->date(),
-            // 'height' => $this->faker->numberBetween(160, 210),
-            // 'weight' => $this->faker->numberBetween(70, 115),
-            // 'positions' => $this->faker->randomElement(['center', 'shooting-guard', 'point-guard', 'power-forward', 'small-forward']),
-            // 'salary' => $this->faker->numberBetween(1000, 10000),
-            // 'currency' => '$',
-            // 'biography' => $this->faker->text(),
-            // 'continents' => $this->faker->randomElement(['af', 'as', 'eu', 'na', 'oc', 'sa']),
             'verified' => $this->faker->randomElement([true, false]),
-            'attributable_id' => PlayerAttributes::create()->id,
-            'attributable_type' => PlayerAttributes::class,
+            'attributable_id' => null,
+            'attributable_type' => null,
             'two_factor_secret' => null,
             'two_factor_recovery_codes' => null,
             'remember_token' => Str::random(10),
             'profile_photo_path' => null,
             'current_team_id' => null,
         ];
+    }
+
+    public function forPlayerAttributes(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'attributable_id' => PlayerAttributes::factory(),
+                'attributable_type' => function (array $attributes) {
+                    return PlayerAttributes::find($attributes['attributable_id'])->getMorphClass();
+                }
+            ];
+        });
     }
 
     /**

@@ -159,10 +159,22 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
                 $query->where('verified', true);
             })
             ->when(request('positions'), function ($query) {
-                $query->whereIn('positions', array_values(request('positions')))->get();
+                $query->whereHasMorph(
+                    'attributable',
+                    [PlayerAttributes::class],
+                    function (Builder $query) {
+                        $query->whereIn('positions', array_values(request('positions')));
+                    }
+                )->get();
             })
             ->when(request('continents'), function ($query) {
-                $query->whereIn('continents', array_values(request('continents')))->get();
+                $query->whereHasMorph(
+                    'attributable',
+                    [PlayerAttributes::class],
+                    function (Builder $query) {
+                        $query->whereIn('continents', array_values(request('continents')));
+                    }
+                )->get();
             })
             ->when(request('age-to'), function ($query) {
                 $query->whereBetween(
