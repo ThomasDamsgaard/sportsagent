@@ -1,35 +1,29 @@
 <x-guest-layout>
     <main>
-        <div class="relative overflow-hidden">
+        <div class="relative hidden overflow-hidden lg:block">
             <div class="pb-80 pt-16 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
                 <div class="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
-                    <div class="hidden sm:mb-8 sm:flex sm:justify-center">
-                    </div>
                     <div class="sm:max-w-lg">
                         <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Empower Your Sports Dreams</h1>
                         <p class="mt-6 text-lg leading-8 text-gray-600"><span class="font-semibold italic">The platform</span> to directly connect with professional teams, players and coaches from all over the world. We provide career opportunities for talented individuals in the sports industry.</p>
                         <div class="mx-auto mt-8 hidden rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 sm:block sm:max-w-sm">
-                            Leverage us to get a professional contract. <a href="{{ route('players') }}" class="font-semibold text-indigo-600"><span aria-hidden="true"></span>Read more <span aria-hidden="true">&rarr;</span></a>
+                            If representing a team or organization. <a href="{{ route('teams') }}" class="font-semibold text-indigo-600"><span aria-hidden="true"></span>Read more <span aria-hidden="true">&rarr;</span></a>
+                            {{-- Leverage us to get a professional contract. <a href="{{ route('players') }}" class="font-semibold text-indigo-600"><span aria-hidden="true"></span>Read more <span aria-hidden="true">&rarr;</span></a> --}}
                         </div>
 
                         <div class="mt-8 space-y-2 text-base leading-7 text-gray-600">
-                            <p>
-                                Several sports are large in some countries, but not as big in others, thus the talent far exceed the spots available at top level clubs.<br>
-                            </p>
-                            <p>
-                                Join Online Sports Talents to showcase your skills to clubs and associations beyond your local scene, giving you opportunities that span continents.
-                            </p>
-                            <p>
-                                You are among one of the first 1000 to <a class="underline" href="{{ route('register') }}">sign up</a>. In return, enjoy our service for <span class="font-bold italic underline">free, forever!</span>
-                            </p>
+                            You are among one of the first 1000 to <a class="underline" href="{{ route('register') }}">sign up</a>. In return, enjoy our service for <span class="font-bold italic underline">free, forever!</span>
                         </div>
-                        <div class="mt-8 flex justify-center sm:mt-12">
-                            <svg class="h-6 w-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
-                            </svg>
+                        <div class="mt-8 flex flex-col justify-center gap-y-6">
+                            <a href="{{ route('register') }}" type="button" class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-semibold normal-case leading-7 tracking-widest text-white shadow-sm transition hover:bg-indigo-500 focus:border-indigo-900 focus:outline-none focus:ring focus:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 active:bg-indigo-900 disabled:opacity-25">Basketball - Register Now, Free Forever</a>
+                            {{-- <a href="{{ route('register') }}" type="button" class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-semibold normal-case leading-7 tracking-widest text-white shadow-sm transition hover:bg-indigo-500 focus:border-indigo-900 focus:outline-none focus:ring focus:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 active:bg-indigo-900 disabled:opacity-25">Basketball Women - Register Now, Free Forever</a> --}}
+
+                            {{-- <a disabled type="button" class="inline-flex items-center rounded-md border border-transparent bg-indigo-300 px-4 py-2 text-base font-semibold normal-case leading-7 tracking-widest text-white shadow-sm transition">Basketball Women - In Progress</a> --}}
+                            <a aria-disabled="true" class="rounded-md border border-gray-100 bg-gray-50 px-4 py-2 text-sm font-semibold leading-7 text-gray-800">Icehockey - In Pipeline</a>
+                            {{-- <a aria-disabled="true" class="rounded-md border border-gray-100 bg-gray-50 px-4 py-2 text-sm font-semibold leading-7 text-gray-800">Icehockey Women - In Pipeline</a> --}}
+                            <a aria-disabled="true" class="rounded-md border border-gray-100 bg-gray-50 px-4 py-2 text-sm font-semibold leading-7 text-gray-800">Handball - In Pipeline</a>
+                            {{-- <a aria-disabled="true" class="rounded-md border border-gray-100 bg-gray-50 px-4 py-2 text-sm font-semibold leading-7 text-gray-800">Handball Women - In Pipeline</a> --}}
                         </div>
-
-
                     </div>
                     <div>
                         <div class="mt-10">
@@ -69,6 +63,41 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:hidden">
+            <div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+                <div class="sm:max-w-lg">
+                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Empower Your Sports Dreams</h1>
+                    <p class="mt-6 text-lg leading-8 text-gray-600"><span class="font-semibold italic">The platform</span> to directly connect with professional teams, players and coaches from all over the world. We provide career opportunities for talented individuals in the sports industry.</p>
+                    <div class="mx-auto mt-8 hidden rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 sm:block sm:max-w-sm">
+                        Team or Organization? <a href="{{ route('teams') }}" class="font-semibold text-indigo-600"><span aria-hidden="true"></span>Read more here <span aria-hidden="true">&rarr;</span></a>
+                    </div>
+
+                    <div class="mt-8 space-y-2 text-base leading-7 text-gray-600">
+                        <p>
+                            Several sports are large in some countries, but not as big in others, thus the talent far exceed the spots available at top level clubs.<br>
+                        </p>
+                        <p>
+                            Join Online Sports Talents to showcase your skills to clubs and associations beyond your local scene, giving you opportunities that span continents.
+                        </p>
+                        <p>
+                            You are among one of the first 1000 to <a class="underline" href="{{ route('register') }}">sign up</a>. In return, enjoy our service for <span class="font-bold italic underline">free, forever!</span>
+                        </p>
+                    </div>
+                    <div class="mt-8 flex justify-center sm:mt-12">
+                        <svg class="h-6 w-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
+                    <img src="https://source.unsplash.com/XHTBZpRBoi0" class="rounded-lg bg-gray-100">
+                    <img src="https://source.unsplash.com/XHTBZpRBoi0" class="rounded-lg bg-gray-100">
+                    <img src="https://source.unsplash.com/lBhhnhndpE0" class="rounded-lg bg-gray-100">
+                    <img src="https://source.unsplash.com/IxtM5H-l1rI" class="rounded-lg bg-gray-100">
                 </div>
             </div>
         </div>
@@ -126,14 +155,14 @@
                             <h3 class="mt-8 text-xl font-semibold tracking-tight text-gray-900">Available:</h3>
 
                             <div class="mt-8 flex flex-col justify-center gap-y-6">
-                                <a href="{{ route('register') }}" type="button" class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-semibold normal-case leading-7 tracking-widest text-white shadow-sm transition hover:bg-indigo-500 focus:border-indigo-900 focus:outline-none focus:ring focus:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 active:bg-indigo-900 disabled:opacity-25">Basketball Men - Register Now, Free Forever</a>
-                                <a href="{{ route('register') }}" type="button" class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-semibold normal-case leading-7 tracking-widest text-white shadow-sm transition hover:bg-indigo-500 focus:border-indigo-900 focus:outline-none focus:ring focus:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 active:bg-indigo-900 disabled:opacity-25">Basketball Women - Register Now, Free Forever</a>
+                                <a href="{{ route('register') }}" type="button" class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-semibold normal-case leading-7 tracking-widest text-white shadow-sm transition hover:bg-indigo-500 focus:border-indigo-900 focus:outline-none focus:ring focus:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 active:bg-indigo-900 disabled:opacity-25">Basketball - Register Now, Free Forever</a>
+                                {{-- <a href="{{ route('register') }}" type="button" class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-semibold normal-case leading-7 tracking-widest text-white shadow-sm transition hover:bg-indigo-500 focus:border-indigo-900 focus:outline-none focus:ring focus:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 active:bg-indigo-900 disabled:opacity-25">Basketball Women - Register Now, Free Forever</a> --}}
 
                                 {{-- <a disabled type="button" class="inline-flex items-center rounded-md border border-transparent bg-indigo-300 px-4 py-2 text-base font-semibold normal-case leading-7 tracking-widest text-white shadow-sm transition">Basketball Women - In Progress</a> --}}
-                                <a aria-disabled="true" class="rounded-md border border-gray-100 px-4 py-2 text-sm font-semibold leading-7 text-gray-800">Icehockey Men - In Pipeline</a>
+                                {{-- <a aria-disabled="true" class="rounded-md border border-gray-100 px-4 py-2 text-sm font-semibold leading-7 text-gray-800">Icehockey Men - In Pipeline</a>
                                 <a aria-disabled="true" class="rounded-md border border-gray-100 px-4 py-2 text-sm font-semibold leading-7 text-gray-800">Icehockey Women - In Pipeline</a>
                                 <a aria-disabled="true" class="rounded-md border border-gray-100 px-4 py-2 text-sm font-semibold leading-7 text-gray-800">Handball Men - In Pipeline</a>
-                                <a aria-disabled="true" class="rounded-md border border-gray-100 px-4 py-2 text-sm font-semibold leading-7 text-gray-800">Handball Women - In Pipeline</a>
+                                <a aria-disabled="true" class="rounded-md border border-gray-100 px-4 py-2 text-sm font-semibold leading-7 text-gray-800">Handball Women - In Pipeline</a> --}}
                             </div>
                         </div>
                     </div>
@@ -223,6 +252,8 @@
                 </div>
             </div>
         </div>
+
+
 
         {{-- <div class="bg-gray-50 py-24 sm:py-32">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
