@@ -1,26 +1,27 @@
 <x-guest-layout>
-    <x-validation-errors class="my-4" />
-
     <x-authentication-card>
         <x-slot name="logo">
         </x-slot>
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" id="form">
             @csrf
 
             <div class="mt-4">
                 <x-label for="email" value="{{ __('Email') }}" />
                 <x-input id="email" class="mt-1 block w-full" type="email" name="email" :value="old('email')" required />
+                <x-input-error for="email"></x-input-error>
             </div>
 
             <div class="mt-4">
                 <x-label for="password" value="{{ __('Password') }}" />
                 <x-input id="password" class="mt-1 block w-full" type="password" name="password" required autocomplete="new-password" />
+                <x-input-error for="password"></x-input-error>
             </div>
 
             <div class="mt-4">
                 <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
                 <x-input id="password_confirmation" class="mt-1 block w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                <x-input-error for="password_confirmation"></x-input-error>
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
@@ -49,6 +50,9 @@
                     {{ __('Start A Free Account') }}
                 </x-button>
 
+                <input type="hidden" class="g-recaptcha" name="recaptcha_token" id="recaptcha_token">
+                <x-input-error for="recaptcha_token"></x-input-error>
+
                 {{-- <x-social-button class="inline-flex items-center bg-gray-600" href="{{ route('google.index') }}" type="button">
                     <svg class="w-4 h-4 mr-2 -ml-1" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
                         <path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"></path>
@@ -66,4 +70,24 @@
             </div>
         </form>
     </x-authentication-card>
+
+    @push('scripts')
+        <!-- Captcha -->
+        <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
+
+        <script>
+            grecaptcha.ready(function() {
+                document.getElementById('form').addEventListener("submit", function(event) {
+                    event.preventDefault();
+                    grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {
+                            action: 'register'
+                        })
+                        .then(function(token) {
+                            document.getElementById("recaptcha_token").value = token;
+                            document.getElementById('form').submit();
+                        });
+                });
+            });
+        </script>
+    @endpush
 </x-guest-layout>
