@@ -145,12 +145,12 @@
 
                             <h3 class="mt-8 text-xl font-semibold tracking-tight text-gray-900">Roadmap:</h3>
 
-                            <p class="mt-8">
+                            {{-- <p class="mt-8">
                                 When we have sufficient athletes registered on Online Sports Talents we expect to upload sample contracts and connect you with specialized experts, who can guide you through the process of setting up contractual agreements. To prevent you from being lured.
                             </p>
-                            <br>
+                            <br> --}}
                             <p>
-                                Every sport is unique and we start with Basketball. But our aspirations are to expand into icehockey, handball – and more depending on our successes.
+                                Every sport is unique and we start with Basketball. But our aspirations are to expand into icehockey, handball – and more pending.
                             </p>
                             <h3 class="mt-8 text-xl font-semibold tracking-tight text-gray-900">Available:</h3>
 

@@ -34,17 +34,17 @@
                             <li class="flex gap-x-3">
                                 @svg('heroicon-s-arrow-trending-up', 'mt-1 h-5 w-5 flex-none text-indigo-600')
                                 <span><strong class="font-semibold text-gray-900">We Grow, Together We Thrive</strong><br>
-                                    OnlineSportsTalent is a platform under construction, for the love of sport and dreams of athletes. We're committed to improvement, and you're an integral part of this journey. The more you engage and share your experience on socials, the stronger the platform becomes for everyone. So – share OnlineSportsTalent as much as possible. And the more OnlineSportsTalent will be important for clubs. Sometimes you will experience flaws when we build out the site. Rest sure that we do it on purpose to make the platform better. During our initial phase, our services are absolutely free. However, once we reach a certain threshold, we will establish a fair pricing structure based on the value that OnlineSportsTalent brings to the table. For all 1000 first movers this service is free for 6 months. After this this OnlineSportsTalent might charge $ 5 per month, with ½y subscriptions. And if you get a contract – we charge nothing. This is between you and the club / organization.
+                                    OnlineSportsTalent is a platform under construction, for the love of sport and dreams of athletes. We're committed to improvement, and you're an integral part of this journey. The more you engage and share your experience on socials, the stronger the platform becomes for everyone. So – share OnlineSportsTalent as much as possible. And the more OnlineSportsTalent will be important for clubs. Sometimes you will experience flaws when we build out the site. Rest sure that we do it on purpose to make the platform better. During our initial phase, our services are absolutely free. However, once we reach a certain threshold, we will establish a fair pricing structure based on the value that OnlineSportsTalent brings to the table. All 1000 first movers signong up to the service gets a lifetime free licens. If you get a contract – we charge nothing. This is between you and the club / organization.
                                 </span>
                             </li>
                         </ul>
 
                         <h3 class="mt-8 text-xl font-semibold tracking-tight text-gray-900">Roadmap:</h3>
 
-                        <p class="mt-8">
+                        {{-- <p class="mt-8">
                             When we have sufficient athletes registered on OnlineSportsTalents we expect to upload sample contracts and connect you with specialized experts, who can guide you through the process of setting up contractual agreements. To prevent you from being lured.
                         </p>
-                        <br>
+                        <br> --}}
                         <p>
                             Every sport is unique and we start with Basketball. But our aspirations are to expand into icehockey, soccer/football, handball – and more depending on our successes .
                         </p>
