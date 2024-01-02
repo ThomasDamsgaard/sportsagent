@@ -138,8 +138,12 @@
                                 <li class="flex gap-x-3">
                                     @svg('heroicon-s-arrow-trending-up', 'mt-1 h-5 w-5 flex-none text-indigo-600')
                                     <span><strong class="font-semibold text-gray-900">We Grow, Together We Thrive</strong><br>
-                                        Online Sports Talents is a platform under construction, for the love of sport and dreams of athletes. We're committed to improvement, and you're an integral part of this journey. The more you engage and share your experience on socials, the stronger the platform becomes for everyone. So – share Online Sports Talents as much as possible. And the more Online Sports Talents will be important for clubs. Sometimes you will experience flaws when we build out the site. Rest sure that we do it on purpose to make the platform better. During our initial phase, our services are absolutely free. However, once we reach a certain threshold, we will establish a fair pricing structure based on the value that Online Sports Talents brings to the table. For all 1000 first movers this service is free forever. If you get a contract – we charge nothing. This is between you and the club / organization.
-                                    </span>
+                                        Online Sports Talents is a platform under construction, for the love of sport and dreams of athletes. We're committed to improvement, and you're an integral part of this journey. The more you engage and share your experience on socials, the stronger the platform becomes for everyone. So – share Online Sports Talents as much as possible. And the more Online Sports Talents will be important for clubs. Sometimes you will experience flaws when we build out the site. Rest sure that we do it on purpose to make the platform better. During our initial phase, our services are absolutely free. However, once we reach a certain threshold, we will establish a fair pricing structure based on the value that Online Sports Talents brings to the table. For all 1000 first movers this service is free forever.</span>
+                                </li>
+                                <li class="flex gap-x-3">
+                                    @svg('heroicon-s-document-text', 'mt-1 h-5 w-5 flex-none text-indigo-600')
+                                    <span><strong class="font-semibold text-gray-900">Contracts</strong><br>
+                                        If you get a contract – we charge nothing. This is between you and the club / organization. Take a look at a sample contract - <a class="text-indigo-600 underline" href="https://basket.dk/docs/spillere-traenere-dommerportal/spillere-traenere-dommerportal-dokumenter/standardkontrakt-paa-engelsk-3-0-0-20-21-saesonen-0-3-mb/">here</a> (In English)
                                 </li>
                             </ul>
 
@@ -207,9 +211,6 @@
                                 </li>
                                 <li class="flex gap-x-3">
                                     <span><strong class="font-semibold text-gray-900">Icehockey</strong> - Tap into the immense talent pool found in North America and the Baltic Sea region. Strengthen your team with individuals at a very heigh level.</span>
-                                </li>
-                                <li class="flex gap-x-3">
-                                    <span><strong class="font-semibold text-gray-900">Soccer/Football</strong> - Explore opportunities beyond borders with talents hailing from Africa, South America, and beyond. Even in regions without fully professional leagues, our platform connects you with players who can elevate your team's performance.</span>
                                 </li>
                                 <li class="flex gap-x-3">
                                     <span><strong class="font-semibold text-gray-900">Handball</strong> - The Scandinavian countries are renowned for their surplus of exceptional handball talents ready to take on a new challenge in a foreign country. Handball is expanding fast internationally and economically and is an Olympic sport</span>
