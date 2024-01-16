@@ -107,8 +107,8 @@
                 <div class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                     <div class="lg:pr-4">
                         <div class="lg:max-w-lg">
-                            <p class="text-base font-semibold leading-7 text-indigo-600">Athletes/Sports Talents</p>
-                            <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Explore your sports talent with Online Sports Talent!</h1>
+                            {{-- <p class="text-base font-semibold leading-7 text-indigo-600">Athletes/Sports Talents</p> --}}
+                            <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"><span class="italic underline">Athlete</span> - Explore your sports talent with Online Sports Talent!</h1>
                             <p class="mt-6 text-xl leading-8 text-gray-700">
                                 Welcome to the platform where your sports dreams may take off.
                             </p>
@@ -143,7 +143,7 @@
                                 <li class="flex gap-x-3">
                                     @svg('heroicon-s-document-text', 'mt-1 h-5 w-5 flex-none text-indigo-600')
                                     <span><strong class="font-semibold text-gray-900">Contracts</strong><br>
-                                        If you get a contract – we charge nothing. This is between you and the club / organization. Take a look at a sample contract - <a class="text-indigo-600 underline" href="https://basket.dk/docs/spillere-traenere-dommerportal/spillere-traenere-dommerportal-dokumenter/standardkontrakt-paa-engelsk-3-0-0-20-21-saesonen-0-3-mb/">here</a> (In English)
+                                        If you get a contract – we charge nothing. This is between you and the club / organization. Take a look at a sample contract - <a class="text-indigo-600 underline" href="https://basket.dk/docs/spillere-traenere-dommerportal/spillere-traenere-dommerportal-dokumenter/standardkontrakt-paa-engelsk-3-0-0-20-21-saesonen-0-3-mb/">here</a> (In english - from the Danish Basketball Federation)
                                 </li>
                             </ul>
 
@@ -174,13 +174,64 @@
             </div>
         </div>
 
+        <div class="py-12">
+            <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <section>
+                    <div class="mx-auto max-w-screen-xl px-4 py-8 sm:py-16 lg:px-6">
+                        <h2 class="mb-8 text-4xl font-extrabold tracking-tight text-gray-900">Why Choose Online Sports Talents?</h2>
+                        <div class="grid border-t border-gray-200 pt-8 text-left md:grid-cols-2 md:gap-16">
+                            <div class="col-span-1">
+                                <div class="mb-8">
+                                    <h3 class="mb-4 flex-1 items-center text-lg font-medium text-gray-900">
+                                        Strengths
+                                    </h3>
+                                    <p class="text-gray-500">
+                                        You can present your talent to clubs all over the World – most likely in Europe, without a contract with an agent. Upload of your full sports history, written, testimonials and videos and get your talent verified by the coaches and others who worked with you. You don't end up with an agent who have too many athletes, making you a fish in the pond - and take a salary cut.
+                                    </p>
+                                </div>
+                                <div class="mb-8">
+                                    <h3 class="mb-4 flex-1 items-center text-lg font-medium text-gray-900">
+                                        Considerations
+                                    </h3>
+                                    <p class="text-gray-500">
+                                        You dont have an agent who can negotiate terms for you. The club might have the upper hand when negotiating a contract and salary. Take in factors like: lenght of contract, conditions and accommodation as these are often not straight forward. Clubs are in economic contraints as well.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="mb-8">
+                                    <h3 class="mb-4 flex-1 items-center text-lg font-medium text-gray-900">
+                                        Opportunities
+                                    </h3>
+                                    <p class="text-gray-500">
+                                        You get an opportunity to carry on with the sport you have invested so much effords in, maybe while experiencing other countries or regions.
+                                        You might have more talent than your college or club has been able to spot or develop, thus become a professional player and might even return to your home top leagues.
+                                    </p>
+                                </div>
+                                <div class="mb-8">
+                                    <h3 class="mb-4 flex-1 items-center text-lg font-medium text-gray-900">
+                                        Weaknesses
+                                    </h3>
+                                    <p class="text-gray-500">
+                                        If your talent develop further you have to be careful not to have signed an unfavorable contract.
+                                        When you don't have an agent, you might end up with a lower salary or a weaker club.
+                                        You will have to seek expertice when you sign a contract.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
         <div class="relative isolate overflow-hidden px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
             <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
                 <div class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                     <div class="lg:pr-4">
                         <div class="lg:max-w-lg">
-                            <p class="text-base font-semibold leading-7 text-indigo-600">Teams/Organizations</p>
-                            <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Online Sports Talents supports clubs in building competitive teams!</h1>
+                            {{-- <p class="text-base font-semibold leading-7 text-indigo-600">Teams/Organizations</p> --}}
+                            <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"><span class="italic underline">Teams/Organizations</span> - Online Sports Talents supports you in building competitive teams!</h1>
                             <p class="mt-6 text-xl leading-8 text-gray-700">
                                 Welcome to Online Sports Talents <br> Where Clubs Discover Hidden Talents.
                             </p>
@@ -254,7 +305,110 @@
             </div>
         </div>
 
+        <div class="py-12">
+            <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <section>
+                    <div class="mx-auto max-w-screen-xl px-4 py-8 sm:py-16 lg:px-6">
+                        <h2 class="mb-8 text-4xl font-extrabold tracking-tight text-gray-900">Frequently asked questions</h2>
+                        <div class="grid border-t border-gray-200 pt-8 text-left md:grid-cols-2 md:gap-16">
+                            <div>
+                                <div class="mb-8">
+                                    <h3 class="mb-4 flex items-center text-lg font-medium text-gray-900">
+                                        <svg class="mr-2 h-5 w-5 flex-shrink-0 text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        What is Online Sports Talents?
+                                    </h3>
+                                    <p class="text-gray-500">
+                                        Online Sports Talents is a startup that aims to offer a platform connecting sports talents, clubs, and organizations, providing career opportunities for talented individuals in the sports industry.
+                                    </p>
+                                </div>
+                                <div class="mb-8">
+                                    <h3 class="mb-4 flex items-center text-lg font-medium text-gray-900">
+                                        <svg class="mr-2 h-5 w-5 flex-shrink-0 text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        Who is the target audience for Online Sports Talents?
+                                    </h3>
+                                    <p class="text-gray-500">
+                                        Online Sports Talents's target audience includes excess talents just below professional level, talents in niche sports, and talented individuals seeking career opportunities in other countries or regions.
+                                    </p>
+                                </div>
+                                <div class="mb-8">
+                                    <h3 class="mb-4 flex items-center text-lg font-medium text-gray-900">
+                                        <svg class="mr-2 h-5 w-5 flex-shrink-0 text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        Which sports are focused on by Online Sports Talents?
+                                    </h3>
+                                    <p class="text-gray-500">
+                                        Online Sports Talents focuses on sports such as basketball, ice hockey and handball. These sports have a surplus of talent in specific regions and offer career opportunities in other countries or regions.
+                                    </p>
+                                </div>
+                                <div class="mb-8">
+                                    <h3 class="mb-4 flex items-center text-lg font-medium text-gray-900">
+                                        <svg class="mr-2 h-5 w-5 flex-shrink-0 text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        What are the future prospects for Online Sports Talents?
+                                    </h3>
+                                    <p class="text-gray-500">
+                                        Online Sports Talents plans to expand its reach by including sports like cycling, volunteers for sports events, and sports talents specific for colleges in North America. This expansion will provide more opportunities for talents and clubs.
+                                    </p>
+                                </div>
 
+                            </div>
+                            <div>
+                                <div class="mb-8">
+                                    <h3 class="mb-4 flex items-center text-lg font-medium text-gray-900">
+                                        <svg class="mr-2 h-5 w-5 flex-shrink-0 text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        How does Online Sports Talents select participants?
+                                    </h3>
+                                    <p class="text-gray-500">
+                                        Online Sports Talents follows international rules on gender inclusivity and talent verification. The selection process ensures fairness and equal opportunities for all participants.
+                                    </p>
+                                </div>
+                                <div class="mb-8">
+                                    <h3 class="mb-4 flex items-center text-lg font-medium text-gray-900">
+                                        <svg class="mr-2 h-5 w-5 flex-shrink-0 text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        What are the talent categories on Online Sports Talents?
+                                    </h3>
+                                    <p class="text-gray-500">
+                                        Online Sports Talents has three categories: verified developed talents, verified talents under development, and unverified talents under development. Each category represents different levels of talent and opportunities for growth.
+                                    </p>
+                                </div>
+                                <div class="mb-8">
+                                    <h3 class="mb-4 flex items-center text-lg font-medium text-gray-900">
+                                        <svg class="mr-2 h-5 w-5 flex-shrink-0 text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        What information is common to fill in on Online Sports Talents?
+                                    </h3>
+                                    <p class="text-gray-500">
+                                        All athletes on Online Sports Talents need to provide information such as their sport, gender, name, date of birth (yyyy-mm-dd), email, talent level, verification and references, future goals, and any additional relevant details for their profile.
+                                    </p>
+                                </div>
+                                <div class="mb-8">
+                                    <h3 class="mb-4 flex items-center text-lg font-medium text-gray-900">
+                                        <svg class="mr-2 h-5 w-5 flex-shrink-0 text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        Is Online Sports Talents limited to a specific region or country?
+                                    </h3>
+                                    <p class="text-gray-500">
+                                        No, Online Sports Talents is not limited to a specific region or country. It aims to provide opportunities for talented individuals in various countries and regions, allowing them to connect with clubs and organizations globally.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
 
         {{-- <div class="bg-gray-50 py-24 sm:py-32">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
